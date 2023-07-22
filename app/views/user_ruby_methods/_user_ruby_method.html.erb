@@ -1,0 +1,27 @@
+<div id="<%= dom_id user_ruby_method %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= user_ruby_method.user_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ruby method:</strong>
+    <%= user_ruby_method.ruby_method_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Memo:</strong>
+    <%= user_ruby_method.memo %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Remembered:</strong>
+    <%= user_ruby_method.remembered %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this user ruby method", user_ruby_method, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this user ruby method', edit_user_ruby_method_path(user_ruby_method), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
