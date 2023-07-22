@@ -1,0 +1,12 @@
+<div id="<%= dom_id ruby_module %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= ruby_module.name %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this ruby module", ruby_module, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this ruby module', edit_ruby_module_path(ruby_module), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
