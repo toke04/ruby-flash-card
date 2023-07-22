@@ -69,3 +69,9 @@ end
 
 
 gem "vite_rails", "~> 3.0"
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'dotenv-rails'
+gem 'omniauth-rails_csrf_protection'
+gem 'devise-i18n'
