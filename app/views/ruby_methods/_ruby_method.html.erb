@@ -1,0 +1,22 @@
+<div id="<%= dom_id ruby_method %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Ruby module:</strong>
+    <%= ruby_method.ruby_module_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= ruby_method.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Official url:</strong>
+    <%= ruby_method.official_url %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this ruby method", ruby_method, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this ruby method', edit_ruby_method_path(ruby_method), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
