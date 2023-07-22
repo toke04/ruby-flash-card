@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_ruby_methods
   resources :ruby_methods
   resources :ruby_modules
   get 'home/index'
