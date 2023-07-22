@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%#= javascript_importmap_tags 'application'  %>
     <%= vite_client_tag %>
     <%#= vite_javascript_tag 'application' %>
     <!--
@@ -24,8 +24,6 @@
   </head>
 
   <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
