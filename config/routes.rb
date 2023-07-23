@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     delete 'logout', to: 'users/omniauth_callbacks#destroy', as: 'logout'
   end
+
+  get 'quiz/new'
   get 'home/index'
   root to: "home#index"
 
