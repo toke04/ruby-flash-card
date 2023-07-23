@@ -4,8 +4,8 @@ import {
   quizModeParams,
   checkChallengedMethod,
   reloadCurrentPage,
-} from '../utils';
-import { RubyMethodObjects } from '../types/tubyMethodObjects';
+} from '../functions';
+import { RubyMethodObjects } from '../types/rubyMethodObjects';
 import { LearningPhase } from '../components/LearningPhase';
 import { PreviousMemo } from '../components/PreviousMemo';
 import { QuizHeader } from '../components/QuizHeader';

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { reloadCurrentPage } from '../utils';
+import { reloadCurrentPage } from '../functions';
 import { client } from '../functions/api/client';
 
 type Props = {
