@@ -11,25 +11,26 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <p class="font-bold text-1xl mt-5">メソッド名</p>
+  <h2 class="font-bold text-2xl">
+    <%= @user_ruby_method.ruby_method.ruby_module.name %>#<%= @user_ruby_method.ruby_method.name %>
+  </h2>
+
+  <%= form.hidden_field :ruby_method_id, :value => @user_ruby_method.ruby_method.id %>
 
   <div class="my-5">
-    <%= form.label :ruby_method_id %>
-    <%= form.text_field :ruby_method_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 5, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :memo %>
-    <%= form.text_area :memo, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <% if action_name == "edit" %>
+    <div class="my-5">
+      <%= form.label :remembered %>
+      <%= form.check_box :remembered, class: "block mt-2 h-5 w-5" %>
+    </div>
+  <% end %>
 
-  <div class="my-5">
-    <%= form.label :remembered %>
-    <%= form.check_box :remembered, class: "block mt-2 h-5 w-5" %>
-  </div>
+  <h2 class="font-bold text-2xl text-blue-600 underline mb-5"><a target=”_blank” href="<%= @user_ruby_method.ruby_method.official_url %>">公式で確認する</a></h2>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
