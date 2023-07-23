@@ -3,7 +3,10 @@ class User < ApplicationRecord
 
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
-  devise :omniauthable, omniauth_providers: [:github]
+  devise :registerable,
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:github]
+
 
   def self.find_for_github_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
