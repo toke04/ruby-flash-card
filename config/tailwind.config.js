@@ -4,7 +4,7 @@ module.exports = {
   content: [
     './public/*.html',
     './app/helpers/**/*.rb',
-    './app/javascript/**/*.js',
+    './app/javascript/**/*.{js,jsx,tsx,ts}',
     './app/views/**/*.{erb,haml,html,slim}'
   ],
   theme: {
@@ -19,5 +19,9 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/container-queries'),
-  ]
+    require('daisyui')
+  ],
+  daisyui: {
+    themes: ['light'],
+  },
 }
