@@ -2,7 +2,7 @@
   <% if UserRubyMethod.where(user_id: current_user).present? %>
     <h1 class="font-bold text-4xl">クイズ設定</h1>
 
-    <%= form_with url: "/ruby_quiz/show", method: :get, local: true do |form| %>
+    <%= form_with url: "/quiz/show", method: :get, local: true do |form| %>
       <p class="font-bold mt-6 mb-8 text-2xl">選んだ条件からクイズが出題されます</p>
       <div class="my-2 flex flex-col text-xl">
         <label class="mb-1"><%= form.radio_button :quiz_mode, "not_yet", {checked: true, class:"me-1" } %>まだ挑戦してないメソッドから出題する</label>

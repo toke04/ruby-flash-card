@@ -9,10 +9,16 @@ Rails.application.routes.draw do
     delete 'logout', to: 'users/omniauth_callbacks#destroy', as: 'logout'
   end
 
+  namespace 'api' do
+    namespace 'v1' do
+      resources :user_ruby_methods
+    end
+  end
+
   get 'quiz/new'
   get 'quiz/show'
   get 'home/index'
   root to: "home#index"
-  
+
   # root "articles#index"
 end
