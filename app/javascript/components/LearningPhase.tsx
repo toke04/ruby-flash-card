@@ -37,7 +37,7 @@ export const LearningPhase = ({
     e.preventDefault();
     client
       .patch(`user_ruby_methods/${userRubyMethod.id}.json`, {
-        user_ruby_method: { ruby_method_id: rubyMethod.id, description: memo },
+        user_ruby_method: { ruby_method_id: rubyMethod.id, memo },
       })
       .then(() => {
         toast('メモを保存しました😊');
