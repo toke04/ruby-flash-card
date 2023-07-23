@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
   resources :user_ruby_methods
   resources :ruby_methods
   resources :ruby_modules
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
   get 'home/index'
   root to: "home#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
   # root "articles#index"
 end
