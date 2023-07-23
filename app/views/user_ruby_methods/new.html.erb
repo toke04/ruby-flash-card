@@ -1,7 +1,10 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New user ruby method</h1>
+  <h1 class="font-bold text-4xl">メソッドに自分の言葉で説明を加える</h1>
 
   <%= render "form", user_ruby_method: @user_ruby_method %>
 
-  <%= link_to 'Back to user ruby methods', user_ruby_methods_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="flex mt-3">
+    <%= link_to 'メソッド一覧へ', user_ruby_methods_path, class: " rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to '次のメソッドを表示', request.url, class: "ml-3 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
 </div>
