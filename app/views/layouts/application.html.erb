@@ -20,9 +20,8 @@
       <%= link_to "メソッド一覧", user_ruby_methods_path,class:" mt-5" if registered_user_ruby_method? %>
       <%= link_to "管理者用モジュール一覧",ruby_modules_path, class:" mt-5" if current_user.admin %>
       <%= link_to "管理者用メソッド一覧", ruby_methods_path,class:" mt-5"  if current_user.admin %>
-      <%= link_to "クイズに挑戦する", ruby_quiz_new_path,class:" mt-5" if UserRubyMethod.where(user_id: current_user).present? %>
+      <%= link_to "クイズに挑戦する", quiz_new_path,class:" mt-5" %>
       <%= link_to "ユーザーのメソッド一覧", user_ruby_methods_path,class:" mt-5"  %>
-      <%= link_to "ユーザーのメソッドを作成", new_user_ruby_method_path,class:" mt-5"  %>
       <div class="dropdown dropdown-bottom">
         <!--          <label tabindex="0" class="m-1 user-icon"><%#= image_tag(current_user.image, size: "60x62") if current_user.image %></label>-->
         <label tabindex="0" class="m-1 user-icon"><%= image_tag('https://avatars.githubusercontent.com/u/54713809?v=4', size: "60x62") %></label>

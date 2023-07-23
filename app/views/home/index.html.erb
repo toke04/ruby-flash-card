@@ -1,10 +1,23 @@
-<div>
-  <h1 class="font-bold text-4xl text-green-600">Home#index</h1>
+<div class="">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block mb-10" id="notice"><%= notice %></p>
+  <% end %>
+  <h1 class="font-bold text-3xl text-center mb-10">Rubyのよく使うメソッドだけを効率良く学びたくないですか？😀</h1>
+  <h2 class="font-bold text-2xl text-center">その悩み、叶えます！</h2>
+
+  <!--  <h2 class="font-bold text-2xl text-center">公式サイトで正確に調べ、クイズ形式で確認できます！</h2>-->
   <div class="flex justify-center mt-1">
-    <div class="flex justify-center mt-1">
-      <%=button_to "GitHubアカウントでログイン",'/users/auth/github', data: { turbo: false }, class: "btn btn-info mt-2 " %><br>
-    </div>
+    <%=button_to "GitHubアカウントでログイン",'/users/auth/github', data: { turbo: false }, class: "btn btn-info mt-2 " %><br>
   </div>
-  <%= content_tag :div, "", id: "root", data: { message: @message }  %>
-  <%= vite_javascript_tag 'home.tsx' %>
+  <div class="text-center mt-3">
+
+    <h3 class="text-xl">評判の高いRubyのプログラミングスクール
+      <a class="text-blue-600 underline" href="https://bootcamp.fjord.jp/welcome">フィヨルドブートキャンプ</a>で学んだ管理人がメソッドを厳選しました😊
+    </h3>
+    <h3 class="text-xl mt-2 mb-5">公式サイトを確認しながら、着実に成長しましょう😊</h3>
+    <div class="flex justify-center">
+      <iframe class="sm:w-full sm:h-96 sm:aspect-video" src="https://www.youtube.com/embed/7lPRbuVnYj0" ></iframe>
+    </div>
+
+  </div>
 </div>
