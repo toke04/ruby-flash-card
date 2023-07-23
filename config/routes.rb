@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   end
 
   get 'quiz/new'
+  get 'quiz/show'
   get 'home/index'
   root to: "home#index"
-
+  
   # root "articles#index"
 end
