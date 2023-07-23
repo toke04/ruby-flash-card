@@ -1,5 +1,6 @@
 class RubyModulesController < ApplicationController
   before_action :set_ruby_module, only: %i[ show edit update destroy ]
+  before_action :admin?
 
   # GET /ruby_modules or /ruby_modules.json
   def index
