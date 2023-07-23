@@ -1,17 +1,17 @@
 <div id="<%= dom_id ruby_method %>">
   <p class="my-5">
-    <strong class="block font-medium mb-1">Ruby module:</strong>
-    <%= ruby_method.ruby_module_id %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
     <%= ruby_method.name %>
   </p>
 
   <p class="my-5">
+    <strong class="block font-medium mb-1">親モジュール名:</strong>
+    <%= ruby_method.ruby_module.name %>
+  </p>
+
+  <p class="my-5">
     <strong class="block font-medium mb-1">Official url:</strong>
-    <%= ruby_method.official_url %>
+    <a href="<%= ruby_method.official_url %>" class="text-blue-600">URL</a>
   </p>
 
   <% if action_name != "show" %>

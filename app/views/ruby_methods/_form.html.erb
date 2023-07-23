@@ -12,19 +12,21 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :ruby_module_id %>
-    <%= form.text_field :ruby_module_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
     <%= form.label :name %>
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :official_url %>
-    <%= form.text_field :official_url, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :ruby_module_id %>
+    <%= form.select :ruby_module_id, options_for_select(RubyModule.pluck(:name, :id)), {}, {class: "block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"} %>
   </div>
+
+  <% if action_name == "edit" %>
+    <div class="my-5">
+      <%= form.label :official_url %>
+      <%= form.text_field :official_url, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+  <% end %>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
