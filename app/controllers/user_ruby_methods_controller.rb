@@ -51,12 +51,10 @@ class UserRubyMethodsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user_ruby_method
       @user_ruby_method = UserRubyMethod.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def user_ruby_method_params
       params.require(:user_ruby_method).permit(:user_id, :ruby_method_id, :memo, :remembered)
     end
