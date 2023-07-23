@@ -14,7 +14,7 @@
   </head>
 
   <body class="flex flex-col min-h-screen">
-  <header class="display flex justify-around ">
+  <header class="display flex justify-around">
     <% if current_user %>
       <%= link_to 'ロゴ', root_path,class:"text-3xl ms-5 mt-5" %>
       <%= link_to "メソッド一覧", user_ruby_methods_path,class:" mt-5" if registered_user_ruby_method? %>
@@ -27,7 +27,7 @@
         <div class="tooltip tooltip-bottom" data-tip="最大Lv.<%= RubyMethod.count %>に向けて頑張ろう💪">
           <span>Lv.<%= UserRubyMethod.where(user_id: current_user, remembered: true).count %>🔥</span>
         </div>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box">
           <li><%= button_to 'ログアウト',logout_path, method: :delete, data: { turbo: false } if user_signed_in? %></li>
         </ul>
       </div>
