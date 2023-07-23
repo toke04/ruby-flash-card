@@ -1,0 +1,14 @@
+<% if @ruby_method %>
+  <%= content_tag :div, "", id: "ruby_quiz_show",class: "container mx-auto px-4 max-w-3xl", data: { ruby_method: @ruby_method, user_ruby_method: @user_ruby_method, ruby_module: @ruby_module } %>
+  <%= vite_javascript_tag 'ruby_quiz_show.tsx' %>
+<% else %>
+  <div class="lg:ms-48 mt-24">
+    <h1 class="font-bold text-4xl"></h1>
+    <p class="font-bold">条件で指定した全てのクイズが出題されました。</p>
+    <div class="mt-4">
+      <div>
+        <%= link_to '設定を変更してクイズに挑戦', quiz_new_path, class: "me-4 btn btn-neutral" %>
+      </div>
+    </div>
+  </div>
+<% end %>
