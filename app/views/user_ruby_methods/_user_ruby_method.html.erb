@@ -1,27 +1,26 @@
-<div id="<%= dom_id user_ruby_method %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= user_ruby_method.user_id %>
+<div class="mb-12 bg-stone-50	shadow-md rounded-lg p-4 mb-4" id="<%= dom_id user_ruby_method %>">
+  <div class="flex mb-2">
+    <p class="text-xl me-5">
+      <%= module_name(user_ruby_method) %>
+    </p>
+    <p>
+      <%= link_to '編集', edit_user_ruby_method_path(user_ruby_method), class: "btn btn-sm w-15  leading-15" %>
+    </p>
+    <% if action_name != "show" %>
+      <p class="ms-5">
+        <%= button_to convert_text(user_ruby_method), user_ruby_method_path(user_ruby_method, user_ruby_method: {remembered: !user_ruby_method.remembered}), method: :patch, class: "btn btn-sm btn-outline" %>
+      </p>
+    <% end %>
+  </div>
+
+  <p>
+    <a href="<%= user_ruby_method.ruby_method.official_url %>" target=”_blank” class="text-blue-500 underline text-xl"><%= user_ruby_method.ruby_method.name %></a>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Ruby method:</strong>
-    <%= user_ruby_method.ruby_method_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Memo:</strong>
-    <%= user_ruby_method.memo %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Remembered:</strong>
-    <%= user_ruby_method.remembered %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this user ruby method", user_ruby_method, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this user ruby method', edit_user_ruby_method_path(user_ruby_method), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+  <% if user_ruby_method.memo %>
+    <p class="my-5">
+      <strong class="block font-bold">メモ</strong>
+      <%= add_new_line(user_ruby_method.memo) %>
+    </p>
   <% end %>
 </div>

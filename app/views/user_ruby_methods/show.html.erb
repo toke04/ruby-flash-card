@@ -6,10 +6,8 @@
 
     <%= render @user_ruby_method %>
 
-    <%= link_to 'Edit this user_ruby_method', edit_user_ruby_method_path(@user_ruby_method), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this user_ruby_method', user_ruby_method_path(@user_ruby_method), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    <div class="mt-10">
+      <%= link_to 'メソッド一覧へ', user_ruby_methods_path, class: "ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     </div>
-    <%= link_to 'Back to user_ruby_methods', user_ruby_methods_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
