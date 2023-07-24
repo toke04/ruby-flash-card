@@ -22,7 +22,6 @@ RSpec.describe 'Sessions', type: :system do
     expect(page).to have_content 'ログアウトしました'
     expect(page).to have_content 'Rubyのよく使うメソッドだけを効率良く学びたくないですか？'
   end
-  #
   it 'ログインしていない場合、トップページにリダイレクトされる' do
     visit user_ruby_methods_path
     expect(page).to have_content 'Rubyのよく使うメソッドだけを効率良く学びたくないですか？'

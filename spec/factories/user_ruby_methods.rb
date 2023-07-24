@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user_zip_method, class: 'UserRubyMethod' do
     memo { 'レシーバーのインデックス番号に合わせて引数の配列を合体させて、配列を作成する' }

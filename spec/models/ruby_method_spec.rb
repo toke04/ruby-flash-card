@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe RubyMethod, type: :model do
@@ -11,12 +13,11 @@ RSpec.describe RubyMethod, type: :model do
       zip_method.valid?
       expect(zip_method.errors[:name]).to include("can't be blank")
     end
-    #
     it '重複したnameが存在するなら、レコード作成が無効であること' do
       create(:zip_method)
       zip_method = build(:zip_method)
       zip_method.valid?
-      expect(zip_method.errors[:name]).to include("has already been taken")
+      expect(zip_method.errors[:name]).to include('has already been taken')
     end
   end
 end

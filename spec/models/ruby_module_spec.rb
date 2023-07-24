@@ -14,6 +14,6 @@ RSpec.describe RubyModule, type: :model do
   end
 
   describe 'associations' do
-    it { is_expected.to have_many(:ruby_methods).dependent(:destroy)}
+    it { is_expected.to have_many(:ruby_methods).dependent(:destroy) }
   end
 end
