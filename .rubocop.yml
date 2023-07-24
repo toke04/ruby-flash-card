@@ -1,0 +1,19 @@
+inherit_gem:
+  rubocop-fjord:
+    - "config/rubocop.yml"
+    - "config/rails.yml"
+
+AllCops:
+  TargetRubyVersion: 3.1
+  Exclude:
+    - 'bin/bundle'
+    - 'db/schema.rb'
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+#Rails/UniqueValidationWithoutIndex:
+#  Enabled: false
+
+#Rails/ReversibleMigration:
+#  Enabled: false
