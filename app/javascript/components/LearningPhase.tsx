@@ -53,9 +53,14 @@ export const LearningPhase = ({
 
   return (
     <div>
-      <p className='text-blue-600 text-xl mb-10 underline mt-4'>
+      <div className="flex mb-10" >
+        <iframe className={`w-full h-96` }
+                src={rubyMethod.official_url}>
+        </iframe>
+      </div>
+      <p className='text-blue-700	text-bold text-xl mt-20 mb-10 underline mt-4'>
         <a href={rubyMethod.official_url} target='_blank'>
-          公式サイトで確認する
+          公式サイトへアクセスして確認する
         </a>
       </p>
       <form onSubmit={updateMemo}>
@@ -65,7 +70,7 @@ export const LearningPhase = ({
             value={memo ?? ''}
             onChange={changeMemo}
             rows={5}
-            className='block shadow rounded-md border border-black  outline-none px-3 py-2 mt-2 w-full'
+            className='block shadow rounded-md border border-black  outline-none px-3 py-2 w-full'
           ></textarea>
         </label>
         <div className='mb-5'>
