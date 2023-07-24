@@ -10,7 +10,7 @@ RSpec.describe 'Sessions', type: :system do
 
   it 'ユーザーはログインすることができる' do
     login_as(normal_user)
-    expect(page).to have_content 'Successfully authenticated from Github account.
+    expect(page).to have_content 'Github アカウントによる認証に成功しました。
 '
   end
 
