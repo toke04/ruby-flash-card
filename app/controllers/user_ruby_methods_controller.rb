@@ -8,10 +8,6 @@ class UserRubyMethodsController < ApplicationController
     @user_ruby_methods = @search.result.includes(ruby_method: :ruby_module).order(updated_at: :desc).page(params[:page]).per(10)
   end
 
-  def show; end
-
-  def new; end
-
   def edit; end
 
   def create
