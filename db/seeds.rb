@@ -1,14 +1,5 @@
 # frozen_string_literal: true
 
-User.create([
-              id: User.last.id + 1,
-              name: 'toke',
-              provider: 'github',
-              uid: ENV['ADMIN_USER_UID'],
-              image: 'https://avatars.githubusercontent.com/u/54713809?v=4',
-              admin: true
-            ])
-
 module_names = %w[Enumerable Array Hash String Numeric Range Date]
 
 module_names.each do |module_name|
