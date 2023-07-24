@@ -16,14 +16,14 @@ enumerable_methods = %w[all? any? chain chunk chunk_while collect collect_concat
 array_methods = %w[append assoc at bsearch bsearch_index clear clone combination concat delete delete_at delete_if
                    difference dig drop drop_while dup each each_index empty? eql? fetch fill filter find_index first flatten hash include? index insert inspect intersect? intersection join keep_if last length map max min minmax none? one? pack permutation pop prepend product push rassoc reject repeated_combination repeated_permutation replace reverse reverse_each rindex rotate sample select shift shuffle size slice sort take_while transpose union unshift values_at]
 hash_methods = %w[assoc clear clone compact default default_proc delete delete_if dig dup each each_key each_pair
-                  each_value empty? eql? equal? except fetch fetch_values filter flatten has_key? has_value? hash include? inspect invert keep_if key key? keys length member? merge rassoc rehash reject replace select shift size slice transform_keys transform_values]
+                  each_value  equal? except fetch_values flatten has_key? has_value? hash include? inspect invert keep_if key key? keys length member? merge rassoc rehash reject replace select shift size slice transform_keys transform_values]
 string_methods = %w[byteindex byteslice capitalize casecmp casecmp? center chars chomp chop chr clear codepoints concat
                     count dedup delete delete_prefix delete_suffix downcase dump each_char each_codepoint each_grapheme_cluster each_line empty? end_with? eql? gsub hash hex include? index insert inspect length lines ljust lstrip match match? next oct ord partition prepend replace reverse rindex rjust rpartition rstrip scan scrub size slice split squeeze start_with? strip sub succ sum swapcase tr tr_s undump upcase upto]
-numeric_methods = %w[abs abs2 ceil div divmod eql? fdiv infinite? integer? negative? nonzero? positive? quo
+numeric_methods = %w[abs abs2 ceil div divmod eql? fdiv integer? negative? nonzero? positive? quo
                      remainder round step truncate zero?]
 range_methods = %w[begin bsearch cover? each end entries eql? exclude_end? first include? inspect last max member? min minmax size step]
-date_methods = %w[day downto friday? mday mon monday? month new_start next next_day next_month next_year prev_day prev_month prev_year saturday? start step
-                  strftime sunday? thursday? to_date to_datetime to_time tuesday? upto wday wednesday? yday year]
+date_methods = %w[day mday mon month new_start next next_day next_month next_year prev_day prev_month prev_year start
+                  strftime to_datetime to_time upto wday yday]
 # rubocop:enable Layout/LineLength
 
 def create_url(module_name, method_name)
