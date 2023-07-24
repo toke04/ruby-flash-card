@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :user_ruby_methods, except: %i[new show]
   resources :ruby_methods
   resources :ruby_modules
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
@@ -19,8 +20,7 @@ Rails.application.routes.draw do
 
   get 'quiz/new'
   get 'quiz/show'
-  get 'home/index'
-  root to: 'home#index'
-
-  # root "articles#index"
+  root 'home#index'
+  get 'terms_of_service', to: 'home#terms_of_service', as: 'terms_of_service'
+  get 'privacy_policy', to: 'home#privacy_policy', as: 'privacy_policy'
 end

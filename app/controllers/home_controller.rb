@@ -7,4 +7,8 @@ class HomeController < ApplicationController
     @message = 'Hello, world!'
     redirect_to quiz_new_path if user_signed_in?
   end
+
+  def terms_of_service; end
+
+  def privacy_policy; end
 end
