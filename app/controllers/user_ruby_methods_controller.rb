@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UserRubyMethodsController < ApplicationController
-  before_action :set_user_ruby_method, only: %i[show edit update destroy]
+  before_action :set_user_ruby_method, only: %i[edit update destroy]
 
   def index
     @search = current_user.user_ruby_methods.ransack(params[:q])
