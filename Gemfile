@@ -74,6 +74,12 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+end
+
 gem 'devise'
 gem 'devise-i18n'
 gem 'dotenv-rails'
