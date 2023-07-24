@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @message = "Hello, world!"
+    @message = 'Hello, world!'
     redirect_to quiz_new_path if user_signed_in?
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module QuizHelper
   def not_challenged_methods_count
     all_methods = RubyMethod.all

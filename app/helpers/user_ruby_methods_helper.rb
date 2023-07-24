@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UserRubyMethodsHelper
   def convert_text(user_ruby_method)
     return '知っているに移動' if user_ruby_method.remembered == false

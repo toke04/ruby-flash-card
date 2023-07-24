@@ -51,11 +51,12 @@ class UserRubyMethodsController < ApplicationController
   end
 
   private
-    def set_user_ruby_method
-      @user_ruby_method = UserRubyMethod.find(params[:id])
-    end
 
-    def user_ruby_method_params
-      params.require(:user_ruby_method).permit(:user_id, :ruby_method_id, :memo, :remembered)
-    end
+  def set_user_ruby_method
+    @user_ruby_method = UserRubyMethod.find(params[:id])
+  end
+
+  def user_ruby_method_params
+    params.require(:user_ruby_method).permit(:user_id, :ruby_method_id, :memo, :remembered)
+  end
 end

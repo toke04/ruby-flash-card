@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   # reactのtextareaから送信すると改行文字は「\n」になる。
   # railsのtext_areaヘルパーから送信すると改行文字は「\r\n」になる。

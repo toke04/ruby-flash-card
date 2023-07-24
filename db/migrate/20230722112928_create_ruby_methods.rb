@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRubyMethods < ActiveRecord::Migration[7.0]
   def change
     create_table :ruby_methods do |t|
