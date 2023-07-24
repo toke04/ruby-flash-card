@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_24_081527) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_24_081933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,8 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_081527) do
     t.boolean "remembered", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ruby_method_id"], name: "index_user_ruby_methods_on_ruby_method_id"
-    t.index ["user_id"], name: "index_user_ruby_methods_on_user_id"
+    t.index ["user_id", "ruby_method_id"], name: "index_user_ruby_methods_on_user_id_and_ruby_method_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
