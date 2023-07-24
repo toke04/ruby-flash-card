@@ -65,4 +65,11 @@ RSpec.configure do |config|
 
   OmniAuth.config.test_mode = true
   config.include LoginHelper
+
+  Shoulda::Matchers.configure do |config|
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end
