@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_23_030625) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_24_082335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_030625) do
     t.string "official_url", default: "https://docs.ruby-lang.org/ja/latest/library/_builtin.html", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_ruby_methods_on_name", unique: true
     t.index ["ruby_module_id"], name: "index_ruby_methods_on_ruby_module_id"
   end
 
@@ -27,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_030625) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_ruby_modules_on_name", unique: true
   end
 
   create_table "user_ruby_methods", force: :cascade do |t|
@@ -36,8 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_030625) do
     t.boolean "remembered", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ruby_method_id"], name: "index_user_ruby_methods_on_ruby_method_id"
-    t.index ["user_id"], name: "index_user_ruby_methods_on_user_id"
+    t.index ["user_id", "ruby_method_id"], name: "index_user_ruby_methods_on_user_id_and_ruby_method_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_030625) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
   add_foreign_key "ruby_methods", "ruby_modules"
