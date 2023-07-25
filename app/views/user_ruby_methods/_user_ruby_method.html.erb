@@ -1,16 +1,14 @@
-<div class="mb-12 bg-stone-50	shadow-md rounded-lg p-4 mb-4" id="<%= dom_id user_ruby_method %>">
+<div class="md:w-3/4 mb-12 bg-stone-50 shadow-md rounded-lg p-3 mb-4" id="<%= dom_id user_ruby_method %>">
   <div class="flex mb-2">
-    <p class="text-xl me-5">
+    <p class="text-xl me-3">
       <%= module_name(user_ruby_method) %>
     </p>
     <p>
-      <%= link_to '編集', edit_user_ruby_method_path(user_ruby_method), class: "btn btn-sm w-15  leading-15" %>
+      <%= link_to '編集', edit_user_ruby_method_path(user_ruby_method), class: "btn btn-sm w-13 leading-15" %>
     </p>
-    <% if action_name != "show" %>
-      <p class="ms-5">
-        <%= button_to convert_text(user_ruby_method), user_ruby_method_path(user_ruby_method, user_ruby_method: {remembered: !user_ruby_method.remembered}), method: :patch, class: "btn btn-sm btn-outline" %>
+      <p class="ms-2 mt-1 badge badge-outline">
+        <%= convert_text(user_ruby_method) %>
       </p>
-    <% end %>
   </div>
 
   <p>
