@@ -44,7 +44,7 @@ export const LearningPhase = ({
         setPreviousMemo(memo)
         setTimeout(() => {
           reloadCurrentPage()
-        }, 3000)
+        }, 2000)
       })
       .catch(function (error) {
         console.log(error.response)
