@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  include MetaTagsHelper
+
   # reactのtextareaから送信すると改行文字は「\n」になる。
   # railsのtext_areaヘルパーから送信すると改行文字は「\r\n」になる。
   # 空行(\nが複数続く)場合に<br>という文字列に変更してあげれば、simple_formatでHTMLのタグとして反映させる事ができる
