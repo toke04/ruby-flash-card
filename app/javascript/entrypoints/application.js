@@ -11,13 +11,16 @@ console.log('Vite ⚡️ Rails')
 // If you want to use .jsx or .tsx, add the extension:
 //     <%= vite_javascript_tag 'application.jsx' %>
 
-console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify.app/guide/rails')
+console.log(
+  'Visit the guide for more information: ',
+  'https://vite-ruby.netlify.app/guide/rails'
+)
 
 // Example: Load Rails libraries in Vite.
 //
 import * as Turbo from '@hotwired/turbo'
 Turbo.start()
-Turbo.session.drive = false;
+Turbo.session.drive = false
 //
 // import ActiveStorage from '@rails/activestorage'
 // ActiveStorage.start()

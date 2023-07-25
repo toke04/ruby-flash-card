@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import { client } from '../functions/api/client';
+import { useState } from 'react'
+import { client } from '../functions/api/client'
 import {
   quizModeParams,
   checkChallengedMethod,
   reloadCurrentPage,
-} from '../functions';
-import { RubyMethodObjects } from '../types/rubyMethodObjects';
-import { LearningPhase } from '../components/LearningPhase';
-import { PreviousMemo } from '../components/PreviousMemo';
-import { QuizHeader } from '../components/QuizHeader';
+} from '../functions'
+import { RubyMethodObjects } from '../types/rubyMethodObjects'
+import { LearningPhase } from '../components/LearningPhase'
+import { PreviousMemo } from '../components/PreviousMemo'
+import { QuizHeader } from '../components/QuizHeader'
 
 const Quiz = (props: RubyMethodObjects) => {
-  const rubyMethod = JSON.parse(props.rubyMethod);
-  const rubyModule = JSON.parse(props.rubyModule);
+  const rubyMethod = JSON.parse(props.rubyMethod)
+  const rubyModule = JSON.parse(props.rubyModule)
   const [userRubyMethod, setUserRubyMethod] = useState(
-    props.userRubyMethod ? JSON.parse(props.userRubyMethod) : '',
-  );
-  const [memo, setMemo] = useState(userRubyMethod.memo);
-  const [showLearningPhase, setShowLearningPhase] = useState(false);
-  const [canSeeMemo, setCanSeeMemo] = useState(false);
-  const [isQuestionButtonActive, setIsQuestionButtonActive] = useState(true);
+    props.userRubyMethod ? JSON.parse(props.userRubyMethod) : ''
+  )
+  const [memo, setMemo] = useState(userRubyMethod.memo)
+  const [showLearningPhase, setShowLearningPhase] = useState(false)
+  const [canSeeMemo, setCanSeeMemo] = useState(false)
+  const [isQuestionButtonActive, setIsQuestionButtonActive] = useState(true)
 
   const createUserRubyMethod = (remembered: boolean) => {
     client
@@ -28,17 +28,17 @@ const Quiz = (props: RubyMethodObjects) => {
       })
       .then((response) => {
         if (remembered === true) {
-          reloadCurrentPage();
+          reloadCurrentPage()
         } else {
-          setUserRubyMethod(response.data.method);
-          setIsQuestionButtonActive(false);
-          setShowLearningPhase(true);
+          setUserRubyMethod(response.data.method)
+          setIsQuestionButtonActive(false)
+          setShowLearningPhase(true)
         }
       })
       .catch((error) => {
-        console.log(error.response);
-      });
-  };
+        console.log(error.response)
+      })
+  }
 
   const updateRemembered = (remembered: boolean) => {
     client
@@ -47,20 +47,20 @@ const Quiz = (props: RubyMethodObjects) => {
       })
       .then(() => {
         if (remembered === true) {
-          reloadCurrentPage();
+          reloadCurrentPage()
         } else {
-          setIsQuestionButtonActive(false);
-          setShowLearningPhase(true);
-          setCanSeeMemo(false);
+          setIsQuestionButtonActive(false)
+          setShowLearningPhase(true)
+          setCanSeeMemo(false)
         }
       })
       .catch((error) => {
-        console.log(error.response);
-      });
-  };
+        console.log(error.response)
+      })
+  }
 
   return (
-    <div className='lg:ms-48 mt-2'>
+    <div className="lg:ms-48 mt-2">
       <QuizHeader
         rubyModuleName={rubyModule.name}
         rubyMethodName={rubyMethod.name}
@@ -68,7 +68,7 @@ const Quiz = (props: RubyMethodObjects) => {
       <div className={isQuestionButtonActive ? '' : 'hidden'}>
         <div>
           <button
-            className='btn btn-lg mt-2 btn-neutral mb-5 mt-14'
+            className="btn btn-lg mt-2 btn-neutral mb-5 mt-14"
             onClick={() =>
               checkChallengedMethod(quizModeParams)
                 ? updateRemembered(true)
@@ -80,7 +80,7 @@ const Quiz = (props: RubyMethodObjects) => {
         </div>
         <div>
           <button
-            className='btn btn-lg mt-2 btn-neutral'
+            className="btn btn-lg mt-2 btn-neutral"
             onClick={() =>
               checkChallengedMethod(quizModeParams)
                 ? updateRemembered(false)
@@ -106,7 +106,7 @@ const Quiz = (props: RubyMethodObjects) => {
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Quiz;
+export default Quiz

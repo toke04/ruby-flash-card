@@ -1,14 +1,14 @@
 export type RubyMethodObjects = {
   rubyMethod: {
-    id: number;
-    name: string;
-    official_url: string;
-  };
+    id: number
+    name: string
+    official_url: string
+  }
   rubyModule: {
-    name: string;
-  };
+    name: string
+  }
   userRubyMethod: {
-    id: number;
-    description: string;
-  };
-};
+    id: number
+    description: string
+  }
+}
