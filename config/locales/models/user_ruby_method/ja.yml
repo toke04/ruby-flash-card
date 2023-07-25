@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      user_ruby_method: rubyメソッド
+    attributes:
+      user_ruby_method:
+        memo: 説明
+        remembered: 分かっている

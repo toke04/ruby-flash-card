@@ -1,15 +1,11 @@
 import './App.css'
 
 type Props = {
-  message?: string;
+  message?: string
 }
 
 function App(props: Props) {
-  return (
-    <div className="App">
-      {props.message}
-    </div>
-  )
+  return <div className="App">{props.message}</div>
 }
 
 export default App

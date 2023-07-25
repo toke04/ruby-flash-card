@@ -1,4 +1,4 @@
-<div class="lg:ms-48 ">
+<div class="lg:ms-48">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
@@ -8,11 +8,11 @@
     <%= form_with url: "/quiz/show", method: :get, local: true do |form| %>
       <p class="font-bold mt-6 mb-8 text-2xl">選んだ条件からクイズが出題されます</p>
       <div class="my-2 flex flex-col text-xl">
-        <label class="mb-1"><%= form.radio_button :quiz_mode, "not_yet", {checked: true, class:"me-1" } %>まだ挑戦してないメソッドから出題する</label>
+        <label class="mb-1"><%= form.radio_button :quiz_mode, "not_yet", {checked: true, class:"me-1" } %>挑戦してないメソッドから出題する</label>
         <span class="mb-4"><%= not_challenged_methods_count %></span>
-        <label class="mb-1"><%= form.radio_button :quiz_mode, "no", class:"me-1" %>まだ分かっていないメソッドから出題する</label>
+        <label class="mb-1"><%= form.radio_button :quiz_mode, "no", class:"me-1" %>分からなかったメソッドから出題する</label>
         <span class="mb-4"><%= not_remembered_methods_count %></span>
-        <label class="mb-1"><%= form.radio_button :quiz_mode, "yes", {class:"me-1"  } %>分かっているメソッドから出題する</label>
+        <label class="mb-1"><%= form.radio_button :quiz_mode, "yes", {class:"me-1"  } %>分かっていたメソッドから出題する</label>
         <span class="mb-4"><%= remembered_methods_count %></span>
       </div>
       <%= form.submit "クイズスタート", class: "btn btn-info mt-4 quiz-button" %>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.png' %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -16,14 +17,13 @@
   <body class="flex flex-col min-h-screen">
     <header class="display flex justify-around">
       <% if current_user %>
-        <%= link_to 'ロゴ', root_path,class:"text-3xl ms-5 mt-5" %>
-        <%= link_to "メソッド一覧", user_ruby_methods_path,class:" mt-5" if registered_user_ruby_method? %>
-        <%= link_to "管理者用モジュール一覧",ruby_modules_path, class:" mt-5" if current_user.admin %>
-        <%= link_to "管理者用メソッド一覧", ruby_methods_path,class:" mt-5"  if current_user.admin %>
-        <%= link_to "クイズに挑戦する", quiz_new_path,class:" mt-5" %>
-        <div class="dropdown dropdown-bottom">
-          <!--          <label tabindex="0" class="m-1 user-icon"><%#= image_tag(current_user.image, size: "60x62") if current_user.image %></label>-->
-          <label tabindex="0" class="m-1 user-icon"><%= image_tag('https://avatars.githubusercontent.com/u/54713809?v=4', size: "60x62") %></label>
+        <%= link_to image_tag("logo.png", alt: "ロゴ", class: "w-24 md:w-32 h-12"), root_path,class:"text-3xl ms-5 mt-2" %>
+        <%= link_to "メソッド一覧", user_ruby_methods_path,class:" mt-4" if registered_user_ruby_method? %>
+        <%= link_to "管理者用モジュール一覧",ruby_modules_path, class:" mt-4" if current_user.admin %>
+        <%= link_to "管理者用メソッド一覧", ruby_methods_path,class:" mt-4"  if current_user.admin %>
+        <%= link_to "クイズに挑戦する", quiz_new_path,class:" mt-4 hidden md:inline-block" %>
+        <div class="dropdown dropdown-bottommb mt-3">
+          <label tabindex="0" class="user-icon"><%= image_tag(current_user.image, size: "60x62") %></label>
           <div class="tooltip tooltip-bottom" data-tip="最大Lv.<%= RubyMethod.count %>に向けて頑張ろう💪">
             <span>Lv.<%= UserRubyMethod.where(user_id: current_user, remembered: true).count %>🔥</span>
           </div>
