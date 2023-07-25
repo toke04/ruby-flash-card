@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      ruby_module:
+    attributes:
+      ruby_module:
+        name: モジュール名
