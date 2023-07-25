@@ -53,16 +53,11 @@ export const LearningPhase = ({
 
   return (
     <div>
-      <div className="flex mb-10" >
+      <div className="flex mb-8" >
         <iframe className={`w-full h-96` }
                 src={rubyMethod.official_url}>
         </iframe>
       </div>
-      <p className='text-blue-700	text-bold text-xl mt-20 mb-10 underline mt-4'>
-        <a href={rubyMethod.official_url} target='_blank'>
-          公式サイトへアクセスして確認する
-        </a>
-      </p>
       <form onSubmit={updateMemo}>
         <label>
           <span className='font-bold'>覚えやすいようにメモを取ろう</span>
@@ -88,6 +83,11 @@ export const LearningPhase = ({
             次の問題へ
           </button>
         </div>
+        <p className='text-blue-700	text-bold text-xl mt-20 mb-10 underline mt-4'>
+          <a href={rubyMethod.official_url} target='_blank'>
+            公式サイトへアクセスして確認する
+          </a>
+        </p>
         <div className='mt-10'>
           <a href='new' className='me-8 underline'>
             クイズの条件を変える
