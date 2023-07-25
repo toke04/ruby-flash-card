@@ -5,6 +5,6 @@
 
   <%= link_to "メソッド一覧へ", user_ruby_methods_path, class: "ml-5 rounded-lg pt-1 bg-gray-100 btn-sm inline-block font-medium" %>
   <div class="ml-2　">
-    <%= button_to '削除する', user_ruby_method_path(@user_ruby_method),method: :delete, data: { turbo_confirm: '本当に削除しますか？'  }, class: "mt-7 py-3 px-5 font-medium underline" %>
+    <%= button_to '削除する', user_ruby_method_path(@user_ruby_method),method: :delete, form: { data: { turbo: true, turbo_confirm: "削除してよろしいですか？" }}, class: "mt-7 py-3 px-5 font-medium underline" %>
   </div>
 </div>

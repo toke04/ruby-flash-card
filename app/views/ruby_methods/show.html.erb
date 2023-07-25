@@ -8,7 +8,7 @@
 
     <%= link_to 'Edit this ruby_method', edit_ruby_method_path(@ruby_method), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to 'Destroy this ruby_method', ruby_method_path(@ruby_method),method: :delete, data: { turbo_confirm: '本当に削除しますか？'  }, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to 'Destroy this ruby_method', ruby_method_path(@ruby_method),method: :delete, form: { data: { turbo: true, turbo_confirm: "削除してよろしいですか？" }}, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
     <%= link_to 'Back to ruby_methods', ruby_methods_path, class: "ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
