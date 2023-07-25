@@ -17,6 +17,7 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 //
 import * as Turbo from '@hotwired/turbo'
 Turbo.start()
+Turbo.session.drive = false;
 //
 // import ActiveStorage from '@rails/activestorage'
 // ActiveStorage.start()
