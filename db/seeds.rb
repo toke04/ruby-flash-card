@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+User.create([
+              name: ENV['ADMIN_NAME'],
+              provider: 'github',
+              uid: ENV['ADMIN_UID'],
+              image: ENV['ADMIN_IMAGE'],
+              admin: true
+            ])
+
 module_names = %w[Enumerable Array Hash String Numeric Range Date]
 
 module_names.each do |module_name|
@@ -17,13 +25,13 @@ array_methods = %w[all? any? append assoc at bsearch bsearch_index clear clone c
 
 hash_methods = %w[assoc clear clone compact compare_by_identity compare_by_identity? default default_proc delete delete_if dig dup each_key each_pair each_value empty? eql? equal? except fetch fetch_values filter flatten has_key? has_value? hash include? inspect invert keep_if key key? keys length member? merge rassoc rehash reject replace select shift size slice store transform_keys transform_values update value? values values_at]
 
-string_methods = %w[byteindex byteslice capitalize casecmp casecmp? center chars chomp chop chr clear codepoints concat
-                    count dedup delete delete_prefix delete_suffix downcase dump each_char each_codepoint each_grapheme_cluster each_line empty? end_with? eql? gsub hash hex include? index insert inspect length lines ljust lstrip match match? next oct ord partition prepend replace reverse rindex rjust rpartition rstrip scan scrub size slice split squeeze start_with? strip sub succ sum swapcase tr tr_s undump upcase upto]
-numeric_methods = %w[abs abs2 ceil div divmod eql? fdiv integer? negative? nonzero? positive? quo
-                     remainder round step truncate zero?]
+string_methods = %w[byteindex byteslice capitalize casecmp casecmp? center chars chomp chop chr clear codepoints concat count dedup delete delete_prefix delete_suffix downcase dump each_char each_codepoint each_grapheme_cluster each_line empty? end_with? eql? gsub hash hex include? index insert inspect length lines ljust lstrip match match? next oct ord partition prepend replace reverse rindex rjust rpartition rstrip scan scrub size slice split squeeze start_with? strip sub succ sum swapcase tr tr_s undump upcase upto]
+
+numeric_methods = %w[abs abs2 ceil div divmod eql? fdiv integer? negative? nonzero? positive? quo remainder round step truncate zero?]
+
 range_methods = %w[begin bsearch cover? each end entries eql? exclude_end? first include? inspect last max member? min minmax size step]
-date_methods = %w[day mday mon month new_start next next_day next_month next_year prev_day prev_month prev_year start
-                  strftime to_datetime to_time upto wday yday]
+
+date_methods = %w[day mday mon month new_start next next_day next_month next_year prev_day prev_month prev_year start strftime to_datetime to_time upto wday yday]
 # rubocop:enable Layout/LineLength
 
 def create_url(module_name, method_name)
