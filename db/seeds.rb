@@ -29,9 +29,9 @@ string_methods = %w[byteindex byteslice capitalize casecmp casecmp? center chars
 
 numeric_methods = %w[abs abs2 ceil div divmod eql? fdiv integer? negative? nonzero? positive? quo remainder round step truncate zero?]
 
-range_methods = %w[begin bsearch cover? each end entries eql? exclude_end? first include? inspect last max member? min minmax size step]
+range_methods = %w[begin bsearch cover? end entries eql? exclude_end? include? inspect member? size step]
 
-date_methods = %w[day mday mon month new_start next next_day next_month next_year prev_day prev_month prev_year start strftime to_datetime to_time upto wday yday]
+date_methods = %w[day mday mon month next next_day next_month next_year prev_day prev_month prev_year strftime to_datetime to_time upto wday yday]
 # rubocop:enable Layout/LineLength
 
 def create_url(module_name, method_name)
