@@ -3,19 +3,19 @@
 require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :system do
-  let(:normal_user) { FactoryBot.create(:normal_user) }
+  let(:user) { FactoryBot.create(:user) }
   before do
     driven_by(:rack_test)
   end
 
   it 'ユーザーはログインすることができる' do
-    login_as(normal_user)
+    login_as(user)
     expect(page).to have_content 'Github アカウントによる認証に成功しました。
 '
   end
 
   it 'ユーザーはログアウトすることができる' do
-    login_as(normal_user)
+    login_as(user)
     find('.user-icon').click
     click_on 'ログアウト'
 
