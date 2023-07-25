@@ -7,7 +7,7 @@ class RubyMethod < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :official_url, presence: true
   # enum module: { Enumerable: 0, Array: 1, String: 2, Hash: 3, Dir: 4 }
-  scope :user_methods_and_module, -> { includes(%i[user_ruby_methods ruby_module]) }
+  scope :user_methods_and_module, -> { includes(:user_ruby_methods) }
 
   scope :user_remembered, ->(user, remembered:) { where(user_ruby_methods: { user_id: user, remembered: }) }
 
