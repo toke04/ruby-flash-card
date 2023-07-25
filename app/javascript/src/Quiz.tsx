@@ -75,7 +75,7 @@ const Quiz = (props: RubyMethodObjects) => {
                 : createUserRubyMethod(true)
             }
           >
-            知ってる
+            分かる
           </button>
         </div>
         <div>
@@ -87,7 +87,7 @@ const Quiz = (props: RubyMethodObjects) => {
                 : createUserRubyMethod(false)
             }
           >
-            知らない
+            分からない
           </button>
         </div>
       </div>
