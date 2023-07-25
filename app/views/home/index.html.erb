@@ -1,23 +1,29 @@
-<div>
+<div class="mt-10">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block my-10 text-center lg:ms-96" id="notice"><%= notice %></p>
   <% end %>
-  <h1 class="font-bold text-3xl text-center mb-10">Rubyのよく使うメソッドだけを効率良く学びたくないですか？😀</h1>
+  <h1 class="font-bold text-4xl text-center mb-10">Rubyのメソッドを効率良く学びたくないですか？</h1>
   <h2 class="font-bold text-2xl text-center">その悩み、叶えます！</h2>
 
-  <!--  <h2 class="font-bold text-2xl text-center">公式サイトで正確に調べ、クイズ形式で確認できます！</h2>-->
   <div class="flex justify-center mt-1">
-    <%= button_to "GitHubアカウントでログイン",'/users/auth/github', data: { turbo: false }, class: "btn btn-info mt-2 " %><br>
+    <%= button_to "GitHubアカウントで簡単にログイン！",'/users/auth/github', data: { turbo: false }, class: "btn btn-info mt-2 " %><br>
   </div>
-  <div class="text-center mt-3">
-
-    <h3 class="text-xl">評判の高いRubyのプログラミングスクール
-      <a class="text-blue-600 underline" href="https://bootcamp.fjord.jp/welcome">フィヨルドブートキャンプ</a>で学んだ管理人がメソッドを厳選しました😊
-    </h3>
-    <h3 class="text-xl mt-2 mb-5">公式サイトを確認しながら、着実に成長しましょう😊</h3>
-    <div class="flex justify-center">
-      <iframe class="sm:w-full sm:h-96 sm:aspect-video" src="https://www.youtube.com/embed/7lPRbuVnYj0"></iframe>
+  <div class="mt-8 lg:ms-48 ">
+    <h3 class="text-2xl font-bold">1. 「学習効率」の良いクラスから「<%= RubyMethod.count %>問の厳選された」メソッドで確実にレベルアップ!</h3>
+    <div class="flex justify-start my-5">
+      <ul class="max-w-md space-y-1 list-disc list-inside text-xl text-gray-600	 lg:ms-5">
+        <% RubyModule.all.each do |ruby_module| %>
+        <li><%= ruby_module.name %></li>
+        <% end %>
+      </ul>
     </div>
-
+    <h3 class="text-2xl mt-10 mb-5 font-bold">2. 分からないメソッドを、公式サイトで簡単に確認しながら確実に覚える仕組みがある！</h3>
+    <p class="text-xl font-bold mb-2">[クイズの流れ]</p>
+    <p class="text-xl font-bold underline">1. 理解があやふやなメソッドは積極的に「分からない」を押そう！</p>
+    <%= image_tag("first_question.png") %>
+    <p class="text-xl font-bold underline">2. 分からなかったメソッドは、埋め込まれた公式サイトの情報を元に、正しく理解できます😊</p>
+    <%= image_tag("step2.png") %>
+    <p class="text-xl font-bold underline mt-5">3. 分からなかったメソッドは、前回のメモも確認しながら確実に理解していくことができます！</p>
+    <%= image_tag("step3.png") %>
   </div>
 </div>
