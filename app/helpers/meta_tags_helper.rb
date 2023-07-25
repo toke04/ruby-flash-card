@@ -3,7 +3,7 @@
 module MetaTagsHelper
   def default_meta_tags
     {
-      site: 'Ruby Quiz',
+      site: 'Ruby学習をサポートする Ruby Quiz',
       reverse: true,
       charset: 'utf-8',
       description: 'Ruby Quizはあなたのプログラミング学習を支えるパートナーです！',
@@ -19,7 +19,7 @@ module MetaTagsHelper
         locale: 'ja_JP'
       },
       twitter: {
-        card: 'summary',
+        card: 'summary_large_image',
         url: request.original_url,
         description: :description,
         image: image_url('ogp.png')
