@@ -22,7 +22,7 @@ export const LearningPhase = ({
   setMemo,
 }: Props) => {
   const [previousMemo, setPreviousMemo] = useState('')
-
+  const [showEditor, setShowEditor] = useState(false);
   const isInvalidMemo = () => {
     if (memo === previousMemo) return true
   }
@@ -53,12 +53,28 @@ export const LearningPhase = ({
 
   return (
     <div>
-      <div className="flex mb-8">
+      <div className="flex mb-6">
         <iframe
           className={`w-full h-96`}
           src={rubyMethod.official_url}
         ></iframe>
       </div>
+      <div>
+        <button
+          className="btn btn-sm mb-5 btn-neutral"
+          onClick={() => setShowEditor(!showEditor)}
+        >
+          オンラインエディターを表示する
+        </button>
+      </div>
+      {showEditor && (
+        <div className="flex mb-8">
+          <iframe
+            className={`w-full h-96`}
+            src={'https://try.ruby-lang.org/'}
+          ></iframe>
+        </div>
+      )}
       <form onSubmit={updateMemo}>
         <label>
           <span className="font-bold">覚えやすいようにメモを取ろう</span>
