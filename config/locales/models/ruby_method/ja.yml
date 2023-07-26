@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      ruby_method: rubyメソッド
+    attributes:
+      ruby_method:
+        name: メソッド名

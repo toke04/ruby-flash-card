@@ -4,5 +4,5 @@ ja:
       user_ruby_method: rubyメソッド
     attributes:
       user_ruby_method:
-        memo: 説明
+        memo: メモ
         remembered: 分かっている
