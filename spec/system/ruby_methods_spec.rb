@@ -10,25 +10,28 @@ RSpec.describe "RubyMethods", type: :system do
     visit ruby_methods_path
   end
 
-  it 'モジュール名で検索をすることができる' do
-    choose 'Array'
-    click_on '検索'
-    expect(page).to have_content 'zip'
-    expect(page).to have_content 'Array'
+  context '正しい条件の場合' do
+    it 'モジュール名で検索をすることができる' do
+      choose 'Array'
+      click_on '検索'
+      expect(page).to have_content 'zip'
+      expect(page).to have_content 'Array'
+    end
+    it 'メソッド名で絞り込みを行うことができる' do
+      choose '全て'
+      fill_in 'q[name_cont]', with: 'zip'
+      click_on '検索'
+      expect(page).to have_content 'zip'
+      expect(page).to have_content 'Array'
+    end
   end
 
-  it 'メソッド名で絞り込みを行うことができる' do
-    choose '全て'
-    fill_in 'q[name_cont]', with: 'zip'
-    click_on '検索'
-    expect(page).to have_content 'zip'
-    expect(page).to have_content 'Array'
-  end
-
-  it 'メソッド名とモジュール名が間違っていると検索できないこと' do
-    choose 'Hash'
-    fill_in 'q[name_cont]', with: 'zip'
-    click_on '検索'
-    expect(page).to_not have_content 'zip'
+  context '正しくない条件の場合' do
+    it 'メソッド名とモジュール名が間違っていると検索できないこと' do
+      choose 'Hash'
+      fill_in 'q[name_cont]', with: 'zip'
+      click_on '検索'
+      expect(page).to_not have_content 'zip'
+    end
   end
 end
