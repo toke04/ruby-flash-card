@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "UserRubyMethods", type: :system do
   let!(:user) { create(:user) }
   let!(:user_zip_method) { create(:user_zip_method, {user: user}) }
-  let!(:user_merge_method) { create(:user_merge_method, {user: user}) }
+  # let!(:user_merge_method) { create(:user_merge_method, {user: user}) }
   before do
     driven_by(:rack_test)
     login_as(user)
@@ -32,5 +32,23 @@ RSpec.describe "UserRubyMethods", type: :system do
       click_on '検索'
       expect(page).to_not have_content 'zip'
     end
+  end
+
+  it 'ユーザーはメソッドを編集できること' do
+    expect(page).to have_selector '.method-item', text: 'zip'
+    click_on '編集'
+    fill_in 'メモ', with: 'メモを変更しました'
+    click_on '更新する'
+    expect(page).to have_content '更新が完了しました😊'
+  end
+
+  it '公式サイトにアクセスできるリンクがあること' do
+    expect(page).to have_selector '.method-item', text: 'zip'
+    expect(page).to have_link 'zip', href: 'https://docs.ruby-lang.org/ja/latest/method/Array/i/zip.html'
+  end
+
+  it '分かっていた or 分からなかった、のラベルが表示されること' do
+    expect(page).to have_selector '.method-item', text: 'zip'
+    expect(page).to have_content '分からなかった'
   end
 end
