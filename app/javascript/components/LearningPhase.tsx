@@ -64,7 +64,7 @@ export const LearningPhase = ({
           className="btn btn-sm mb-5 btn-neutral"
           onClick={() => setShowEditor(!showEditor)}
         >
-          オンラインエディターを表示する
+          コードを試してみる
         </button>
       </div>
       {showEditor && (
