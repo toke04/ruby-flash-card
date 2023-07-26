@@ -3,9 +3,8 @@ require 'rails_helper'
 RSpec.describe "UserRubyMethods", type: :system do
   let!(:user) { create(:user) }
   let!(:user_zip_method) { create(:user_zip_method, {user: user}) }
-  # let!(:user_merge_method) { create(:user_merge_method, {user: user}) }
+
   before do
-    driven_by(:rack_test)
     login_as(user)
     visit user_ruby_methods_path
   end
