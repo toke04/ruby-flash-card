@@ -15,7 +15,7 @@
         <label class="mb-1"><%= form.radio_button :quiz_mode, "yes", {class:"me-1"  } %>分かっていたメソッドから出題する</label>
         <span class="mb-4"><%= remembered_methods_count %></span>
       </div>
-      <%= form.submit "クイズスタート", class: "btn btn-info mt-4 quiz-button" %>
+      <%= form.submit "クイズ START！", class: "btn btn-info mt-4 quiz-button" %>
     <% end %>
     <div><%= link_to 'メソッド一覧へ', user_ruby_methods_path, class: "btn btn-sm mt-7" %></div>
 <% elsif %>

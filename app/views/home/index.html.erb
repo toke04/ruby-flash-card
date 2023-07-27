@@ -3,14 +3,14 @@
     <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block my-10 text-center lg:ms-96" id="notice"><%= notice %></p>
   <% end %>
   <h1 class="font-bold text-4xl text-center mb-10">Rubyのメソッドを効率良く学びたくないですか？</h1>
-  <h2 class="font-bold text-2xl text-center">その悩み、「Ruby Quiz」が叶えます！</h2>
+  <h2 class="font-bold text-2xl text-center">その悩み、「RubyQuiz」が叶えます！</h2>
 
   <div class="flex justify-center mt-1">
     <%= button_to "GitHubアカウントで簡単にログイン！",'/users/auth/github', data: { turbo: false }, class: "btn btn-info btn-lg mt-4 " %><br>
   </div>
   <div class="flex justify-center mt-5"><%= image_tag("logo.png", alt: "ロゴ", class: "w-48 h-24 md:w-96 h-48") %></div>
   <div class="mt-10 lg:ms-48 ">
-    <p class="text-4xl text-center mb-5 lg:me-48">[Ruby Quizの特徴]</p>
+    <p class="text-4xl text-center mb-5 lg:me-48 underline">RubyQuizの特徴</p>
     <h3 class="text-2xl font-bold">1. 「学習効率」の良いクラスから「<%= RubyMethod.count %>問の厳選された」メソッドで確実にレベルアップ!</h3>
     <div class="flex justify-start my-5">
       <ul class="max-w-md space-y-1 list-disc list-inside text-xl text-gray-600	 lg:ms-5">
@@ -19,14 +19,16 @@
         <% end %>
       </ul>
     </div>
-    <h3 class="text-2xl mt-10 mb-5 font-bold">2. 分からないメソッドを、公式サイトで簡単に確認しながら確実に覚える仕組みがある！</h3>
-    <p class="text-xl font-bold mb-2">[クイズの流れ]</p>
+    <h3 class="text-2xl mt-10 mb-5 font-bold">2. 分からないメソッドを、公式サイトで簡単に確認し、エディターで試して確実に覚えることができる</h3>
+    <p class="text-xl font-bold mb-4">🔍クイズの流れ</p>
     <p class="text-xl font-bold underline">1. 理解があやふやなメソッドは積極的に「分からない」を押そう！</p>
     <%= image_tag("first_question.png") %>
-    <p class="text-xl font-bold underline">2. 分からなかったメソッドは、埋め込まれた公式サイトの情報を元に、正しく理解できます😊</p>
-    <%= image_tag("step2.png") %>
-    <p class="text-xl font-bold underline mt-5">3. 分からなかったメソッドは、前回のメモも確認しながら確実に理解していくことができます！</p>
+    <p class="text-xl font-bold underline mb-4">2. 分からなかったメソッドは、公式サイトの情報を元に正しく理解できます。😊エディターにコピーして試すこともできる！</p>
+    <%= image_tag("new_step2.png") %>
+    <p class="text-xl font-bold underline mt-5">3. きちんと理解したところでメモをすることで、正しく理解できる！</p>
     <%= image_tag("step3.png") %>
+    <p class="text-xl font-bold underline mt-5">4. 分からなかったメソッドは、次回クイズ出題時に、メモを確認しながら確実に理解していくことができます！</p>
+    <%= image_tag("step4.png") %>
     <div class="flex flex-col justify-center mt-1">
       <p class="text-xl font-bold mt-5">アカウント登録不要ですぐに使えます！</p>
       <%= button_to "GitHubアカウントでログインする",'/users/auth/github', data: { turbo: false }, class: "btn btn-info mt-2 " %><br>
