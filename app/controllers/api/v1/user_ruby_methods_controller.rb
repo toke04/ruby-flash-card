@@ -46,6 +46,9 @@ module Api
         # res = `ruby -e "p #{params[:code]}" `
         p "みる"
         p result_code.split("\n")
+        result_code = result_code.split("\n").map{ |code|
+          code + "\n"
+        }
         if params[:code]
           render json: { status: :ok, result_code: result_code.split("\n") }
         else

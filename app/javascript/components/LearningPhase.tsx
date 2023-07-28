@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import React from "react";
 import { toast } from 'react-toastify'
 import { reloadCurrentPage } from '../functions'
 import { client } from '../functions/api/client'
@@ -44,7 +45,7 @@ export const LearningPhase = ({
 
   const addPreffixP = () => {
     console.log(code)
-    setCode((code) => code.padStart(code.length + 2, 'p '))
+    setCode((code) => code.padStart(code.length + 2, 'p ').replaceAll("\n", '\np ').slice( 0, -2 ))
     console.log(code)
   }
 
@@ -77,7 +78,7 @@ export const LearningPhase = ({
         console.log(res.data)
         console.log(res.data.resultCode)
         // console.log(res.data.resultCode[0])
-        setResCode([res.data.resultCode])
+        setResCode(res.data.resultCode)
         console.log('成功')
       })
       .catch(function (error) {
@@ -103,10 +104,12 @@ export const LearningPhase = ({
         </button>
       </div>
       {showEditor && (
-        <div className="flex mb-6">
+        <div className="mb-6 className={`w-full h-96`}">
           <form onSubmit={(e) => {e.preventDefault()}}>
             <label>
               <span className="font-bold">試したいコードを貼ってください</span>
+            </label>
+            <div className="block w-full rounded border border-black">
               <CodeEditor
                 value={code}
                 language="ruby"
@@ -116,13 +119,14 @@ export const LearningPhase = ({
                 minHeight={300}
                 style={{
                   fontSize: 12,
-                  color: 'white',
-                  backgroundColor: "dark",
+                  color: "white",
+                  backgroundColor: "black",
+                  border: "1px",
                   fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
                 }}
               />
-            </label>
-            <div className="mb-5 flex">
+            </div>
+            <div className="mb-5 flex justify-between">
               <button onClick={execCode} className="btn btn-sm btn-outline mt-2">
                 実行する
               </button>
@@ -132,8 +136,10 @@ export const LearningPhase = ({
             </div>
             <p>[実行結果]</p>
             <div className="mockup-code">
-              {resCode.map((code) => {
-                return <p className="p-2 text-success" key={code}>{code}</p>
+              {resCode.map((code, index) => {
+                {console.log("確認")}
+                {console.log(resCode)}
+                return <p className="p-2 text-success whitespace-pre" key={index}>{code}<br /></p>
               })}
             </div>
           </form>
