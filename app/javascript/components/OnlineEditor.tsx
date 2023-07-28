@@ -7,6 +7,7 @@ export const OnlineEditor = () => {
   const [rubyCode, setRubyCode] = useState('')
   const [previousRubyCode, setPreviousRubyCode] = useState('')
   const [codeExecResult, setCodeExecResult] = useState([])
+  const [errorMessage, setErrorMessage] = useState("")
 
   const isInvalidCodeExec = () => {
     if (rubyCode === previousRubyCode) return true
@@ -16,6 +17,10 @@ export const OnlineEditor = () => {
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setRubyCode(event.target.value)
+  }
+
+  const deleteExecResult = () =>{
+    setCodeExecResult([])
   }
 
   const addPreffixP = () => {
@@ -28,16 +33,17 @@ export const OnlineEditor = () => {
   }
 
   const execCode = () => {
+    setPreviousRubyCode(rubyCode)
     client
       .post(`/exec_code.json`, {
         ruby_code: rubyCode,
       })
       .then((res) => {
         setCodeExecResult(res.data.codeResult)
-        setPreviousRubyCode(rubyCode)
+        setErrorMessage(res.data.errorMessage)
       })
-      .catch(function (error) {
-        console.log(error.response)
+      .catch((error) => {
+        console.log(error)
       })
   }
 
@@ -94,9 +100,12 @@ export const OnlineEditor = () => {
                 各行の先頭に「p」を追加する
               </button>
             </div>
-            <p className="font-bold">実行結果</p>
+            <div className="flex justify-between">
+              <p className="font-bold mt-2">実行結果</p>
+              <p><button onClick={deleteExecResult } className="btn btn-sm mb-2">結果を削除する</button></p>
+            </div>
             <div className="mockup-code">
-              {codeExecResult.map((code, index) => {
+              {codeExecResult && codeExecResult.map((code, index) => {
                 return (
                   <p className="p-2 text-success whitespace-pre" key={index}>
                     {code}
@@ -104,6 +113,7 @@ export const OnlineEditor = () => {
                   </p>
                 )
               })}
+              {errorMessage && <p className="text-error p-2">{errorMessage}</p> }
             </div>
           </form>
         </div>
