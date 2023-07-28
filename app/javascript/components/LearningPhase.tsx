@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { reloadCurrentPage } from '../functions'
 import { client } from '../functions/api/client'
+import CodeEditor from '@uiw/react-textarea-code-editor';
 
 type Props = {
   rubyMethod: {
@@ -41,6 +42,12 @@ export const LearningPhase = ({
     setCode(event.target.value)
   }
 
+  const addPreffixP = () => {
+    console.log(code)
+    setCode((code) => code.padStart(code.length + 2, 'p '))
+    console.log(code)
+  }
+
   const updateMemo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     client
@@ -59,8 +66,7 @@ export const LearningPhase = ({
       })
   }
 
-  const execCode = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const execCode = () => {
     console.log(code)
     client
       .post(`/exec_code.json`, {
@@ -68,8 +74,10 @@ export const LearningPhase = ({
         // change_text: changeText,
       })
       .then((res) => {
+        console.log(res.data)
         console.log(res.data.resultCode)
-        setResCode(res.data.resultCode)
+        // console.log(res.data.resultCode[0])
+        setResCode([res.data.resultCode])
         console.log('成功')
       })
       .catch(function (error) {
@@ -96,24 +104,38 @@ export const LearningPhase = ({
       </div>
       {showEditor && (
         <div className="flex mb-6">
-          <form onSubmit={execCode}>
+          <form onSubmit={(e) => {e.preventDefault()}}>
             <label>
               <span className="font-bold">試したいコードを貼ってください</span>
-              <textarea
-                value={code ?? ''}
+              <CodeEditor
+                value={code}
+                language="ruby"
+                placeholder="rubyのコードを貼り付けて下さい"
                 onChange={changeText}
-                rows={5}
-                className="block shadow rounded-md border border-black  outline-none px-3 py-2 w-full"
-              ></textarea>
+                padding={15}
+                minHeight={300}
+                style={{
+                  fontSize: 12,
+                  color: 'white',
+                  backgroundColor: "dark",
+                  fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                }}
+              />
             </label>
-            <div className="mb-5">
-              <button className="btn btn-outline mt-2">
+            <div className="mb-5 flex">
+              <button onClick={execCode} className="btn btn-sm btn-outline mt-2">
                 実行する
               </button>
+              <button onClick={addPreffixP} className="btn btn-sm btn-outline mt-2">
+                行の先頭にpを追加する
+              </button>
             </div>
-            {resCode.map((code) => {
-              return <p key={code}>{code}</p>
-            })}
+            <p>[実行結果]</p>
+            <div className="mockup-code">
+              {resCode.map((code) => {
+                return <p className="p-2 text-success" key={code}>{code}</p>
+              })}
+            </div>
           </form>
         </div>
       )}
