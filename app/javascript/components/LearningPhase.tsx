@@ -119,8 +119,8 @@ export const LearningPhase = ({
                 minHeight={300}
                 style={{
                   fontSize: 12,
-                  color: "white",
-                  backgroundColor: "black",
+                  color: "black",
+                  backgroundColor: "#EEEEEE",
                   border: "1px",
                   fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
                 }}
@@ -151,7 +151,7 @@ export const LearningPhase = ({
           <textarea
             value={memo ?? ''}
             onChange={changeMemo}
-            rows={5}
+            rows={7}
             className="block shadow rounded-md border border-black  outline-none px-3 py-2 w-full"
           ></textarea>
         </label>
