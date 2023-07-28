@@ -33,7 +33,7 @@ export const OnlineEditor = () => {
         ruby_code: rubyCode,
       })
       .then((res) => {
-        setCodeExecResult(res.data.resultCode)
+        setCodeExecResult(res.data.codeResult)
         setPreviousRubyCode(rubyCode)
       })
       .catch(function (error) {
