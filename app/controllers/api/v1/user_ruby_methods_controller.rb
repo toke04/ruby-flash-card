@@ -23,39 +23,6 @@ module Api
         end
       end
 
-      def exec_code
-        codes = params[:code].split("\n")
-
-        open('app/controllers/api/v1/test.rb', 'w'){|f|
-          codes.map do |code|
-            f.puts code unless code =~ /^#/ || code == "" || code =~ /`.+`/ || code =~ /`.+`/ || code =~ /exec\(".+"\)/
-          end
-        }
-        result_code = `ruby app/controllers/api/v1/test.rb`
-
-
-        # res = `ruby -e "app/controllers/api/v1/test.rb"`
-
-        #
-        # res = codes.map do |code|
-        #   p code
-        #   `ruby -e "#{code}" ` unless code =~ /^#/ || code == ""
-        # end
-
-        # binding.irb
-        # res = `ruby -e "p #{params[:code]}" `
-        p "みる"
-        p result_code.split("\n")
-        result_code = result_code.split("\n").map{ |code|
-          code + "\n"
-        }
-        if params[:code]
-          render json: { status: :ok, result_code: result_code.split("\n") }
-        else
-          render json: { status: :unprocessable_entity, result_code: result_code.split("\n") }
-        end
-      end
-
       private
 
       def set_user_ruby_method
