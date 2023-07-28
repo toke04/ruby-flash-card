@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import React from "react";
 import { toast } from 'react-toastify'
 import { reloadCurrentPage } from '../functions'
 import { client } from '../functions/api/client'
@@ -28,6 +27,7 @@ export const LearningPhase = ({
   const [rubyCode, setRubyCode] = useState('');
   const [previousRubyCode, setPreviousRubyCode] = useState('')
   const [codeExecResult, setCodeExecResult] = useState([]);
+
   const isInvalidMemo = () => {
     if (memo === previousMemo) return true
   }
@@ -50,10 +50,6 @@ export const LearningPhase = ({
 
   const addPreffixP = () => {
     setRubyCode((rubyCode) => rubyCode.padStart(rubyCode.length + 2, 'p ').replaceAll("\n", '\np ').slice( 0, -2 ))
-  }
-
-  const handleCodeExec = () => {
-    setShowEditor(!showEditor)
   }
 
   const updateMemo = (e: React.FormEvent<HTMLFormElement>) => {
@@ -99,7 +95,7 @@ export const LearningPhase = ({
       <div>
         <button
           className="btn btn-sm mb-5 btn-neutral"
-          onClick={handleCodeExec}
+          onClick={() => setShowEditor(!showEditor)}
         >
           コードを試してみる
         </button>
@@ -135,7 +131,7 @@ export const LearningPhase = ({
                 各行の先頭に「p」を追加する
               </button>
             </div>
-            <p>[実行結果]</p>
+            <p className="font-bold">実行結果</p>
             <div className="mockup-code">
               {codeExecResult.map((code, index) => {
                 return <p className="p-2 text-success whitespace-pre" key={index}>{code}<br /></p>
