@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { reloadCurrentPage } from '../functions'
 import { client } from '../functions/api/client'
-import {OnlineEditor} from "./OnlineEditor";
+import { OnlineEditor } from './OnlineEditor'
 
 type Props = {
   rubyMethod: {

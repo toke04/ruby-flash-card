@@ -1,12 +1,12 @@
-import CodeEditor from "@uiw/react-textarea-code-editor";
-import {useState} from "react";
-import {client} from "../functions/api/client.ts";
+import CodeEditor from '@uiw/react-textarea-code-editor'
+import { useState } from 'react'
+import { client } from '../functions/api/client'
 
 export const OnlineEditor = () => {
-  const [showEditor, setShowEditor] = useState(false);
-  const [rubyCode, setRubyCode] = useState('');
+  const [showEditor, setShowEditor] = useState(false)
+  const [rubyCode, setRubyCode] = useState('')
   const [previousRubyCode, setPreviousRubyCode] = useState('')
-  const [codeExecResult, setCodeExecResult] = useState([]);
+  const [codeExecResult, setCodeExecResult] = useState([])
 
   const isInvalidCodeExec = () => {
     if (rubyCode === previousRubyCode) return true
@@ -19,7 +19,12 @@ export const OnlineEditor = () => {
   }
 
   const addPreffixP = () => {
-    setRubyCode((rubyCode) => rubyCode.padStart(rubyCode.length + 2, 'p ').replaceAll("\n", '\np ').slice( 0, -2 ))
+    setRubyCode((rubyCode) =>
+      rubyCode
+        .padStart(rubyCode.length + 2, 'p ')
+        .replaceAll('\n', '\np ')
+        .slice(0, -2)
+    )
   }
 
   const execCode = () => {
@@ -48,7 +53,11 @@ export const OnlineEditor = () => {
       </div>
       {showEditor && (
         <div className="mb-6 className={`w-full h-96`}">
-          <form onSubmit={(e) => {e.preventDefault()}}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+            }}
+          >
             <label>
               <span className="font-bold">試したいコードを貼ってください</span>
             </label>
@@ -61,26 +70,39 @@ export const OnlineEditor = () => {
                 padding={15}
                 minHeight={200}
                 style={{
-                  fontSize:20,
-                  color: "black",
-                  backgroundColor: "#EEEEEE",
-                  border: "1px",
-                  fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                  fontSize: 20,
+                  color: 'black',
+                  backgroundColor: '#EEEEEE',
+                  border: '1px',
+                  fontFamily:
+                    'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
                 }}
               />
             </div>
             <div className="mb-5 flex justify-between">
-              <button onClick={execCode} disabled={isInvalidCodeExec()} className="btn btn-sm btn-outline mt-2">
+              <button
+                onClick={execCode}
+                disabled={isInvalidCodeExec()}
+                className="btn btn-sm btn-outline mt-2"
+              >
                 実行する
               </button>
-              <button onClick={addPreffixP} className="btn btn-sm btn-outline mt-2">
+              <button
+                onClick={addPreffixP}
+                className="btn btn-sm btn-outline mt-2"
+              >
                 各行の先頭に「p」を追加する
               </button>
             </div>
             <p className="font-bold">実行結果</p>
             <div className="mockup-code">
               {codeExecResult.map((code, index) => {
-                return <p className="p-2 text-success whitespace-pre" key={index}>{code}<br /></p>
+                return (
+                  <p className="p-2 text-success whitespace-pre" key={index}>
+                    {code}
+                    <br />
+                  </p>
+                )
               })}
             </div>
           </form>

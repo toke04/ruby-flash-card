@@ -11,11 +11,11 @@ module Api
 
         code_result = `ruby tmp/exec_ruby_code.rb`
 
-        File.delete("tmp/exec_ruby_code.rb") if File.exist?("tmp/exec_ruby_code.rb")
+        File.delete('tmp/exec_ruby_code.rb') if File.exist?('tmp/exec_ruby_code.rb')
 
-        fixed_code_result = code_result.split("\n").map{ |code|
-          code + "\n"
-        }
+        fixed_code_result = code_result.split("\n").map do |code|
+          "#{code}\n"
+        end
         if params[:ruby_code]
           render json: { status: :ok, result_code: fixed_code_result.split("\n") }
         else
