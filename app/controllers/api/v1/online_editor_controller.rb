@@ -3,17 +3,15 @@
 module Api
   module V1
     class OnlineEditorController < ApplicationController
+      include OnlineEditor
       def exec_code
         codes = params[:ruby_code].split("\n")
 
-        open('tmp/exec.rb', 'w'){|f|
-          codes.map do |code|
-            f.puts code unless code =~ /^#/ || code == "" || code =~ /`.+`/ || code =~ /`.+`/ || code =~ /exec\(".+"\)/
-          end
-        }
-        code_result = `ruby tmp/exec.rb`
+        create_exec_code_file(codes)
 
-        File.delete("tmp/exec.rb") if File.exist?("tmp/exec.rb")
+        code_result = `ruby tmp/exec_ruby_code.rb`
+
+        File.delete("tmp/exec_ruby_code.rb") if File.exist?("tmp/exec_ruby_code.rb")
 
         fixed_code_result = code_result.split("\n").map{ |code|
           code + "\n"
