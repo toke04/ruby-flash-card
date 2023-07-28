@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { reloadCurrentPage } from '../functions'
 import { client } from '../functions/api/client'
+import { OnlineEditor } from './OnlineEditor'
 
 type Props = {
   rubyMethod: {
@@ -22,7 +23,7 @@ export const LearningPhase = ({
   setMemo,
 }: Props) => {
   const [previousMemo, setPreviousMemo] = useState('')
-  const [showEditor, setShowEditor] = useState(false);
+
   const isInvalidMemo = () => {
     if (memo === previousMemo) return true
   }
@@ -59,29 +60,14 @@ export const LearningPhase = ({
           src={rubyMethod.official_url}
         ></iframe>
       </div>
-      <div>
-        <button
-          className="btn btn-sm mb-5 btn-neutral"
-          onClick={() => setShowEditor(!showEditor)}
-        >
-          コードを試してみる
-        </button>
-      </div>
-      {showEditor && (
-        <div className="flex mb-8">
-          <iframe
-            className={`w-full h-96`}
-            src={'https://try.ruby-lang.org/'}
-          ></iframe>
-        </div>
-      )}
+      <OnlineEditor />
       <form onSubmit={updateMemo}>
         <label>
           <span className="font-bold">覚えやすいようにメモを取ろう</span>
           <textarea
             value={memo ?? ''}
             onChange={changeMemo}
-            rows={5}
+            rows={7}
             className="block shadow rounded-md border border-black  outline-none px-3 py-2 w-full"
           ></textarea>
         </label>

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "UserRubyMethods", type: :system do
+RSpec.describe 'UserRubyMethods', type: :system do
   let!(:user) { create(:user) }
-  let!(:user_zip_method) { create(:user_zip_method, {user: user}) }
+  let!(:user_zip_method) { create(:user_zip_method, { user: }) }
 
   before do
     login_as(user)

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Quiz new", type: :system do
+RSpec.describe 'Quiz new', type: :system do
   let!(:user) { create(:user) }
   let!(:zip_method_of_array) { create(:zip_method_of_array) }
 
