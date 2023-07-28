@@ -23,6 +23,23 @@ module Api
         end
       end
 
+      def exec_code
+        # p params[:code]
+        codes = params[:code].split("\n")
+
+        res = codes.map do |code|
+          p code
+          `ruby -e "#{code}" ` unless code =~ /^#/ || code == ""
+        end
+        # res = `ruby -e "p #{params[:code]}" `
+        p res
+        if params[:code]
+          render json: { status: :ok, result_code: res }
+        else
+          render json: { status: :unprocessable_entity, result_code: res }
+        end
+      end
+
       private
 
       def set_user_ruby_method

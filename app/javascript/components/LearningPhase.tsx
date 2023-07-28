@@ -23,6 +23,8 @@ export const LearningPhase = ({
 }: Props) => {
   const [previousMemo, setPreviousMemo] = useState('')
   const [showEditor, setShowEditor] = useState(false);
+  const [code, setCode] = useState('');
+  const [resCode, setResCode] = useState([]);
   const isInvalidMemo = () => {
     if (memo === previousMemo) return true
   }
@@ -31,6 +33,12 @@ export const LearningPhase = ({
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setMemo(event.target.value)
+  }
+
+  const changeText = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setCode(event.target.value)
   }
 
   const updateMemo = (e: React.FormEvent<HTMLFormElement>) => {
@@ -51,6 +59,25 @@ export const LearningPhase = ({
       })
   }
 
+  const execCode = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log(code)
+    client
+      .post(`/exec_code.json`, {
+        code: code,
+        // change_text: changeText,
+      })
+      .then((res) => {
+        console.log(res.data.resultCode)
+        setResCode(res.data.resultCode)
+        console.log('成功')
+      })
+      .catch(function (error) {
+        console.log(error.response)
+      })
+  }
+
+
   return (
     <div>
       <div className="flex mb-6">
@@ -68,11 +95,26 @@ export const LearningPhase = ({
         </button>
       </div>
       {showEditor && (
-        <div className="flex mb-8">
-          <iframe
-            className={`w-full h-96`}
-            src={'https://try.ruby-lang.org/'}
-          ></iframe>
+        <div className="flex mb-6">
+          <form onSubmit={execCode}>
+            <label>
+              <span className="font-bold">試したいコードを貼ってください</span>
+              <textarea
+                value={code ?? ''}
+                onChange={changeText}
+                rows={5}
+                className="block shadow rounded-md border border-black  outline-none px-3 py-2 w-full"
+              ></textarea>
+            </label>
+            <div className="mb-5">
+              <button className="btn btn-outline mt-2">
+                実行する
+              </button>
+            </div>
+            {resCode.map((code) => {
+              return <p key={code}>{code}</p>
+            })}
+          </form>
         </div>
       )}
       <form onSubmit={updateMemo}>
