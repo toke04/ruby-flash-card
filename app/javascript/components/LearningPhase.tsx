@@ -25,10 +25,15 @@ export const LearningPhase = ({
 }: Props) => {
   const [previousMemo, setPreviousMemo] = useState('')
   const [showEditor, setShowEditor] = useState(false);
-  const [code, setCode] = useState('');
-  const [resCode, setResCode] = useState([]);
+  const [rubyCode, setRubyCode] = useState('');
+  const [previousRubyCode, setPreviousRubyCode] = useState('')
+  const [codeExecResult, setCodeExecResult] = useState([]);
   const isInvalidMemo = () => {
     if (memo === previousMemo) return true
+  }
+
+  const isInvalidCodeExec = () => {
+    if (rubyCode === previousRubyCode) return true
   }
 
   const changeMemo = (
@@ -37,16 +42,18 @@ export const LearningPhase = ({
     setMemo(event.target.value)
   }
 
-  const changeText = (
+  const changeCode = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setCode(event.target.value)
+    setRubyCode(event.target.value)
   }
 
   const addPreffixP = () => {
-    console.log(code)
-    setCode((code) => code.padStart(code.length + 2, 'p ').replaceAll("\n", '\np ').slice( 0, -2 ))
-    console.log(code)
+    setRubyCode((rubyCode) => rubyCode.padStart(rubyCode.length + 2, 'p ').replaceAll("\n", '\np ').slice( 0, -2 ))
+  }
+
+  const handleCodeExec = () => {
+    setShowEditor(!showEditor)
   }
 
   const updateMemo = (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,24 +75,18 @@ export const LearningPhase = ({
   }
 
   const execCode = () => {
-    console.log(code)
     client
       .post(`/exec_code.json`, {
-        code: code,
-        // change_text: changeText,
+        ruby_code: rubyCode,
       })
       .then((res) => {
-        console.log(res.data)
-        console.log(res.data.resultCode)
-        // console.log(res.data.resultCode[0])
-        setResCode(res.data.resultCode)
-        console.log('成功')
+        setCodeExecResult(res.data.resultCode)
+        setPreviousRubyCode(rubyCode)
       })
       .catch(function (error) {
         console.log(error.response)
       })
   }
-
 
   return (
     <div>
@@ -98,7 +99,7 @@ export const LearningPhase = ({
       <div>
         <button
           className="btn btn-sm mb-5 btn-neutral"
-          onClick={() => setShowEditor(!showEditor)}
+          onClick={handleCodeExec}
         >
           コードを試してみる
         </button>
@@ -111,14 +112,14 @@ export const LearningPhase = ({
             </label>
             <div className="block w-full rounded border border-black">
               <CodeEditor
-                value={code}
+                value={rubyCode}
                 language="ruby"
-                placeholder="rubyのコードを貼り付けて下さい"
-                onChange={changeText}
+                placeholder="ここにコードを貼り付けて下さい"
+                onChange={changeCode}
                 padding={15}
-                minHeight={300}
+                minHeight={200}
                 style={{
-                  fontSize: 12,
+                  fontSize:20,
                   color: "black",
                   backgroundColor: "#EEEEEE",
                   border: "1px",
@@ -127,18 +128,16 @@ export const LearningPhase = ({
               />
             </div>
             <div className="mb-5 flex justify-between">
-              <button onClick={execCode} className="btn btn-sm btn-outline mt-2">
+              <button onClick={execCode} disabled={isInvalidCodeExec()} className="btn btn-sm btn-outline mt-2">
                 実行する
               </button>
               <button onClick={addPreffixP} className="btn btn-sm btn-outline mt-2">
-                行の先頭にpを追加する
+                各行の先頭に「p」を追加する
               </button>
             </div>
             <p>[実行結果]</p>
             <div className="mockup-code">
-              {resCode.map((code, index) => {
-                {console.log("確認")}
-                {console.log(resCode)}
+              {codeExecResult.map((code, index) => {
                 return <p className="p-2 text-success whitespace-pre" key={index}>{code}<br /></p>
               })}
             </div>
