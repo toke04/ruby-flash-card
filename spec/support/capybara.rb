@@ -32,3 +32,5 @@ RSpec.configure do |config|
     driven_by :selenium_chrome_headless
   end
 end
+
+Webdrivers::Chromedriver.required_version = "114.0.5735.90"
