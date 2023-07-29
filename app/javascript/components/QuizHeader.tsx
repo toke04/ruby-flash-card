@@ -9,7 +9,7 @@ type Props = {
 export const QuizHeader = ({ rubyModuleName, rubyMethodName }: Props) => {
   return (
     <div>
-      <h1 className="font-bold text-4xl mb-7">Rubyクイズ</h1>
+      <h1 className="font-bold text-4xl mb-7">Rubyフラッシュカード</h1>
       <ToastContainer
         position="top-center"
         autoClose={2000}

@@ -13,16 +13,16 @@ RSpec.describe 'Quiz new', type: :system do
     end
 
     it '選択肢は無しで「クイズ start！」ボタンが表示されること' do
-      expect(page).to have_content 'Ruby Quizへようこそ！'
-      expect(page).to have_content 'クイズ START！'
+      expect(page).to have_content 'Rubyフラッシュカードへようこそ！'
+      expect(page).to have_content 'START'
     end
 
     it '「クイズ START！」ボタンでクイズが出題されること', js: true do
-      click_on 'クイズ START！'
+      click_on 'START'
       expect(page).to have_content 'Array'
       expect(page).to have_content 'zip'
-      expect(page).to have_content '分かる'
-      expect(page).to have_content '分からない'
+      expect(page).to have_content '分かっているので次へ'
+      expect(page).to have_content '分からないので確認する'
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe 'Quiz new', type: :system do
     end
 
     it '３つの選択肢が表示されること' do
-      expect(page).to have_content '選んだ条件からクイズが出題されます'
+      expect(page).to have_content '選んだ条件から出題されます'
       expect(page).to have_content '挑戦してないメソッドから出題する'
       expect(page).to have_content '分からなかったメソッドから出題する'
       expect(page).to have_content '分かっていたメソッドから出題する'
