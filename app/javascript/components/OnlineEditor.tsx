@@ -49,12 +49,12 @@ export const OnlineEditor = () => {
 
   return (
     <div>
-      <div>
+      <div className="flex justify-end">
         <button
-          className="btn btn-sm mb-5 btn-neutral"
+          className="btn btn-sm mt-10 block"
           onClick={() => setShowEditor(!showEditor)}
         >
-          {showEditor ? "エディターを閉じる" : "エディターを開く"}
+          {showEditor ? 'エディターを閉じる' : 'エディターを開く'}
         </button>
       </div>
       {showEditor && (
@@ -89,9 +89,9 @@ export const OnlineEditor = () => {
               <button
                 onClick={execCode}
                 disabled={isInvalidCodeExec()}
-                className="btn btn-sm btn-outline mt-2"
+                className="btn btn-neutral btn-sm mt-2"
               >
-                実行する
+                コードを実行する
               </button>
               <button
                 onClick={addPreffixP}
@@ -100,7 +100,7 @@ export const OnlineEditor = () => {
                 各行の先頭に「p」を追加する
               </button>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between mt-10">
               <p className="font-bold mt-2">実行結果</p>
               <p>
                 <button onClick={deleteExecResult} className="btn btn-sm mb-2">
@@ -118,7 +118,9 @@ export const OnlineEditor = () => {
                     </p>
                   )
                 })}
-              {timeoutMessage && <p className="text-error p-2">{timeoutMessage}</p>}
+              {timeoutMessage && (
+                <p className="text-error p-2">{timeoutMessage}</p>
+              )}
             </div>
           </form>
         </div>
