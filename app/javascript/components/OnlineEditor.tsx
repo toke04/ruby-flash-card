@@ -3,11 +3,11 @@ import { useState } from 'react'
 import { client } from '../functions/api/client'
 
 export const OnlineEditor = () => {
-  const [showEditor, setShowEditor] = useState(false)
+  const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
   const [previousRubyCode, setPreviousRubyCode] = useState('')
   const [codeExecResult, setCodeExecResult] = useState([])
-  const [errorMessage, setErrorMessage] = useState('')
+  const [timeoutMessage, setTimeoutMessage] = useState('')
 
   const isInvalidCodeExec = () => {
     if (rubyCode === previousRubyCode) return true
@@ -40,7 +40,7 @@ export const OnlineEditor = () => {
       })
       .then((res) => {
         setCodeExecResult(res.data.codeResult)
-        setErrorMessage(res.data.errorMessage)
+        setTimeoutMessage(res.data.timeoutMessage)
       })
       .catch((error) => {
         console.log(error)
@@ -54,7 +54,7 @@ export const OnlineEditor = () => {
           className="btn btn-sm mb-5 btn-neutral"
           onClick={() => setShowEditor(!showEditor)}
         >
-          コードを試してみる
+          {showEditor ? "エディターを閉じる" : "エディターを開く"}
         </button>
       </div>
       {showEditor && (
@@ -118,7 +118,7 @@ export const OnlineEditor = () => {
                     </p>
                   )
                 })}
-              {errorMessage && <p className="text-error p-2">{errorMessage}</p>}
+              {timeoutMessage && <p className="text-error p-2">{timeoutMessage}</p>}
             </div>
           </form>
         </div>

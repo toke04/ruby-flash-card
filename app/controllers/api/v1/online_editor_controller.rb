@@ -17,7 +17,7 @@ module Api
             render json: { status: :ok, code_result: fixed_code_result.split("\n") }
           end
         rescue Timeout::Error
-          render json: { status: 500, error_message: '時間のかかる処理なので強制終了しました。入力に間違いがないかご確認ください' }        # タイムアウト発生時の処理
+          render json: { status: 500, timeout_message: '時間のかかる処理なので強制終了しました。入力に間違いがないかご確認ください' }        # タイムアウト発生時の処理
         end
       end
     end
