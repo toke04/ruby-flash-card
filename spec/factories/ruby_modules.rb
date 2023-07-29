@@ -8,4 +8,8 @@ FactoryBot.define do
   factory :hash_module, class: 'RubyModule' do
     name { 'Hash' }
   end
+
+  factory :string_module, class: 'RubyModule' do
+    name { 'String' }
+  end
 end
