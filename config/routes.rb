@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       resources :user_ruby_methods, only: %i[create update]
-      post 'exec_code', to: 'online_editor#exec_code'
     end
   end
 
