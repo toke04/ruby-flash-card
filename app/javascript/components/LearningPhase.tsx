@@ -53,17 +53,16 @@ export const LearningPhase = ({
 
   return (
     <div>
-      <div className="flex mb-6">
+      <div className="flex mb-8">
         <iframe
           className={`w-full h-96`}
           src={rubyMethod.official_url}
         ></iframe>
       </div>
       <div className="mb-6 className={`w-full h-96`}">
-        <p className="font-bold mb-2">試したいコードを貼ってください</p>
+        <p className="font-bold mb-1">コードを貼り付けて試す事ができます</p>
         <iframe
           id="myIfram"
-          scrolling="no"
           className={`w-full h-96`}
           src={'https://try.ruby-lang.org/#editor'}
         ></iframe>
