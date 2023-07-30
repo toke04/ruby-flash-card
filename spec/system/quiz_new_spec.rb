@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Quiz new', type: :system, js: true do
+RSpec.describe 'Quiz new', type: :system do
   context '初めて利用した場合' do
     let!(:user) { create(:user) }
     let!(:zip_method_of_array) { create(:zip_method_of_array) }
@@ -17,7 +17,7 @@ RSpec.describe 'Quiz new', type: :system, js: true do
       expect(page).to have_content 'START'
     end
 
-    it '「クイズ START！」ボタンでクイズが出題されること' do
+    it '「クイズ START！」ボタンでクイズが出題されること', js: true do
       click_on 'START'
       expect(page).to have_content 'Array'
       expect(page).to have_content 'zip'

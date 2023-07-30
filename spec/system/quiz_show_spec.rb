@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Quiz show', type: :system, js: true do
-  context '「分かっているので次へ」を押した場合', js: true do
+  context '「分かっているので次へ」を押した場合' do
     let!(:user) { create(:user) }
     let!(:zip_method_of_array) { create(:zip_method_of_array) }
     let!(:merge_method_of_hash) { create(:merge_method_of_hash) }
@@ -22,7 +22,7 @@ RSpec.describe 'Quiz show', type: :system, js: true do
     end
   end
 
-  context '「分からないので確認する」を押した場合', js: true do
+  context '「分からないので確認する」を押した場合' do
     let!(:user) { create(:user) }
     let!(:zip_method_of_array) { create(:zip_method_of_array) }
     let!(:merge_method_of_hash) { create(:merge_method_of_hash) }
