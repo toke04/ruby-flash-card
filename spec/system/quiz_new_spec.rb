@@ -65,4 +65,46 @@ RSpec.describe 'Quiz new', type: :system, js: true do
       expect(page).to have_content 'merge'
     end
   end
+
+  describe '選択した条件で残りのメソッドがなくなった場合', js: true do
+    let!(:user) { create(:user) }
+    let!(:user_zip_method) { create(:user_zip_method, { user: }) }
+    let!(:user_merge_method) { create(:user_merge_method,:remembered_true, { user:, }) }
+    let!(:upcase_method_of_String) { create(:upcase_method_of_String) }
+
+    before do
+      login_as(user)
+      visit quiz_new_path
+    end
+
+    context '次のメソッドが表示されないこと' do
+      it '「挑戦してないメソッドから出題する」を選んでいた場合' do
+        choose '挑戦してないメソッドから出題する'
+        click_on 'START'
+        expect(page).to have_content 'String'
+        expect(page).to have_content 'upcase'
+        click_on '分かっているので次へ'
+        expect(page).to have_content '条件で指定したで全てのメソッドが出題されました。'
+      end
+
+      it '「分からなかったメソッドから出題する」を選んでいた場合' do
+        choose '分からなかったメソッドから出題する'
+        click_on 'START'
+        expect(page).to have_content 'Array'
+        expect(page).to have_content 'zip'
+        click_on '分かっているので次へ'
+        expect(page).to have_content '条件で指定したで全てのメソッドが出題されました。'
+      end
+
+      it '「分かっていたメソッドから出題する」を選んでいた場合' do
+        choose '分かっていたメソッドから出題する'
+        click_on 'START'
+        expect(page).to have_content 'Hash'
+        expect(page).to have_content 'merge'
+        click_on('分からないので確認する')
+        click_on '次の問題へ'
+        expect(page).to have_content '条件で指定したで全てのメソッドが出題されました。'
+      end
+    end
+  end
 end
