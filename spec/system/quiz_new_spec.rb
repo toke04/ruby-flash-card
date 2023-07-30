@@ -29,7 +29,7 @@ RSpec.describe 'Quiz new', type: :system do
   context '一回でもクイズを解いた場合', js: true do
     let!(:user) { create(:user) }
     let!(:user_zip_method) { create(:user_zip_method, { user: }) }
-    let!(:user_merge_method) { create(:user_merge_method,:remembered_true, { user:, }) }
+    let!(:user_merge_method) { create(:user_merge_method, :remembered_true, { user: }) }
     let!(:upcase_method_of_String) { create(:upcase_method_of_String) }
 
     before do
@@ -69,7 +69,7 @@ RSpec.describe 'Quiz new', type: :system do
   describe '選択した条件で残りのメソッドがなくなった場合', js: true do
     let!(:user) { create(:user) }
     let!(:user_zip_method) { create(:user_zip_method, { user: }) }
-    let!(:user_merge_method) { create(:user_merge_method,:remembered_true, { user:, }) }
+    let!(:user_merge_method) { create(:user_merge_method, :remembered_true, { user: }) }
     let!(:upcase_method_of_String) { create(:upcase_method_of_String) }
 
     before do

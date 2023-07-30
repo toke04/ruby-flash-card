@@ -36,7 +36,7 @@ RSpec.describe 'Quiz show', type: :system, js: true do
     it '公式サイトが表示されること' do
       official_site_ifram = find('iframe[id=officialSite]')
       Capybara.within_frame official_site_ifram do
-        expect(page).to have_content /Ruby [3-9]\.[0-9] リファレンスマニュアル/
+        expect(page).to have_content(/Ruby [3-9]\.[0-9] リファレンスマニュアル/)
       end
     end
 
@@ -52,7 +52,7 @@ RSpec.describe 'Quiz show', type: :system, js: true do
     end
 
     it '公式サイトへ遷移するためのリンクが表示されること' do
-      expect(page).to have_link '公式サイトへアクセスして確認する', href: /^https:\/\/docs.ruby-lang.org\/ja\/latest\/method.*/
+      expect(page).to have_link '公式サイトへアクセスして確認する', href: %r{^https://docs.ruby-lang.org/ja/latest/method.*}
     end
 
     it '「出題条件を変える」をクリックすると、設定画面へ遷移すること' do

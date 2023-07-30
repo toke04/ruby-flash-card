@@ -55,7 +55,7 @@ export const LearningPhase = ({
     <div>
       <div className="flex mb-8">
         <iframe
-          id='officialSite'
+          id="officialSite"
           className={`w-full h-96`}
           src={rubyMethod.official_url}
         ></iframe>
