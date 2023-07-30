@@ -92,14 +92,27 @@ RSpec.describe 'Quiz show', type: :system, js: true do
     end
 
     context '同じメソッドにメモを書き込む場合' do
-      it '前回のメモが表示されること' do
+      before do
         visit quiz_new_path
         choose '分からなかったメソッドから出題する'
         click_on 'START'
         expect(page).to have_content 'Hash'
         expect(page).to have_content 'merge'
+      end
+
+      it '前回のメモが表示されること' do
         click_on '前回のメモを見る'
         expect(page).to have_content 'レシーバーと引数のハッシュを合体させて、新しいハッシュを作成する'
+      end
+
+      it '前回のメモを更新することができること' do
+        click_on('分からないので確認する')
+        fill_in '覚えやすいようにメモを取ろう', with: 'メモを更新しました'
+        click_on '保存する'
+        expect(page).to have_content 'メモを保存しました😊'
+        visit user_ruby_methods_path
+        expect(page).to have_selector 'h1', text: 'メソッド一覧'
+        expect(page).to have_content 'メモを更新しました'
       end
     end
   end
