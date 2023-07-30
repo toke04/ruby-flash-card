@@ -11,7 +11,7 @@ module Api
         if @user_ruby_method.save
           render json: { status: :ok, method: @user_ruby_method }
         else
-          render json: @user_ruby_method.errors, status: :unprocessable_entity
+          render json: { status: :unprocessable_entity, error: @user_ruby_method.errors }
         end
       end
 
@@ -19,7 +19,7 @@ module Api
         if @user_ruby_method.update(user_ruby_method_params)
           render json: { status: :ok, method: @user_ruby_method }
         else
-          render json: @user_ruby_method.errors, status: :unprocessable_entity
+          render json: { status: :unprocessable_entity, error: @user_ruby_method.errors }
         end
       end
 
