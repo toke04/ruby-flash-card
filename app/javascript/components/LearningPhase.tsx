@@ -100,7 +100,7 @@ export const LearningPhase = ({
         </p>
         <div className="mt-10">
           <a href="new" className="me-8 underline">
-            クイズの条件を変える
+            出題条件を変える
           </a>
           <a href="/user_ruby_methods" className="underline">
             メソッド一覧へ
