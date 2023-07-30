@@ -44,12 +44,6 @@ RSpec.describe 'Quiz show', type: :system, js: true do
       expect(page).to have_content 'コードを貼り付けて試す事ができます'
     end
 
-    it 'メモを取って保存することができる' do
-      fill_in '覚えやすいようにメモを取ろう', with: 'メモを書き込みました'
-      click_on '保存する'
-      expect(page).to have_content 'メモを保存しました😊'
-    end
-
     it '「次の問題へ」を押すと、次の問題が出題されること' do
       click_on '次の問題へ'
       expect(page).to have_content 'Rubyフラッシュカード'
@@ -72,6 +66,41 @@ RSpec.describe 'Quiz show', type: :system, js: true do
     it '「メソッド一覧へ」をクリックすると、メソッド一覧画面へ遷移すること' do
       click_on 'メソッド一覧へ'
       expect(page).to have_selector 'h1', text: 'メソッド一覧'
+    end
+  end
+
+  describe 'メソッドにメモを書く場合', js: true do
+    let!(:user) { create(:user) }
+    let!(:zip_method_of_array) { create(:zip_method_of_array) }
+    let!(:user_merge_method) { create(:user_merge_method, { user: }) }
+
+    before do
+      login_as(user)
+    end
+
+    context '初めてメソッドにメモを書き込む場合' do
+      it 'メモを取って保存することができる' do
+        visit quiz_show_path
+        click_on('分からないので確認する')
+        fill_in '覚えやすいようにメモを取ろう', with: 'メモを書き込みました'
+        click_on '保存する'
+        expect(page).to have_content 'メモを保存しました😊'
+        visit user_ruby_methods_path
+        expect(page).to have_selector 'h1', text: 'メソッド一覧'
+        expect(page).to have_content 'メモを書き込みました'
+      end
+    end
+
+    context '同じメソッドにメモを書き込む場合' do
+      it '前回のメモが表示されること' do
+        visit quiz_new_path
+        choose '分からなかったメソッドから出題する'
+        click_on 'START'
+        expect(page).to have_content 'Hash'
+        expect(page).to have_content 'merge'
+        click_on '前回のメモを見る'
+        expect(page).to have_content 'レシーバーと引数のハッシュを合体させて、新しいハッシュを作成する'
+      end
     end
   end
 end
