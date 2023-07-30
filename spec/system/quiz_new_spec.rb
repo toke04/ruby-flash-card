@@ -94,15 +94,21 @@ RSpec.describe 'Quiz new', type: :system do
     before do
       login_as(user)
       visit quiz_new_path
-    end
-
-    it '確認するための画面が表示されること' do
       expect(page).to have_content 'Rubyフラッシュカードへようこそ！'
       click_on 'START'
       expect(page).to have_content 'Rubyフラッシュカード'
       click_on('分からないので確認する')
-      expect(page).to have_content 'Array'
-      expect(page).to have_content 'zip'
+    end
+
+    it '公式サイトが表示されること' do
+      official_site_ifram = find('iframe[id=officialSite]')
+      Capybara.within_frame official_site_ifram do
+        expect(page).to have_content /Ruby [3-9]\.[0-9] リファレンスマニュアル/
+      end
+    end
+
+    it 'オンラインエディターが表示されること' do
+      expect(page).to have_content 'コードを貼り付けて試す事ができます'
     end
   end
 end
