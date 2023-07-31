@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   has_many :user_ruby_methods, dependent: :destroy
-  has_many :user_methods, through: :user_ruby_methods, source: :ruby_method
+  has_many :challenged_ruby_methods, through: :user_ruby_methods, source: :ruby_method
 
   validates :uid, presence: true, uniqueness: { scope: :provider }
 

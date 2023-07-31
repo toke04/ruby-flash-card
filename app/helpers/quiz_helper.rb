@@ -3,7 +3,7 @@
 module QuizHelper
   def not_challenged_methods_count
     all_methods = RubyMethod.all
-    challenged_methods = current_user.user_methods
+    challenged_methods = current_user.challenged_ruby_methods
     "#{(all_methods - challenged_methods).count}問"
   end
 
