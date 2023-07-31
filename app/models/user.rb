@@ -11,7 +11,6 @@ class User < ApplicationRecord
   validates :admin, inclusion: [true, false]
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
-
   devise :registerable,
          :recoverable, :rememberable,
          :omniauthable, omniauth_providers: [:github]
