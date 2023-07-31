@@ -8,18 +8,12 @@ module QuizHelper
   end
 
   def not_remembered_methods_count
-    not_remembered_methods_count = RubyMethod.user_method_count(current_user, remembered: false)
-    disabled_quiz_radio if not_remembered_methods_count.zero?
+    not_remembered_methods_count = current_user.user_ruby_methods.where(remembered: false).count
     "#{not_remembered_methods_count}問"
   end
 
   def remembered_methods_count
-    remembered_methods_count = RubyMethod.user_method_count(current_user, remembered: true)
-    disabled_quiz_radio if remembered_methods_count.zero?
+    remembered_methods_count = current_user.user_ruby_methods.where(remembered: true).count
     "#{remembered_methods_count}問"
-  end
-
-  def disabled_quiz_radio
-    'disabled:'
   end
 end
