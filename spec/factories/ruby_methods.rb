@@ -18,4 +18,14 @@ FactoryBot.define do
     official_url { 'https://docs.ruby-lang.org/ja/latest/method/String/i/upcase.html' }
     association :ruby_module, factory: :string_module
   end
+
+  factory :match_method_of_String, class: 'RubyMethod' do
+    name { 'match' }
+    association :ruby_module, factory: :string_module
+  end
+
+  factory :match？_method_of_String, class: 'RubyMethod' do
+    name { 'match?' }
+    association :ruby_module, factory: :string_module
+  end
 end
