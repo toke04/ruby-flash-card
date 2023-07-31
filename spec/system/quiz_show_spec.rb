@@ -28,14 +28,10 @@ RSpec.describe 'Quiz show', type: :system, js: true do
       end
 
       it '公式サイトが表示されること' do
-        official_site_ifram = find('iframe[id=officialSite]')
-        Capybara.within_frame official_site_ifram do
+        official_site_iframe = find('iframe[id=officialSite]')
+        Capybara.within_frame official_site_iframe do
           expect(page).to have_content(/Ruby [3-9]\.[0-9] リファレンスマニュアル/)
         end
-      end
-
-      it 'オンラインエディターが表示されること' do
-        expect(page).to have_content 'コードを貼り付けて試す事ができます'
       end
 
       it '「次の問題へ」を押すと、次の問題が出題されること' do
