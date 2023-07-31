@@ -8,6 +8,7 @@ class User < ApplicationRecord
     validates :name
     validates :image
   end
+  validates :admin, inclusion: [true, false]
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
 

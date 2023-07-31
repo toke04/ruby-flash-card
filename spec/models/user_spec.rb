@@ -14,9 +14,17 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_uniqueness_of(:uid).scoped_to(:provider).case_insensitive }
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:image) }
+    it { is_expected.to allow_value(true).for(:admin) }
+    it { is_expected.to allow_value(false).for(:admin) }
+    it { is_expected.not_to allow_value(nil).for(:admin) }
 
     it 'ファクトリが有効であること' do
       expect(build(:user)).to be_valid
+    end
+
+    it '新規作成されたユーザーはデフォルトではadmin権限がfalseであること' do
+      normal_user = create(:user)
+      expect(normal_user.admin).to eq(false)
     end
   end
 
