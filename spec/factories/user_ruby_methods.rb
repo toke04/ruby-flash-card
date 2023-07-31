@@ -22,4 +22,14 @@ FactoryBot.define do
       remembered { true }
     end
   end
+
+  factory :user_upcase_method, class: 'UserRubyMethod' do
+    memo { "string型のデータを大文字に変換します。\r\n大文字と小文字両方が含まれていても問題ないです。" }
+    association :user, factory: :user
+    association :ruby_method, factory: :upcase_method_of_String
+
+    trait :react_textarea do
+      memo { "string型のデータを大文字に変換します。\n大文字と小文字両方が含まれていても問題ないです。" }
+    end
+  end
 end
