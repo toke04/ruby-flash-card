@@ -4,13 +4,10 @@ class RubyMethod < ApplicationRecord
   has_many :user_ruby_methods, dependent: :destroy
   belongs_to :ruby_module
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: { scope: :ruby_module_id }
   validates :official_url, presence: true
-  # enum module: { Enumerable: 0, Array: 1, String: 2, Hash: 3, Dir: 4 }
   scope :user_methods_and_module, -> { includes(:user_ruby_methods) }
-
   scope :user_remembered, ->(user, remembered:) { where(user_ruby_methods: { user_id: user, remembered: }) }
-
   scope :user_method_count, ->(user, remembered:) { includes([:user_ruby_methods]).where(user_ruby_methods: { user_id: user, remembered: }).count }
 
   def self.unchallenged_ruby_method(all_methods, challenged_methods)
