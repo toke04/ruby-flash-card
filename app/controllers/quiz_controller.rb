@@ -7,16 +7,16 @@ class QuizController < ApplicationController
 
   def show
     if params[:quiz_mode] == 'yes'
-      @ruby_method = RubyMethod.user_methods_and_module.user_remembered(current_user, remembered: true).sample
-      @user_ruby_method = @ruby_method.user_ruby_methods.first if @ruby_method.present?
+      @user_ruby_method = current_user.user_ruby_methods.where(remembered: true).sample
+      @ruby_method = @user_ruby_method&.ruby_method
     elsif params[:quiz_mode] == 'no'
-      @ruby_method = RubyMethod.user_methods_and_module.user_remembered(current_user, remembered: false).sample
-      @user_ruby_method = @ruby_method.user_ruby_methods.first if @ruby_method.present?
+      @user_ruby_method = current_user.user_ruby_methods.where(remembered: false).sample
+      @ruby_method = @user_ruby_method&.ruby_method
     else
-      all_ruby_methods = RubyMethod.all
+      ruby_methods = RubyMethod.all
       challenged_ruby_methods = current_user.challenged_ruby_methods
-      @ruby_method = RubyMethod.unchallenged_ruby_method(all_ruby_methods, challenged_ruby_methods)
+      @ruby_method = RubyMethod.unchallenged_ruby_method(ruby_methods, challenged_ruby_methods)
     end
-    @ruby_module = @ruby_method&.ruby_module if @ruby_method.present?
+    @ruby_module = @ruby_method&.ruby_module
   end
 end
