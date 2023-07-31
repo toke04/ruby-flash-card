@@ -7,15 +7,12 @@ class RubyMethod < ApplicationRecord
   validates :name, presence: true, uniqueness: { scope: :ruby_module_id }
   validates :official_url, presence: true
 
-  def self.unchallenged_ruby_method(ruby_methods, challenged_ruby_methods)
-    (ruby_methods - challenged_ruby_methods).sample
-  end
-
-  def register_method_url(ruby_method, module_name, ruby_method_name)
-    if Net::HTTP.get_response(URI.parse("https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{ruby_method_name}.html")).code == '200'
-      ruby_method.official_url = "https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{ruby_method_name}.html"
+  def register_method_url
+    module_name = self.ruby_module.name
+    if Net::HTTP.get_response(URI.parse("https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{self.name}.html")).code == '200'
+      self.official_url = "https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{self.name}.html"
     else
-      ruby_method.official_url = "https://docs.ruby-lang.org/ja/latest/class/#{module_name}.html#I_#{ruby_method_name.upcase.slice(/[^?]+/)}--3F"
+      self.official_url = "https://docs.ruby-lang.org/ja/latest/class/#{module_name}.html#I_#{self.name.upcase.slice(/[^?]+/)}--3F"
     end
   end
 
