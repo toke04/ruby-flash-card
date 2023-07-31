@@ -14,19 +14,19 @@ class RubyMethod < ApplicationRecord
     all_methods.reject { |method| challenged_methods.include? method }.sample
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    ['name'] # 使ってないが、消すとransackがエラーを発生するので空配列を定義
-  end
-
-  def self.ransackable_associations(auth_object = nil)
-    ['ruby_module']
-  end
-
   def register_method_url(ruby_method, module_name, ruby_method_name)
     if Net::HTTP.get_response(URI.parse("https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{ruby_method_name}.html")).code == '200'
       ruby_method.official_url = "https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{ruby_method_name}.html"
     else
       ruby_method.official_url = "https://docs.ruby-lang.org/ja/latest/class/#{module_name}.html#I_#{ruby_method_name.upcase.slice(/[^?]+/)}--3F"
     end
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ['name']
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ['ruby_module']
   end
 end
