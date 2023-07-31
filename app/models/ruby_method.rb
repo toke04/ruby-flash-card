@@ -8,12 +8,12 @@ class RubyMethod < ApplicationRecord
   validates :official_url, presence: true
 
   def register_method_url
-    module_name = self.ruby_module.name
-    if Net::HTTP.get_response(URI.parse("https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{self.name}.html")).code == '200'
-      self.official_url = "https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{self.name}.html"
-    else
-      self.official_url = "https://docs.ruby-lang.org/ja/latest/class/#{module_name}.html#I_#{self.name.upcase.slice(/[^?]+/)}--3F"
-    end
+    module_name = ruby_module.name
+    self.official_url = if Net::HTTP.get_response(URI.parse("https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{name}.html")).code == '200'
+                          "https://docs.ruby-lang.org/ja/latest/method/#{module_name}/i/#{name}.html"
+                        else
+                          "https://docs.ruby-lang.org/ja/latest/class/#{module_name}.html#I_#{name.upcase.slice(/[^?]+/)}--3F"
+                        end
   end
 
   def self.ransackable_attributes(auth_object = nil)

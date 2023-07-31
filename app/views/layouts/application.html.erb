@@ -18,7 +18,7 @@
   <body class="flex flex-col min-h-screen">
     <header class="display flex justify-around">
       <% if current_user %>
-        <%= link_to image_tag("logo2.png", alt: "ロゴ", class: "w-24 md:w-32 h-12"), root_path,class:"text-3xl ms-5 mt-2" %>
+        <%= link_to image_tag("logo.png", alt: "ロゴ", class: "w-24 md:w-32 h-12"), root_path, class:"text-3xl ms-5 mt-2" %>
         <%= link_to "メソッド一覧", user_ruby_methods_path,class:" mt-4" if registered_user_ruby_method? %>
         <%= link_to "管理者用モジュール一覧",ruby_modules_path, class:" mt-4" if current_user.admin %>
         <%= link_to "管理者用メソッド一覧", ruby_methods_path,class:" mt-4"  if current_user.admin %>
