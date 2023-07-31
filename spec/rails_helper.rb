@@ -36,9 +36,10 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = Rails.root.join('spec/fixtures').to_s
 
-  Capybara.server_port = 3000
-  Capybara.app_host = "http://localhost:3000"
+  config.include Devise::Test::ControllerHelpers, type: :helper
 
+  Capybara.server_port = 3000
+  Capybara.app_host = 'http://localhost:3000'
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
