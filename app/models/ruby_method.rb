@@ -10,8 +10,8 @@ class RubyMethod < ApplicationRecord
   scope :user_remembered, ->(user, remembered:) { where(user_ruby_methods: { user_id: user, remembered: }) }
   scope :user_method_count, ->(user, remembered:) { includes([:user_ruby_methods]).where(user_ruby_methods: { user_id: user, remembered: }).count }
 
-  def self.unchallenged_ruby_method(all_methods, challenged_methods)
-    all_methods.reject { |method| challenged_methods.include? method }.sample
+  def self.unchallenged_ruby_method(all_ruby_methods, challenged_ruby_methods)
+    (all_ruby_methods - challenged_ruby_methods).sample
   end
 
   def register_method_url(ruby_method, module_name, ruby_method_name)
