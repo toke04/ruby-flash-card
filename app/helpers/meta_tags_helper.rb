@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module MetaTagsHelper
+  # rubocop:disable Metrics/MethodLength
   def default_meta_tags
     {
       site: 'Ruby学習をサポートする Ruby Quiz',
@@ -26,6 +27,7 @@ module MetaTagsHelper
       }
     }
   end
+  # rubocop:enable Metrics/MethodLength
 
   def welcome_meta_tags
     default_meta_tags.deep_merge({
