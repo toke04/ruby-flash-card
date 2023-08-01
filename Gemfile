@@ -77,10 +77,10 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'launchy'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'webdrivers'
-  gem "launchy"
 end
 
 gem 'devise'
