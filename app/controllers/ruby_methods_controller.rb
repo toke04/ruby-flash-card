@@ -35,7 +35,7 @@ class RubyMethodsController < ApplicationController
   def update
     respond_to do |format|
       if @ruby_method.update(ruby_method_params)
-        format.html { redirect_to ruby_method_url(@ruby_method), notice: 'Ruby method was successfully updated.' }
+        format.html { redirect_to ruby_method_url(@ruby_method), notice: '更新が完了しました' }
         format.json { render :show, status: :ok, location: @ruby_method }
       else
         format.html { render :edit, status: :unprocessable_entity }

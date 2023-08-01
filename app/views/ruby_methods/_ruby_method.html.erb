@@ -15,8 +15,8 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this ruby method", ruby_method, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this ruby method', edit_ruby_method_path(ruby_method), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "詳細", ruby_method, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to '編集', edit_ruby_method_path(ruby_method), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium edit-ruby-method" %>
     <hr class="mt-6">
   <% end %>
 </div>
