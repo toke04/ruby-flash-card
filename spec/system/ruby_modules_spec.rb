@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "RubyModules", type: :system do
+RSpec.describe 'RubyModules', type: :system do
   let!(:array_module) { create(:array_module) }
   let(:admin_user) { create(:user, :admin) }
   before do
@@ -24,7 +26,6 @@ RSpec.describe "RubyModules", type: :system do
       expect(page).to have_content 'Hash'
     end
   end
-  #
   describe '編集画面にアクセスした場合' do
     it 'モジュールを編集できること' do
       expect(page).to have_content 'Array'
