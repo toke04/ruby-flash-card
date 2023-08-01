@@ -93,3 +93,5 @@ gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'ransack'
 gem 'vite_rails', '~> 3.0'
+
+gem "dockerfile-rails", ">= 1.5", :group => :development

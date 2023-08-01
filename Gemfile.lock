@@ -111,6 +111,8 @@ GEM
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
     diff-lcs (1.5.0)
+    dockerfile-rails (1.5.2)
+      rails
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -192,6 +194,8 @@ GEM
       net-protocol
     nio4r (2.5.9)
     nokogiri (1.15.3-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -335,6 +339,8 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.30-x86_64-darwin)
       railties (>= 6.0.0)
+    tailwindcss-rails (2.0.30-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.4.0)
     turbo-rails (1.4.0)
@@ -373,6 +379,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -381,6 +388,7 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
+  dockerfile-rails (>= 1.5)
   dotenv-rails
   erb_lint
   factory_bot_rails
