@@ -23,7 +23,7 @@ class RubyMethodsController < ApplicationController
     @ruby_method.register_method_url
     respond_to do |format|
       if @ruby_method.save
-        format.html { redirect_to ruby_method_url(@ruby_method), notice: 'Ruby method was successfully created.' }
+        format.html { redirect_to ruby_method_url(@ruby_method), notice: '登録が完了しました' }
         format.json { render :show, status: :created, location: @ruby_method }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -48,7 +48,7 @@ class RubyMethodsController < ApplicationController
     @ruby_method.destroy
 
     respond_to do |format|
-      format.html { redirect_to ruby_methods_url, notice: 'Ruby method was successfully destroyed.' }
+      format.html { redirect_to ruby_methods_url, notice: '削除が完了しました' }
       format.json { head :no_content }
     end
   end
