@@ -5,9 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :system do
   describe '基本的なログイン機能' do
     let(:user) { create(:user) }
-    before do
-      driven_by(:rack_test)
-    end
     it 'ユーザーはログインすることができる' do
       login_as(user)
       expect(page).to have_content 'Github アカウントによる認証に成功しました。'
@@ -34,12 +31,12 @@ RSpec.describe 'Users', type: :system do
       it '「RubyModules」リソースへアクセスできること' do
         click_link '管理者用モジュール一覧'
         expect(page).to have_selector 'h1', text: 'rubyのモジュール一覧'
-        expect(page).to have_content 'rubyのモジュールを追加する'
+        expect(page).to have_selector 'a', text: 'rubyのモジュールを追加する'
       end
       it '「RubyMethods」リソースへアクセスできること' do
         click_link '管理者用メソッド一覧'
         expect(page).to have_selector 'h1', text: 'rubyのメソッド一覧'
-        expect(page).to have_content '共通のrubyのメソッドを追加'
+        expect(page).to have_selector 'a', text: '共通のrubyのメソッドを追加'
       end
     end
     context 'admin権限がない一般ユーザーの場合' do
@@ -55,12 +52,12 @@ RSpec.describe 'Users', type: :system do
       end
       it 'URLから直接アクセスしても「RubyModules」リソースへアクセスできないこと' do
         visit ruby_modules_path
-        expect(page).to_not have_content 'rubyのモジュールを追加する'
+        expect(page).to_not have_selector 'a', text: 'rubyのモジュールを追加する'
         expect(page).to have_content 'Rubyフラッシュカードへようこそ！'
       end
       it 'URLから直接アクセスしても「RubyMethods」リソースへアクセスできないこと' do
         visit ruby_methods_path
-        expect(page).to_not have_content '共通のrubyのメソッドを追加'
+        expect(page).to_not have_selector 'a', text: '共通のrubyのメソッドを追加'
         expect(page).to have_content 'Rubyフラッシュカードへようこそ！'
       end
     end
