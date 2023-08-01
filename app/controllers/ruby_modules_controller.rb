@@ -26,7 +26,7 @@ class RubyModulesController < ApplicationController
 
     respond_to do |format|
       if @ruby_module.save
-        format.html { redirect_to ruby_module_url(@ruby_module), notice: 'Ruby module was successfully created.' }
+        format.html { redirect_to ruby_module_url(@ruby_module), notice: '登録が完了しました' }
         format.json { render :show, status: :created, location: @ruby_module }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class RubyModulesController < ApplicationController
   def update
     respond_to do |format|
       if @ruby_module.update(ruby_module_params)
-        format.html { redirect_to ruby_module_url(@ruby_module), notice: 'Ruby module was successfully updated.' }
+        format.html { redirect_to ruby_module_url(@ruby_module), notice: '更新が完了しました' }
         format.json { render :show, status: :ok, location: @ruby_module }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class RubyModulesController < ApplicationController
     @ruby_module.destroy
 
     respond_to do |format|
-      format.html { redirect_to ruby_modules_url, notice: 'Ruby module was successfully destroyed.' }
+      format.html { redirect_to ruby_modules_url, notice: '削除が完了しました' }
       format.json { head :no_content }
     end
   end

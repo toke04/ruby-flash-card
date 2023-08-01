@@ -5,8 +5,8 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this ruby module", ruby_module, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this ruby module', edit_ruby_module_path(ruby_module), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "詳細", ruby_module, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium show-ruby-module" %>
+    <%= link_to '編集', edit_ruby_module_path(ruby_module), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium edit-ruby-module" %>
     <hr class="mt-6">
   <% end %>
 </div>
