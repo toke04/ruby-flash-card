@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { reloadCurrentPage } from '../functions'
 import { client } from '../functions/api/client'
-import { OnlineEditor } from './OnlineEditor'
 
 type Props = {
   rubyMethod: {
@@ -54,13 +53,13 @@ export const LearningPhase = ({
 
   return (
     <div>
-      <div className="flex mb-6">
+      <div className="flex mb-8">
         <iframe
+          id="officialSite"
           className={`w-full h-96`}
           src={rubyMethod.official_url}
         ></iframe>
       </div>
-      <OnlineEditor />
       <form onSubmit={updateMemo}>
         <label>
           <span className="font-bold">覚えやすいようにメモを取ろう</span>
@@ -93,7 +92,7 @@ export const LearningPhase = ({
         </p>
         <div className="mt-10">
           <a href="new" className="me-8 underline">
-            クイズの条件を変える
+            出題条件を変える
           </a>
           <a href="/user_ruby_methods" className="underline">
             メソッド一覧へ

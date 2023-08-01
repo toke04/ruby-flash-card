@@ -5,6 +5,7 @@ class UserRubyMethod < ApplicationRecord
   belongs_to :ruby_method
 
   validates :user_id, presence: true, uniqueness: { scope: :ruby_method_id }
+  validates :remembered, inclusion: [true, false]
 
   def self.ransackable_attributes(auth_object = nil)
     ['remembered']

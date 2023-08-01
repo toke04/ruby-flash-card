@@ -20,8 +20,7 @@ class RubyMethodsController < ApplicationController
 
   def create
     @ruby_method = RubyMethod.new(ruby_method_params)
-    module_name = RubyModule.find(params[:ruby_method][:ruby_module_id].to_i).name
-    @ruby_method.register_method_url(@ruby_method, module_name, params[:ruby_method][:name])
+    @ruby_method.register_method_url
     respond_to do |format|
       if @ruby_method.save
         format.html { redirect_to ruby_method_url(@ruby_method), notice: 'Ruby method was successfully created.' }

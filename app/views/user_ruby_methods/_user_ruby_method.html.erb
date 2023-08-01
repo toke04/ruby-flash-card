@@ -1,13 +1,13 @@
 <div class="method-item md:w-3/4 mb-12 bg-stone-50 shadow-md rounded-lg p-3 mb-4" id="<%= dom_id user_ruby_method %>">
   <div class="flex mb-2">
     <p class="text-xl me-3">
-      <%= module_name(user_ruby_method) %>
+      <%= user_ruby_method.ruby_method.ruby_module.name %>
     </p>
     <p>
       <%= link_to '編集', edit_user_ruby_method_path(user_ruby_method), class: "btn btn-sm w-13 leading-15" %>
     </p>
       <p class="ms-2 mt-1 badge badge-outline">
-        <%= convert_text(user_ruby_method) %>
+        <%= convert_remembered_word(user_ruby_method) %>
       </p>
   </div>
 

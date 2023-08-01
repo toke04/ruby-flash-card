@@ -4,6 +4,7 @@ FactoryBot.define do # admin権限のない、一般の利用ユーザーを想�
   factory :user do
     uid { rand(99_999_999).to_s }
     provider { 'github' }
+    name { 'suzuki' }
     image { 'https://example.com/image' }
     admin { false }
 

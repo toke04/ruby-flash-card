@@ -9,6 +9,12 @@ RSpec.describe UserRubyMethod, type: :model do
   end
 
   describe '#validations' do
+    subject(:user_zip_method) { create(:user_zip_method) }
+    it { is_expected.to validate_uniqueness_of(:user_id).scoped_to(:ruby_method_id).case_insensitive }
+    it { is_expected.to allow_value(true).for(:remembered) }
+    it { is_expected.to allow_value(false).for(:remembered) }
+    it { is_expected.not_to allow_value(nil).for(:remembered) }
+
     it 'ファクトリが有効であること' do
       expect(create(:user_zip_method)).to be_valid
     end

@@ -17,12 +17,12 @@ export const PreviousMemo = ({
   return (
     <div className="mt-7">
       {memo && isQuestionButtonActive && (
-        <p
+        <button
           className="underline text-blue-600 cursor-pointer"
           onClick={() => showPreviousMemo()}
         >
           前回のメモを見る
-        </p>
+        </button>
       )}
       {canSeeMemo && (
         <div className="bg-stone-50	shadow-md rounded-lg p-4 mt-3">

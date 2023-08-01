@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_24_093738) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_31_090037) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_093738) do
     t.string "official_url", default: "https://docs.ruby-lang.org/ja/latest/library/_builtin.html", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name", "ruby_module_id"], name: "index_ruby_methods_on_name_and_ruby_module_id", unique: true
     t.index ["name"], name: "index_ruby_methods_on_name", unique: true
     t.index ["ruby_module_id"], name: "index_ruby_methods_on_ruby_module_id"
   end
@@ -44,8 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_24_093738) do
   create_table "users", force: :cascade do |t|
     t.string "uid", null: false
     t.string "provider", null: false
-    t.string "name"
-    t.string "image"
+    t.string "name", null: false
+    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
