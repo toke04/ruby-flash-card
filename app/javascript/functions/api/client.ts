@@ -6,8 +6,8 @@ const options = {
 }
 
 const baseURL = {
-  local: import.meta.env.VITE_REACT_APP_LOCAL_API,
-  production: import.meta.env.VITE_REACT_APP_PROD_API,
+  local: "http://localhost:3000/api/v1",
+  production: "https://ruby-flash-card.fly.dev/api/v1",
 }
 
 const csrfToken = document
