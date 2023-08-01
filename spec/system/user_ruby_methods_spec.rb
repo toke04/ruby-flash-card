@@ -49,13 +49,25 @@ RSpec.describe 'UserRubyMethods', type: :system do
     end
   end
 
-  describe '編集画面にアクセスした場合' do
-    it 'ユーザーはメソッドを編集できること' do
+  describe '編集画面にアクセスした場合', js: true do
+    before do
       expect(page).to have_selector '.method-item', text: 'zip'
       click_on '編集'
+    end
+    it 'ユーザーはメソッドを編集できること' do
       fill_in 'メモ', with: 'メモを変更しました'
       click_on '更新する'
       expect(page).to have_content '更新が完了しました😊'
+      expect(page).to have_selector '.method-item', text: 'zip'
+      expect(page).to have_content 'メモを変更しました'
+    end
+
+    it 'メソッドを削除できること' do
+      click_button '削除する'
+      expect do
+        expect(accept_confirm).to eq '削除してよろしいですか？'
+        expect(page).to have_content '削除が完了しました'
+      end.to change { UserRubyMethod.count }.by(-1)
     end
   end
 end
