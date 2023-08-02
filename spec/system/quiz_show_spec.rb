@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Quiz show', type: :system, js: true do
+RSpec.describe 'FlashCard show', type: :system, js: true do
   describe 'クイズの最初の出題のテスト' do
     let!(:user) { create(:user) }
     let!(:zip_method_of_array) { create(:zip_method_of_array) }

@@ -10,7 +10,7 @@ import { LearningPhase } from '../components/LearningPhase'
 import { PreviousMemo } from '../components/PreviousMemo'
 import { QuizHeader } from '../components/QuizHeader'
 
-const Quiz = (props: RubyMethodObjects) => {
+const FlashCard = (props: RubyMethodObjects) => {
   const rubyMethod = JSON.parse(props.rubyMethod)
   const rubyModule = JSON.parse(props.rubyModule)
   const [userRubyMethod, setUserRubyMethod] = useState(
@@ -109,4 +109,4 @@ const Quiz = (props: RubyMethodObjects) => {
   )
 }
 
-export default Quiz
+export default FlashCard

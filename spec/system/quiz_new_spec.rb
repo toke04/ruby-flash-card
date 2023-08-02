@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Quiz new', type: :system do
+RSpec.describe 'FlashCard new', type: :system do
   context '初めて利用した場合' do
     let!(:user) { create(:user) }
     let!(:zip_method_of_array) { create(:zip_method_of_array) }

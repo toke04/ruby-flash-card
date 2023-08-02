@@ -4,7 +4,7 @@ module MetaTagsHelper
   # rubocop:disable Metrics/MethodLength
   def default_meta_tags
     {
-      site: 'Ruby学習をサポートする Ruby Quiz',
+      site: 'Ruby学習をサポートする Ruby FlashCard',
       reverse: true,
       charset: 'utf-8',
       description: 'Ruby Quizはあなたのプログラミング学習を支えるパートナーです！',
@@ -13,7 +13,7 @@ module MetaTagsHelper
       og: {
         title: :title,
         type: 'website',
-        site_name: 'Ruby Quiz',
+        site_name: 'Ruby FlashCard',
         description: :description,
         image: image_url('ogp.png'),
         url: request.original_url,
@@ -33,10 +33,10 @@ module MetaTagsHelper
     default_meta_tags.deep_merge({
                                    title:,
                                    og: {
-                                     title: title || 'Ruby Quiz'
+                                     title: title || 'Ruby FlashCard'
                                    },
                                    twitter: {
-                                     title: title || 'Ruby Quiz'
+                                     title: title || 'Ruby FlashCard'
                                    }
                                  })
   end
