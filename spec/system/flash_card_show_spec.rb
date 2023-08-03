@@ -3,14 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe 'FlashCard show', type: :system, js: true do
-  describe 'クイズの最初の出題のテスト' do
+  describe 'フラッシュカードの最初の出題のテスト' do
     let!(:user) { create(:user) }
     let!(:zip_method_of_array) { create(:zip_method_of_array) }
     let!(:merge_method_of_hash) { create(:merge_method_of_hash) }
 
     before do
       login_as(user)
-      visit quiz_show_path
+      visit flash_card_show_path
     end
 
     context '「分かっているので次へ」を押した場合' do
@@ -71,7 +71,7 @@ RSpec.describe 'FlashCard show', type: :system, js: true do
 
     context '初めてメソッドにメモを書き込む場合' do
       it 'メモを取って保存することができる' do
-        visit quiz_show_path
+        visit flash_card_show_path
         click_on('分からないので確認する')
         fill_in '覚えやすいようにメモを取ろう', with: 'メモを書き込みました'
         click_on '保存する'
@@ -84,7 +84,7 @@ RSpec.describe 'FlashCard show', type: :system, js: true do
 
     context '同じメソッドにメモを書き込む場合' do
       before do
-        visit quiz_new_path
+        visit flash_card_new_path
         choose '分からなかったメソッドから出題する'
         click_on 'START'
         expect(page).to have_content 'Hash'

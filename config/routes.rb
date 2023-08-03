@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'quiz/new'
-  get 'quiz/show'
+  get 'flash_card/new'
+  get 'flash_card/show'
   root 'home#index'
   get 'terms_of_service', to: 'home#terms_of_service', as: 'terms_of_service'
   get 'privacy_policy', to: 'home#privacy_policy', as: 'privacy_policy'

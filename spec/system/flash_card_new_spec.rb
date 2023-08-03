@@ -9,15 +9,15 @@ RSpec.describe 'FlashCard new', type: :system do
 
     before do
       login_as(user)
-      visit quiz_new_path
+      visit flash_card_new_path
     end
 
-    it '選択肢は無しで「クイズ start！」ボタンが表示されること' do
+    it '選択肢は無しで「フラッシュカード start！」ボタンが表示されること' do
       expect(page).to have_content 'Rubyフラッシュカードへようこそ！'
       expect(page).to have_content 'START'
     end
 
-    it '「クイズ START！」ボタンでクイズが出題されること', js: true do
+    it '「フラッシュカード START！」ボタンでフラッシュカードが出題されること', js: true do
       click_on 'START'
       expect(page).to have_content 'Array'
       expect(page).to have_content 'zip'
@@ -26,7 +26,7 @@ RSpec.describe 'FlashCard new', type: :system do
     end
   end
 
-  context '一回でもクイズを解いた場合', js: true do
+  context '一回でもフラッシュカードを解いた場合', js: true do
     let!(:user) { create(:user) }
     let!(:user_zip_method) { create(:user_zip_method, { user: }) }
     let!(:user_merge_method) { create(:user_merge_method, :remembered_true, { user: }) }
@@ -34,7 +34,7 @@ RSpec.describe 'FlashCard new', type: :system do
 
     before do
       login_as(user)
-      visit quiz_new_path
+      visit flash_card_new_path
     end
 
     it '３つの選択肢が表示されること' do
@@ -74,7 +74,7 @@ RSpec.describe 'FlashCard new', type: :system do
 
     before do
       login_as(user)
-      visit quiz_new_path
+      visit flash_card_new_path
     end
 
     context '次のメソッドが表示されないこと' do

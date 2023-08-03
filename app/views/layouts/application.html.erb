@@ -22,7 +22,7 @@
         <%= link_to "メソッド一覧", user_ruby_methods_path,class:" mt-4" if current_user.challenged_ruby_methods.present? %>
         <%= link_to "管理者用モジュール一覧",ruby_modules_path, class:" mt-4" if current_user.admin %>
         <%= link_to "管理者用メソッド一覧", ruby_methods_path,class:" mt-4"  if current_user.admin %>
-        <%= link_to "フラッシュカードに挑戦する", quiz_new_path,class:" mt-4 hidden md:inline-block" %>
+        <%= link_to "フラッシュカードに挑戦する", flash_card_new_path,class:" mt-4 hidden md:inline-block" %>
         <div class="dropdown dropdown-bottommb mt-3">
           <label tabindex="0" class="user-icon"><%= image_tag(current_user.image, size: "60x62") %></label>
           <div class="tooltip tooltip-bottom" data-tip="最大Lv.<%= RubyMethod.count %>に向けて頑張ろう💪">

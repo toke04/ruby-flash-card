@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class QuizController < ApplicationController
+class FlashCardController < ApplicationController
   def new
     @ruby_method = RubyMethod.new
   end

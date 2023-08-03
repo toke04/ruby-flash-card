@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module QuizHelper
+module FlashCardHelper
   def not_challenged_methods_count
     all_methods = RubyMethod.all
     challenged_methods = current_user.challenged_ruby_methods

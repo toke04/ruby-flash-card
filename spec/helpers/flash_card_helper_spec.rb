@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe QuizHelper, type: :helper do
+RSpec.describe FlashCardHelper, type: :helper do
   let!(:user) { create(:user) }
   let!(:upcase_method_of_String) { create(:upcase_method_of_String) }
   let!(:user_zip_method) { create(:user_zip_method, { user: }) }
