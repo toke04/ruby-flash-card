@@ -5,9 +5,7 @@ export const OnlineEditor = () => {
   const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
   const [codeExecResult, setCodeExecResult] = useState('')
-  const placeholderText = `text = "ruby love"
-                           text.upcase
-                           `
+  const placeholderText = `text = "ruby love"\ntext.upcase`
 
   const changeCode = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -49,6 +47,7 @@ export const OnlineEditor = () => {
               onChange={changeCode}
               padding={15}
               minHeight={200}
+              id="CodeEditor"
               style={{
                 fontSize: 20,
                 color: 'black',
