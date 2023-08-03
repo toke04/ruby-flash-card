@@ -4,7 +4,7 @@ import { useState } from 'react'
 export const OnlineEditor = () => {
   const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
-  const [codeExecResult, setCodeExecResult] = useState([])
+  const [codeExecResult, setCodeExecResult] = useState('')
   const placeholderText = `text = "ruby love"
                            text.upcase
                            `
