@@ -11,6 +11,7 @@ WORKDIR /rails
 
 # Set production environment
 ENV RAILS_ENV="production" \
+    NODE_ENV="production" \
     BUNDLE_WITHOUT="development:test" \
     BUNDLE_DEPLOYMENT="1"
 
