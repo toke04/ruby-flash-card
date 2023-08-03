@@ -43,12 +43,21 @@ export const OnlineEditor = () => {
     const module = await WebAssembly.compile(buffer)
     const { vm } = await DefaultRubyVM(module)
 
-    const res = vm.eval(`
-        %w(C C++ Rust Ruby).sample
-      `)
+    // const execRubyCode = rubyCode
+    // console.log(rubyCode)
+    // console.log(rubyCode[0])
+    // console.log(rubyCode[1])
 
-    const result = document.getElementById('result')
-    result.innerText = res.toString()
+    const res = vm.eval(`
+    ${rubyCode}
+    `)
+    setCodeExecResult(res.toString())
+    // console.log("初め")
+    // console.log(res)
+    // // console.log(res[0])
+    // // console.log(res[1])
+    // console.log(res.toString())
+    // console.log("終わり")
   }
   return(
     <div>
@@ -90,7 +99,7 @@ export const OnlineEditor = () => {
             </div>
             <div className="mb-5 flex justify-between">
               <button
-                onClick={execCode}
+                onClick={main}
                 disabled={isInvalidCodeExec()}
                 className="btn btn-neutral btn-sm mt-2"
               >
@@ -113,14 +122,11 @@ export const OnlineEditor = () => {
             </div>
             <div className="mockup-code">
               {codeExecResult &&
-                codeExecResult.map((code, index) => {
-                  return (
-                    <p className="p-2 text-success whitespace-pre" key={index}>
-                      {code}
+                    <p className="p-2 text-success whitespace-pre">
+                      {codeExecResult}
                       <br />
                     </p>
-                  )
-                })}
+              }
               {timeoutMessage && (
                 <p className="text-error p-2">{timeoutMessage}</p>
               )}
