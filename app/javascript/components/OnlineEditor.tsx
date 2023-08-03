@@ -7,6 +7,8 @@ export const OnlineEditor = () => {
   const [previousRubyCode, setPreviousRubyCode] = useState('')
   const [codeExecResult, setCodeExecResult] = useState([])
   const [timeoutMessage, setTimeoutMessage] = useState('')
+  const placeholderText = `text = "ruby love"
+text.upcase`;
   const isInvalidCodeExec = () => {
     if (rubyCode === previousRubyCode) return true
   }
@@ -21,43 +23,16 @@ export const OnlineEditor = () => {
     setCodeExecResult([])
   }
 
-  const addPreffixP = () => {
-    setRubyCode((rubyCode) =>
-      rubyCode
-        .padStart(rubyCode.length + 2, 'p ')
-        .replaceAll('\n', '\np ')
-        .slice(0, -2)
-    )
-  }
-
-  const execCode = () => {
-    // setPreviousRubyCode(rubyCode)
-    // setCodeExecResult(res.data.codeResult)
-    // setTimeoutMessage(res.data.timeoutMessage)
-  }
-
   const { DefaultRubyVM } = window["ruby-wasm-wasi"];
   const main = async () => {
     const response = await fetch("https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/ruby.wasm")
     const buffer = await response.arrayBuffer()
     const module = await WebAssembly.compile(buffer)
     const { vm } = await DefaultRubyVM(module)
-
-    // const execRubyCode = rubyCode
-    // console.log(rubyCode)
-    // console.log(rubyCode[0])
-    // console.log(rubyCode[1])
-
     const res = vm.eval(`
     ${rubyCode}
     `)
     setCodeExecResult(res.toString())
-    // console.log("初め")
-    // console.log(res)
-    // // console.log(res[0])
-    // // console.log(res[1])
-    // console.log(res.toString())
-    // console.log("終わり")
   }
   return(
     <div>
@@ -76,14 +51,14 @@ export const OnlineEditor = () => {
               e.preventDefault()
             }}
           >
-            <label>
-              <span className="font-bold">試したいコードを貼ってください</span>
-            </label>
+            <p>
+              <span className="font-bold">貼り付けたコードの最終行を出力できます</span>
+            </p>
             <div className="block w-full rounded border border-black">
               <CodeEditor
                 value={rubyCode}
                 language="ruby"
-                placeholder="ここにコードを貼り付けて下さい"
+                placeholder={placeholderText}
                 onChange={changeCode}
                 padding={15}
                 minHeight={200}
@@ -104,12 +79,6 @@ export const OnlineEditor = () => {
                 className="btn btn-neutral btn-sm mt-2"
               >
                 コードを実行する
-              </button>
-              <button
-                onClick={addPreffixP}
-                className="btn btn-sm btn-outline mt-2"
-              >
-                各行の先頭に「p」を追加する
               </button>
             </div>
             <div className="flex justify-between mt-10">
