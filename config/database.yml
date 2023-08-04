@@ -75,3 +75,8 @@ test:
 
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
+production:
+  <<: *default
+  database: ruby_flash_card_production
+  username: ruby_flash_card
+  password: <%= ENV["RUBY_FLASH_CARD_DATABASE_PASSWORD"] %>
