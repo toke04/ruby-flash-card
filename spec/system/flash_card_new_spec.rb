@@ -12,12 +12,12 @@ RSpec.describe 'FlashCard new', type: :system do
       visit flash_card_new_path
     end
 
-    it '選択肢は無しで「フラッシュカード start！」ボタンが表示されること' do
-      expect(page).to have_content 'Rubyフラッシュカードへようこそ！'
+    it '選択肢は無しで「START！」ボタンが表示されること' do
+      expect(page).to have_content 'Rubyフラッシュカードへようこそ'
       expect(page).to have_content 'START'
     end
 
-    it '「フラッシュカード START！」ボタンでフラッシュカードが出題されること', js: true do
+    it '「START！」ボタンでフラッシュカードが出題されること', js: true do
       click_on 'START'
       expect(page).to have_content 'Array'
       expect(page).to have_content 'zip'

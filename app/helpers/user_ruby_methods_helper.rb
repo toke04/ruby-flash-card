@@ -11,6 +11,6 @@ module UserRubyMethodsHelper
   def convert_remembered_word(user_ruby_method)
     return '分からなかった' if user_ruby_method.remembered == false
 
-    '分かっていた' if user_ruby_method.remembered == true
+    '分かっている' if user_ruby_method.remembered == true
   end
 end

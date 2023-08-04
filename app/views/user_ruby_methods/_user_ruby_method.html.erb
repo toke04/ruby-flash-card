@@ -4,7 +4,7 @@
       <%= user_ruby_method.ruby_method.ruby_module.name %>
     </p>
     <p>
-      <%= link_to '編集', edit_user_ruby_method_path(user_ruby_method), class: "btn btn-sm w-13 leading-15" %>
+      <%= link_to '✏️', edit_user_ruby_method_path(user_ruby_method), class: "text-xl w-13 mx-1メソッド leading-15" %>
     </p>
       <p class="ms-2 mt-1 badge badge-outline">
         <%= convert_remembered_word(user_ruby_method) %>
@@ -12,7 +12,7 @@
   </div>
 
   <p>
-    <a href="<%= user_ruby_method.ruby_method.official_url %>" target=”_blank” class="text-blue-500 underline text-xl"><%= user_ruby_method.ruby_method.name %></a>
+    <a href="<%= user_ruby_method.ruby_method.official_url %>" target=”_blank” class="text-blue-800 underline text-2xl"><%= user_ruby_method.ruby_method.name %></a>
   </p>
 
   <% if user_ruby_method.memo %>

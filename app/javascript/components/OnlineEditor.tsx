@@ -39,7 +39,7 @@ export const OnlineEditor = () => {
     <div>
       <div className="flex justify-end">
         <button
-          className="btn btn-sm btn-outline mt-10 block"
+          className="btn btn-sm btn-outline block"
           onClick={() => setShowEditor(!showEditor)}
         >
           {showEditor ? 'エディターを閉じる' : 'エディターを開く'}
@@ -47,7 +47,7 @@ export const OnlineEditor = () => {
       </div>
       {showEditor && (
         <div className="mb-6 className={`w-full h-96`}">
-          <p className="font-bold">貼り付けたコードの最終行を出力できます</p>
+          <p className="font-bold">貼り付けたコードの最終行を出力します</p>
           <div className="block w-full rounded border border-black">
             <CodeEditor
               value={rubyCode}
@@ -55,7 +55,7 @@ export const OnlineEditor = () => {
               placeholder={placeholderText}
               onChange={changeCode}
               padding={15}
-              minHeight={200}
+              minHeight={150}
               id="CodeEditor"
               style={{
                 fontSize: 20,
@@ -73,10 +73,10 @@ export const OnlineEditor = () => {
           >
             コードを実行する
           </button>
-          <p className="font-bold mt-5 mb-2">実行結果</p>
+          <p className="font-bold mt-1 mb-1">実行結果</p>
           <div className="mockup-code">
             {codeExecResult && (
-              <p className={`p-5 ${codeColor()}`}>{codeExecResult}</p>
+              <p className={`px-2 ${codeColor()}`}>{codeExecResult}</p>
             )}
           </div>
         </div>
