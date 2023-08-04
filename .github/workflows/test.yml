@@ -43,4 +43,4 @@ jobs:
         run: bin/rails db:schema:load
 
       - name: Run RSpec
-        run: bundle exec rspec spec/models spec/system
+        run: bundle exec rspec
