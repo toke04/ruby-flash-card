@@ -328,6 +328,9 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    spring (4.1.1)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -409,6 +412,7 @@ DEPENDENCIES
   rubocop-rails
   selenium-webdriver
   shoulda-matchers
+  spring-commands-rspec
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
