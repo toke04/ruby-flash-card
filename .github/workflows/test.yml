@@ -42,5 +42,8 @@ jobs:
       - name: Set up database schema
         run: bin/rails db:schema:load
 
+      - name: assets precompile
+        run:  rails assets:precompile
+
       - name: Run RSpec
         run: bundle exec rspec
