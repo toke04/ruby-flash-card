@@ -37,13 +37,10 @@ jobs:
         with:
           node-version: '18.16.1'
       - name: Install dependencies
-        run: yarn
+        run: npm install
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
-
-      - name: assets precompile
-        run:  rails assets:precompile
 
       - name: Run RSpec
         run: bundle exec rspec
