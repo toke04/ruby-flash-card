@@ -13,6 +13,10 @@ export const OnlineEditor = () => {
     setRubyCode(event.target.value)
   }
 
+  const codeColor = () => {
+    return codeExecResult.match(/Error/) ? "text-error" : "text-success"
+  }
+
   const { DefaultRubyVM } = window['ruby-wasm-wasi']
   const execRubyCode = async () => {
     const response = await fetch(
@@ -21,10 +25,15 @@ export const OnlineEditor = () => {
     const buffer = await response.arrayBuffer()
     const module = await WebAssembly.compile(buffer)
     const { vm } = await DefaultRubyVM(module)
-    const res = vm.eval(`
+    let succeededValue = ""
+    try {
+      succeededValue = vm.eval(`
     ${rubyCode}
     `)
-    setCodeExecResult(res.toString())
+      setCodeExecResult(succeededValue.toString())
+    } catch (failedValue:any) {
+      setCodeExecResult(failedValue.toString())
+    }
   }
   return (
     <div>
@@ -67,7 +76,7 @@ export const OnlineEditor = () => {
           <p className="font-bold mt-5 mb-2">実行結果</p>
           <div className="mockup-code">
             {codeExecResult && (
-              <p className="px-5 text-success">{codeExecResult}</p>
+              <p className={`p-5 ${codeColor()}`}>{codeExecResult}</p>
             )}
           </div>
         </div>
