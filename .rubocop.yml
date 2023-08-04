@@ -8,6 +8,7 @@ AllCops:
   Exclude:
     - 'bin/bundle'
     - 'db/schema.rb'
+    - 'vendor/**/*'
 
 Lint/UnusedMethodArgument:
   Enabled: false

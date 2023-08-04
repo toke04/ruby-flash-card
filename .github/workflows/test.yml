@@ -44,7 +44,7 @@ jobs:
       # Add or replace test runners here
       - name: Run Dev
         run: |
-          npm build
-          npm build:css
+          npm run build
+          npm run build:css
       - name: Run RSpec
         run: bundle exec rspec spec/models spec/system
