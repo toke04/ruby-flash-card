@@ -41,10 +41,6 @@ jobs:
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
-      # Add or replace test runners here
-      - name: Run Dev
-        run: |
-          npx run build
-          npx run build:css
+
       - name: Run RSpec
         run: bundle exec rspec spec/models spec/system

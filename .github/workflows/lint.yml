@@ -32,4 +32,4 @@ jobs:
       - name: ERB-Lint
         run: bundle exec erblint --lint-all app/
       - name: Prettier
-        run: npm prettier --check ./app/javascript
+        run: npx prettier --check ./app/javascript
