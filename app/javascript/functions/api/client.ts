@@ -5,22 +5,13 @@ const options = {
   ignoreHeaders: true,
 }
 
-const baseURL = {
-  local: '/api/v1',
-  production: 'https://ruby-flash-card.fly.dev/api/v1',
-}
-
 const csrfToken = document
   .querySelector('meta[name="csrf-token"]')
   ?.getAttribute('content')
 
 export const client = applyCaseMiddleware(
   axios.create({
-    baseURL: `${
-      import.meta.env.VITE_REACT_APP_NODE_ENV === 'development'
-        ? baseURL.local
-        : baseURL.production
-    }`,
+    baseURL: '/api/v1',
     headers: {
       'content-type': 'application/json',
       'X-CSRF-Token': csrfToken,
