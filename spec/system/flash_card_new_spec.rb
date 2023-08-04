@@ -54,7 +54,7 @@ RSpec.describe 'FlashCard new', type: :system do
     it '「分からなかったメソッドから出題する」を選択すると、前回分からなかったメソッドから出題されること' do
       choose '分からなかったメソッドから出題する'
       click_on 'START'
-      expect(page).to have_content ''
+      expect(page).to have_content 'Array'
       expect(page).to have_content 'zip'
     end
 
