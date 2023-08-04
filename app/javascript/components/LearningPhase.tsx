@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { reloadCurrentPage } from '../functions'
 import { client } from '../functions/api/client'
+import { OnlineEditor } from './OnlineEditor'
 
 type Props = {
   rubyMethod: {
@@ -60,6 +61,7 @@ export const LearningPhase = ({
           src={rubyMethod.official_url}
         ></iframe>
       </div>
+      <OnlineEditor />
       <form onSubmit={updateMemo}>
         <label>
           <span className="font-bold">覚えやすいようにメモを取ろう</span>

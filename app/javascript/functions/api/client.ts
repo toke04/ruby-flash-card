@@ -6,8 +6,8 @@ const options = {
 }
 
 const baseURL = {
-  local: "http://localhost:3000/api/v1",
-  production: "https://ruby-flash-card.fly.dev/api/v1",
+  local: 'http://localhost:3000/api/v1',
+  production: 'https://ruby-flash-card.fly.dev/api/v1',
 }
 
 const csrfToken = document

@@ -34,6 +34,13 @@ RSpec.describe 'FlashCard show', type: :system, js: true do
         end
       end
 
+      it 'オンラインエディターが表示され、実行できること' do
+        expect(page).to have_content '貼り付けたコードの最終行を出力できます'
+        fill_in 'CodeEditor', with: "'ruby love'.upcase"
+        click_on 'コードを実行する'
+        expect(page).to have_css('p', text: 'RUBY LOVE')
+      end
+
       it '「次の問題へ」を押すと、次の問題が出題されること' do
         click_on '次の問題へ'
         expect(page).to have_content 'Rubyフラッシュカード'
