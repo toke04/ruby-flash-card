@@ -54,7 +54,7 @@ export const LearningPhase = ({
 
   return (
     <div>
-      <div className="flex mb-8">
+      <div className="flex mb-4">
         <iframe
           id="officialSite"
           className={`w-full h-96`}
@@ -69,7 +69,7 @@ export const LearningPhase = ({
             value={memo ?? ''}
             onChange={changeMemo}
             rows={7}
-            className="block shadow rounded-md border border-black  outline-none px-3 py-2 w-full"
+            className="block shadow rounded-md border border-black  outline-none mt-1 px-3 py-2 w-full"
           ></textarea>
         </label>
         <div className="mb-5">
@@ -81,7 +81,7 @@ export const LearningPhase = ({
       <div className="mb-5">
         <div>
           <button
-            className="btn btn-outline mt-2"
+            className="btn btn-outline"
             onClick={() => reloadCurrentPage()}
           >
             次の問題へ

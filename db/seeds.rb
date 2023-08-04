@@ -29,7 +29,7 @@ string_methods = %w[byteindex byteslice capitalize casecmp casecmp? center chars
 
 numeric_methods = %w[abs abs2 ceil div divmod eql? fdiv integer? negative? nonzero? positive? quo remainder round step truncate zero?]
 
-range_methods = %w[begin bsearch cover? end entries eql? exclude_end? include? inspect member? size step]
+range_methods = %w[begin bsearch cover? end eql? exclude_end? include? inspect size step]
 # rubocop:enable Layout/LineLength
 
 def create_url(module_name, method_name)
