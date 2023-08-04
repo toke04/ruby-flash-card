@@ -14,7 +14,7 @@ export const OnlineEditor = () => {
   }
 
   const codeColor = () => {
-    return codeExecResult.match(/Error/) ? "text-error" : "text-success"
+    return codeExecResult.match(/Error/) ? 'text-error' : 'text-success'
   }
 
   const { DefaultRubyVM } = window['ruby-wasm-wasi']
@@ -25,13 +25,13 @@ export const OnlineEditor = () => {
     const buffer = await response.arrayBuffer()
     const module = await WebAssembly.compile(buffer)
     const { vm } = await DefaultRubyVM(module)
-    let succeededValue = ""
+    let succeededValue = ''
     try {
       succeededValue = vm.eval(`
-    ${rubyCode}
-    `)
+        ${rubyCode}
+      `)
       setCodeExecResult(succeededValue.toString())
-    } catch (failedValue:any) {
+    } catch (failedValue: any) {
       setCodeExecResult(failedValue.toString())
     }
   }
