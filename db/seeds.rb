@@ -8,7 +8,7 @@ User.create([
               admin: true
             ])
 
-module_names = %w[Enumerable Array Hash String Numeric Range Date]
+module_names = %w[Enumerable Array Hash String Numeric Range]
 
 module_names.each do |module_name|
   RubyModule.create([
@@ -30,8 +30,6 @@ string_methods = %w[byteindex byteslice capitalize casecmp casecmp? center chars
 numeric_methods = %w[abs abs2 ceil div divmod eql? fdiv integer? negative? nonzero? positive? quo remainder round step truncate zero?]
 
 range_methods = %w[begin bsearch cover? end entries eql? exclude_end? include? inspect member? size step]
-
-date_methods = %w[day mday mon next next_day next_month next_year prev_day prev_month prev_year strftime upto wday yday]
 # rubocop:enable Layout/LineLength
 
 def create_url(module_name, method_name)
@@ -72,8 +70,4 @@ end
 
 range_methods.each do |method_name|
   create_method(method_name, ruby_module_ids[5], module_names[5])
-end
-
-date_methods.each do |date_method|
-  create_method(date_method, ruby_module_ids[6], module_names[6])
 end
