@@ -73,7 +73,7 @@ export const LearningPhase = ({
           ></textarea>
         </label>
         <div className="mb-5">
-          <button className="btn btn-outline mt-2" disabled={isInvalidMemo()}>
+          <button className="btn btn-info mt-2" disabled={isInvalidMemo()}>
             保存する
           </button>
         </div>
@@ -81,7 +81,7 @@ export const LearningPhase = ({
       <div className="mb-5">
         <div>
           <button
-            className="btn mt-2 btn-info"
+            className="btn btn-outline mt-2"
             onClick={() => reloadCurrentPage()}
           >
             次の問題へ

@@ -39,7 +39,7 @@ export const OnlineEditor = () => {
     <div>
       <div className="flex justify-end">
         <button
-          className="btn btn-sm mt-10 block"
+          className="btn btn-sm btn-outline mt-10 block"
           onClick={() => setShowEditor(!showEditor)}
         >
           {showEditor ? 'エディターを閉じる' : 'エディターを開く'}
@@ -69,7 +69,7 @@ export const OnlineEditor = () => {
           </div>
           <button
             onClick={execRubyCode}
-            className="btn btn-neutral btn-sm mt-2 mb-5"
+            className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
           >
             コードを実行する
           </button>
