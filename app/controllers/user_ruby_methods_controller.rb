@@ -13,37 +13,24 @@ class UserRubyMethodsController < ApplicationController
   def create
     @user_ruby_method = UserRubyMethod.new(user_ruby_method_params)
     @user_ruby_method.user_id = current_user.id
-
-    respond_to do |format|
-      if @user_ruby_method.save
-        format.html { redirect_to user_ruby_method_url(@user_ruby_method), notice: 'メソッドを作成しました😊' }
-        format.json { render :show, status: :created, location: @user_ruby_method }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user_ruby_method.errors, status: :unprocessable_entity }
-      end
+    if @user_ruby_method.save
+      redirect_to user_ruby_method_url(@user_ruby_method), notice: 'メソッドを作成しました😊'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @user_ruby_method.update(user_ruby_method_params)
-        format.html { redirect_to user_ruby_methods_path, notice: '更新が完了しました😊' }
-        format.json { render :show, status: :ok, location: @user_ruby_method }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user_ruby_method.errors, status: :unprocessable_entity }
-      end
+    if @user_ruby_method.update(user_ruby_method_params)
+      redirect_to user_ruby_methods_path, notice: '更新が完了しました😊'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @user_ruby_method.destroy
-
-    respond_to do |format|
-      format.html { redirect_to user_ruby_methods_url, notice: '削除が完了しました🙇' }
-      format.json { head :no_content }
-    end
+    redirect_to user_ruby_methods_url, notice: '削除が完了しました🙇'
   end
 
   private

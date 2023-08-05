@@ -21,36 +21,24 @@ class RubyMethodsController < ApplicationController
   def create
     @ruby_method = RubyMethod.new(ruby_method_params)
     @ruby_method.register_method_url
-    respond_to do |format|
-      if @ruby_method.save
-        format.html { redirect_to ruby_method_url(@ruby_method), notice: '登録が完了しました' }
-        format.json { render :show, status: :created, location: @ruby_method }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @ruby_method.errors, status: :unprocessable_entity }
-      end
+    if @ruby_method.save
+      redirect_to ruby_method_url(@ruby_method), notice: '登録が完了しました'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @ruby_method.update(ruby_method_params)
-        format.html { redirect_to ruby_method_url(@ruby_method), notice: '更新が完了しました' }
-        format.json { render :show, status: :ok, location: @ruby_method }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @ruby_method.errors, status: :unprocessable_entity }
-      end
+    if @ruby_method.update(ruby_method_params)
+      redirect_to ruby_method_url(@ruby_method), notice: '更新が完了しました'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @ruby_method.destroy
-
-    respond_to do |format|
-      format.html { redirect_to ruby_methods_url, notice: '削除が完了しました' }
-      format.json { head :no_content }
-    end
+    redirect_to ruby_methods_url, notice: '削除が完了しました'
   end
 
   private
