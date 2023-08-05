@@ -17,26 +17,26 @@ export const OnlineEditor = () => {
     return codeExecResult.match(/Error/) ? 'text-error' : 'text-success'
   }
 
-  const { DefaultRubyVM } = window['ruby-wasm-wasi']
   const execRubyCode = async () => {
     const response = await fetch(
       'https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/ruby.wasm'
     )
     const buffer = await response.arrayBuffer()
     const module = await WebAssembly.compile(buffer)
+    const { DefaultRubyVM } = window['ruby-wasm-wasi']
     const { vm } = await DefaultRubyVM(module)
     let succeededValue = ''
     try {
       succeededValue = vm.eval(`
         ${rubyCode}
       `)
-      setCodeExecResult(succeededValue.toString())
+      setCodeExecResult(succeededValue.toString() || "nil")
     } catch (failedValue: any) {
       setCodeExecResult(failedValue.toString())
     }
   }
   return (
-    <div>
+    <div className="hidden md:block">
       <div className="flex justify-end">
         <button
           className="btn btn-sm btn-outline block"
