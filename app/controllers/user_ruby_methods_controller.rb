@@ -10,16 +10,6 @@ class UserRubyMethodsController < ApplicationController
 
   def edit; end
 
-  def create
-    @user_ruby_method = UserRubyMethod.new(user_ruby_method_params)
-    @user_ruby_method.user_id = current_user.id
-    if @user_ruby_method.save
-      redirect_to user_ruby_method_url(@user_ruby_method), notice: 'メソッドを作成しました😊'
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
-
   def update
     if @user_ruby_method.update(user_ruby_method_params)
       redirect_to user_ruby_methods_path, notice: '更新が完了しました😊'
@@ -36,7 +26,7 @@ class UserRubyMethodsController < ApplicationController
   private
 
   def set_user_ruby_method
-    @user_ruby_method = UserRubyMethod.find(params[:id])
+    @user_ruby_method = current_user.user_ruby_methods.find(params[:id])
   end
 
   def user_ruby_method_params
