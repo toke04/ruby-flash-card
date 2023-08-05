@@ -4,10 +4,10 @@ module MetaTagsHelper
   # rubocop:disable Metrics/MethodLength
   def default_meta_tags
     {
-      site: 'Ruby学習をサポートする Rubyフラッシュカード',
+      site: 'Rubyの学習をサポートする Rubyフラッシュカード',
       reverse: true,
       charset: 'utf-8',
-      description: 'Rubyフラッシュカードはあなたのプログラミング学習を支えるパートナーです！',
+      description: 'RubyフラッシュカードはRuby学習者向けのオンラインフラッシュカードサービスです。',
       keywords: 'プログラミング, Ruby, フラッシュカード, フィヨルドブートキャンプ, FJORD BOOT CAMP',
       viewport: 'width=device-width, initial-scale=1.0',
       og: {
@@ -16,7 +16,7 @@ module MetaTagsHelper
         site_name: 'Ruby FlashCard',
         description: :description,
         image: image_url('ogp.png'),
-        url: request.original_url,
+        url: 'https://ruby-flash-card.fly.dev/',
         locale: 'ja_JP'
       },
       twitter: {
