@@ -30,7 +30,7 @@ export const OnlineEditor = () => {
       succeededValue = vm.eval(`
         ${rubyCode}
       `)
-      setCodeExecResult(succeededValue.toString() || "nil")
+      setCodeExecResult(succeededValue.toString() || 'nil')
     } catch (failedValue: any) {
       setCodeExecResult(failedValue.toString())
     }
