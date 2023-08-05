@@ -4,8 +4,7 @@ import { useState } from 'react'
 export const OnlineEditor = () => {
   const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
-  const [codeExecResult, setCodeExecResult] = useState('')
-  const placeholderText = `text = "ruby love"\ntext.upcase`
+  const [codeResult, setCodeResult] = useState('')
 
   const changeCode = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -14,25 +13,25 @@ export const OnlineEditor = () => {
   }
 
   const codeColor = () => {
-    return codeExecResult.match(/Error/) ? 'text-error' : 'text-success'
+    return codeResult.match(/Error/) ? 'text-error' : 'text-success'
   }
 
-  const execRubyCode = async () => {
-    const response = await fetch(
+  const execCode = async () => {
+    const wasmCDN = await fetch(
       'https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/ruby.wasm'
     )
-    const buffer = await response.arrayBuffer()
+    const buffer = await wasmCDN.arrayBuffer()
     const module = await WebAssembly.compile(buffer)
     const { DefaultRubyVM } = window['ruby-wasm-wasi']
     const { vm } = await DefaultRubyVM(module)
-    let succeededValue = ''
+    let succeedValue = ''
     try {
-      succeededValue = vm.eval(`
+      succeedValue = vm.eval(`
         ${rubyCode}
       `)
-      setCodeExecResult(succeededValue.toString() || 'nil')
+      setCodeResult(succeedValue.toString() || 'nil')
     } catch (failedValue) {
-      setCodeExecResult(failedValue.toString())
+      setCodeResult(failedValue.toString())
     }
   }
   return (
@@ -52,7 +51,7 @@ export const OnlineEditor = () => {
             <CodeEditor
               value={rubyCode}
               language="ruby"
-              placeholder={placeholderText}
+              placeholder={`text = "ruby love"\ntext.upcase`}
               onChange={changeCode}
               padding={15}
               minHeight={150}
@@ -68,15 +67,15 @@ export const OnlineEditor = () => {
             />
           </div>
           <button
-            onClick={execRubyCode}
+            onClick={execCode}
             className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
           >
             コードを実行する
           </button>
           <p className="font-bold mt-1 mb-1">実行結果</p>
           <div className="mockup-code">
-            {codeExecResult && (
-              <p className={`px-2 ${codeColor()}`}>{codeExecResult}</p>
+            {codeResult && (
+              <p className={`px-2 ${codeColor()}`}>{codeResult}</p>
             )}
           </div>
         </div>

@@ -9,6 +9,6 @@ export type RubyMethodObjects = {
   }
   userRubyMethod: {
     id: number
-    description: string
+    memo: string
   }
 }
