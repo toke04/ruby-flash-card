@@ -53,12 +53,12 @@ RSpec.describe 'Users', type: :system do
       it 'URLから直接アクセスしても「RubyModules」リソースへアクセスできないこと' do
         visit ruby_modules_path
         expect(page).to_not have_selector 'a', text: 'rubyのモジュールを追加する'
-        expect(page).to have_content 'Rubyフラッシュカードへようこそ！'
+        expect(page).to have_content 'Rubyフラッシュカードへようこそ'
       end
       it 'URLから直接アクセスしても「RubyMethods」リソースへアクセスできないこと' do
         visit ruby_methods_path
         expect(page).to_not have_selector 'a', text: '共通のrubyのメソッドを追加'
-        expect(page).to have_content 'Rubyフラッシュカードへようこそ！'
+        expect(page).to have_content 'Rubyフラッシュカードへようこそ'
       end
     end
   end

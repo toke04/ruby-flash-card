@@ -4,11 +4,11 @@ module MetaTagsHelper
   # rubocop:disable Metrics/MethodLength
   def default_meta_tags
     {
-      site: 'Ruby学習をサポートする Ruby FlashCard',
+      site: 'Ruby学習をサポートする Rubyフラッシュカード',
       reverse: true,
       charset: 'utf-8',
-      description: 'Ruby Quizはあなたのプログラミング学習を支えるパートナーです！',
-      keywords: 'プログラミング, Ruby, フィヨルドブートキャンプ, FJORD BOOT CAMP',
+      description: 'Rubyフラッシュカードはあなたのプログラミング学習を支えるパートナーです！',
+      keywords: 'プログラミング, Ruby, フラッシュカード, フィヨルドブートキャンプ, FJORD BOOT CAMP',
       viewport: 'width=device-width, initial-scale=1.0',
       og: {
         title: :title,

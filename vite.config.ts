@@ -6,4 +6,11 @@ export default defineConfig({
   plugins: [
     RubyPlugin(),
   ],
+  build: {
+    rollupOptions: {
+      external: [
+        "@hotwired/turbo"
+      ],
+    },
+  },
 })

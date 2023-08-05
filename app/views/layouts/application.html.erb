@@ -9,9 +9,7 @@
     <%= favicon_link_tag 'favicon.png' %>
     <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/browser.umd.js"></script>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%#= javascript_importmap_tags 'application'  %>
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
   </head>
@@ -35,7 +33,7 @@
         </div>
       <% end %>
     </header>
-    <main class="container m-auto max-w-5xl mt-5 px-5 flex">
+    <main class="container m-auto max-w-5xl mt-1 px-5 flex">
       <%= yield %>
     </main>
     <footer class="is-size-7 mt-auto">

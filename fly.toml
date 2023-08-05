@@ -10,7 +10,7 @@ console_command = "/rails/bin/rails console"
 [build]
 
 [deploy]
-  # release_command = "./bin/setup"
+  release_command = "./bin/setup"
 
 [http_service]
   internal_port = 3000

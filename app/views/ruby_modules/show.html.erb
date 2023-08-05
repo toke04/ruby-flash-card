@@ -8,7 +8,7 @@
 
     <%= link_to '編集', edit_ruby_module_path(@ruby_module), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to '削除する', ruby_module_path(@ruby_module), method: :delete, form: { data: { turbo: true, turbo_confirm: "削除してよろしいですか？" }}, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %></div>
+      <%= button_to '削除する', ruby_module_path(@ruby_module), method: :delete, onclick: "return confirm('削除してよろしいですか？')", class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %></div>
     <%= link_to '一覧へ', ruby_modules_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
