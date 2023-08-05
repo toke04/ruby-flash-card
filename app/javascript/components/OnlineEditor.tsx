@@ -31,7 +31,7 @@ export const OnlineEditor = () => {
         ${rubyCode}
       `)
       setCodeExecResult(succeededValue.toString() || 'nil')
-    } catch (failedValue: any) {
+    } catch (failedValue) {
       setCodeExecResult(failedValue.toString())
     }
   }
