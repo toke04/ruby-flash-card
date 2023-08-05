@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
-User.create([
-              name: ENV['ADMIN_NAME'],
-              provider: 'github',
-              uid: ENV['ADMIN_UID'],
-              image: ENV['ADMIN_IMAGE'],
-              admin: true
-            ])
+# for_development_environment
+# User.destroy_all
+# RubyModule.destroy_all
+# User.create([
+#               name: ENV['ADMIN_NAME'],
+#               provider: 'github',
+#               uid: ENV['ADMIN_UID'],
+#               image: ENV['ADMIN_IMAGE'],
+#               admin: true
+#             ])
 
 module_names = %w[Enumerable Array Hash String Numeric Range]
 
@@ -23,9 +26,9 @@ enumerable_methods = %w[collect_concat detect each_cons each_entry each_slice ea
 
 array_methods = %w[append assoc at clear clone collect compact concat count delete delete_at delete_if difference dig drop drop_while dup each_index fetch fill filter find_index first flatten hash index insert inspect intersection join keep_if last length max min minmax pop prepend product push reject replace reverse reverse_each rindex rotate sample select shift shuffle size slice sort sum take take_while transpose union uniq unshift values_at zip]
 
-hash_methods = %w[assoc clear clone compact delete delete_if dig dup each_key each_pair each_value except fetch fetch_values filter flatten  hash  inspect invert keep_if key keys length merge rehash reject replace select shift size slice store transform_keys transform_values update values values_at]
+hash_methods = %w[assoc clear clone compact delete delete_if dig dup each_key each_pair each_value except fetch fetch_values filter flatten hash inspect invert keep_if key keys length merge rehash reject replace select shift size slice store transform_keys transform_values update values values_at]
 
-string_methods = %w[byteindex byteslice capitalize casecmp center chars chomp chop chr clear concat count delete delete_prefix delete_suffix downcase dump each_char each_line  gsub hash hex  index insert inspect length lines ljust lstrip match next partition prepend replace reverse rindex rjust rpartition rstrip scan scrub size slice split squeeze strip sub sum swapcase tr tr_s undump upcase upto]
+string_methods = %w[byteindex byteslice capitalize casecmp center chars chomp chop chr clear concat count delete delete_prefix delete_suffix downcase dump each_char each_line gsub hash hex index insert inspect length lines ljust lstrip match next partition prepend replace reverse rindex rjust rpartition rstrip scan scrub size slice split squeeze strip sub sum swapcase tr tr_s undump upcase upto]
 
 numeric_methods = %w[abs abs2 ceil div divmod fdiv quo remainder round step truncate]
 
