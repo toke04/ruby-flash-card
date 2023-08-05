@@ -31,5 +31,5 @@ jobs:
         run: bundle exec rubocop
       - name: ERB-Lint
         run: bundle exec erblint --lint-all app/
-      - name: Prettier
-        run: npx prettier --check ./app/javascript
+      - name: ESLint
+        run: npx eslint ./app/javascript

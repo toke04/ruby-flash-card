@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :user_ruby_methods, except: %i[new show]
+  resources :user_ruby_methods, except: %i[new create show]
   resources :ruby_methods
   resources :ruby_modules
 

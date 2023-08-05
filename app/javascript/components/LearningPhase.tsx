@@ -69,7 +69,7 @@ export const LearningPhase = ({
             value={memo ?? ''}
             onChange={changeMemo}
             rows={7}
-            className="block shadow rounded-md border border-black  outline-none mt-1 px-3 py-2 w-full"
+            className="block shadow rounded-md border border-black outline-none mt-1 px-3 py-2 w-full"
           ></textarea>
         </label>
         <div className="mb-5">

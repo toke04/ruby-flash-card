@@ -1,10 +1,10 @@
 <div class="method-item md:w-3/4 mb-12 bg-stone-50 shadow-md rounded-lg p-3 mb-4" id="<%= dom_id user_ruby_method %>">
-  <div class="flex mb-2">
+  <div class="flex mb-3">
     <p class="text-xl me-3">
       <%= user_ruby_method.ruby_method.ruby_module.name %>
     </p>
     <p>
-      <%= link_to '✏️', edit_user_ruby_method_path(user_ruby_method), class: "text-xl w-13 mx-1メソッド leading-15" %>
+      <%= link_to '✏️', edit_user_ruby_method_path(user_ruby_method), class: "text-xl w-13 mx-1 leading-15" %>
     </p>
       <p class="ms-2 mt-1 badge badge-outline">
         <%= convert_remembered_word(user_ruby_method) %>

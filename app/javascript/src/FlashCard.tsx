@@ -17,7 +17,7 @@ const FlashCard = (props: RubyMethodObjects) => {
     props.userRubyMethod ? JSON.parse(props.userRubyMethod) : ''
   )
   const [memo, setMemo] = useState(userRubyMethod.memo)
-  const [showLearningPhase, setShowLearningPhase] = useState(false)
+  const [isLearningPhase, setIsLearningPhase] = useState(false)
   const [canSeeMemo, setCanSeeMemo] = useState(false)
   const [isQuestionButtonActive, setIsQuestionButtonActive] = useState(true)
 
@@ -32,7 +32,7 @@ const FlashCard = (props: RubyMethodObjects) => {
         } else {
           setUserRubyMethod(response.data.method)
           setIsQuestionButtonActive(false)
-          setShowLearningPhase(true)
+          setIsLearningPhase(true)
         }
       })
       .catch((error) => {
@@ -50,7 +50,7 @@ const FlashCard = (props: RubyMethodObjects) => {
           reloadCurrentPage()
         } else {
           setIsQuestionButtonActive(false)
-          setShowLearningPhase(true)
+          setIsLearningPhase(true)
           setCanSeeMemo(false)
         }
       })
@@ -97,7 +97,7 @@ const FlashCard = (props: RubyMethodObjects) => {
         canSeeMemo={canSeeMemo}
         setCanSeeMemo={setCanSeeMemo}
       />
-      {showLearningPhase && (
+      {isLearningPhase && (
         <LearningPhase
           rubyMethod={rubyMethod}
           userRubyMethod={userRubyMethod}
