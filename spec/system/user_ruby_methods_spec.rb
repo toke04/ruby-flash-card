@@ -17,7 +17,7 @@ RSpec.describe 'UserRubyMethods', type: :system do
       expect(page).to have_link 'zip', href: 'https://docs.ruby-lang.org/ja/latest/method/Array/i/zip.html'
     end
 
-    it '「分かっていた」 or 「分からなかった」のラベルが表示されること' do
+    it '「分かっている」 or 「分からなかった」のラベルが表示されること' do
       expect(page).to have_selector '.method-item', text: 'zip'
       expect(page).to have_content '分からなかった'
     end
@@ -41,7 +41,7 @@ RSpec.describe 'UserRubyMethods', type: :system do
 
     context '正しくない条件の場合' do
       it '学習の進捗とモジュール名が間違っていると検索できないこと' do
-        choose '分かっていた'
+        choose '分かっている'
         choose 'Array'
         click_on '検索'
         expect(page).to_not have_content 'zip'
@@ -52,7 +52,7 @@ RSpec.describe 'UserRubyMethods', type: :system do
   describe '編集画面にアクセスした場合', js: true do
     before do
       expect(page).to have_selector '.method-item', text: 'zip'
-      click_on '編集'
+      click_on '✏️'
     end
     it 'ユーザーはメソッドを編集できること' do
       fill_in 'メモ', with: 'メモを変更しました'

@@ -25,10 +25,10 @@ RSpec.describe UserRubyMethodsHelper, type: :helper do
         expect(helper.convert_remembered_word(user_zip_method)).to eq('分からなかった')
       end
     end
-    context '分かっていた場合' do
+    context '分かっている場合' do
       let!(:user_zip_method) { create(:user_zip_method, :remembered_true) }
-      it '「分かっていた」と表示されること' do
-        expect(helper.convert_remembered_word(user_zip_method)).to eq('分かっていた')
+      it '「分かっている」と表示されること' do
+        expect(helper.convert_remembered_word(user_zip_method)).to eq('分かっている')
       end
     end
   end

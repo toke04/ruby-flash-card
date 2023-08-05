@@ -38,7 +38,7 @@ RSpec.describe 'FlashCard show', type: :system, js: true do
         expect(page).to have_content '貼り付けたコードの最終行を出力します'
         fill_in 'CodeEditor', with: "'ruby love'.upcase"
         click_on 'コードを実行する'
-        sleep 2 # ruby.wasmの実行時間にラグが見られるので、sleepを挟む
+        sleep 4 # ruby.wasmの実行時間にラグが見られるので、sleepを挟む
         expect(page).to have_css('p', text: 'RUBY LOVE')
       end
 
@@ -55,10 +55,10 @@ RSpec.describe 'FlashCard show', type: :system, js: true do
 
       it '「出題条件を変える」をクリックすると、設定画面へ遷移すること' do
         click_on '出題条件を変える'
-        expect(page).to have_content '選んだ条件から出題されます'
+        expect(page).to have_content '選んだ条件で出題されます'
         expect(page).to have_content '挑戦してないメソッドから出題する'
         expect(page).to have_content '分からなかったメソッドから出題する'
-        expect(page).to have_content '分かっていたメソッドから出題する'
+        expect(page).to have_content '分かっているメソッドから出題する'
       end
 
       it '「メソッド一覧へ」をクリックすると、メソッド一覧画面へ遷移すること' do

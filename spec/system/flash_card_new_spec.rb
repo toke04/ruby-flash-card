@@ -38,10 +38,10 @@ RSpec.describe 'FlashCard new', type: :system do
     end
 
     it '３つの選択肢が表示されること' do
-      expect(page).to have_content '選んだ条件から出題されます'
+      expect(page).to have_content '選んだ条件で出題されます'
       expect(page).to have_content '挑戦してないメソッドから出題する'
       expect(page).to have_content '分からなかったメソッドから出題する'
-      expect(page).to have_content '分かっていたメソッドから出題する'
+      expect(page).to have_content '分かっているメソッドから出題する'
     end
 
     it '「挑戦してないメソッドから出題する」を選択すると、まだ挑戦していないメソッドが表示されること' do
@@ -58,8 +58,8 @@ RSpec.describe 'FlashCard new', type: :system do
       expect(page).to have_content 'zip'
     end
 
-    it '「分かっていたメソッドから出題する」を選択すると、前回分かっていたメソッドから出題されること' do
-      choose '分かっていたメソッドから出題する'
+    it '「分かっているメソッドから出題する」を選択すると、前回分かっているメソッドから出題されること' do
+      choose '分かっているメソッドから出題する'
       click_on 'START'
       expect(page).to have_content 'Hash'
       expect(page).to have_content 'merge'
@@ -96,8 +96,8 @@ RSpec.describe 'FlashCard new', type: :system do
         expect(page).to have_content '条件で指定したで全てのメソッドが出題されました。'
       end
 
-      it '「分かっていたメソッドから出題する」を選んでいた場合' do
-        choose '分かっていたメソッドから出題する'
+      it '「分かっているメソッドから出題する」を選んでいた場合' do
+        choose '分かっているメソッドから出題する'
         click_on 'START'
         expect(page).to have_content 'Hash'
         expect(page).to have_content 'merge'
