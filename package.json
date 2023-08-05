@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint-fix": "eslint --cache --fix app/javascript/ && prettier --write app/javascript/"
   },
   "dependencies": {
     "@uiw/react-textarea-code-editor": "^2.1.7",
