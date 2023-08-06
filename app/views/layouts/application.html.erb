@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RubyFlashCard</title>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "Rubyフラッシュカード" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>

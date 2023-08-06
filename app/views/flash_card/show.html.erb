@@ -1,3 +1,4 @@
+<% content_for(:html_title) { 'フラッシュカード - Rubyフラッシュカード ' } %>
 <% if @ruby_method %>
   <%= content_tag :div, "", id: "ruby_flash_card_show",class: "container mx-auto px-4 max-w-5xl", data: { ruby_method: @ruby_method, user_ruby_method: @user_ruby_method, ruby_module: @ruby_module } %>
   <%= vite_javascript_tag 'flash_card_show.tsx' %>
