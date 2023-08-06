@@ -62,8 +62,8 @@ npm install
 このアプリを利用するには、上記二つの値を本リポジトリのルートディレクトリ直下の`.env`ファイルに記載する必要があります
 
 ```
-GITHUB_ID = 'xxxxxxxx'
-GITHUB_SECRET = 'xxxxxxxx'
+GITHUB_ID = 'Client ID'
+GITHUB_SECRET = 'Client Secret'
 ```
 
 取得の際は、以下の記事を参考にセットアップをお願い致します
