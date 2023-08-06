@@ -57,6 +57,17 @@ bin/setup
 npm install
 ```
 
+### GitHub の Client IDと Client Secretの取得について
+
+このアプリを利用するには、上記二つの値を本リポジトリのルートディレクトリ直下の`.env`ファイルに記載する必要があります
+
+```
+GITHUB_ID = 'xxxxxxxx'
+GITHUB_SECRET = 'xxxxxxxx'
+```
+
+取得の際は、以下の記事を参考にセットアップをお願い致します
+https://yurakawa.hatenablog.jp/entry/2018/06/04/002033
 ### 起動コマンド
 ```
 bin/dev
