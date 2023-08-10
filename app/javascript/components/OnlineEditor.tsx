@@ -10,6 +10,11 @@ export const OnlineEditor = () => {
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setRubyCode(event.target.value)
+    console.log(event.target.value)
+  }
+
+  const changeEditorlineNumber = () => {
+    return codeResult.match(/Error/) ? 'text-error' : 'text-success'
   }
 
   const codeColor = () => {
@@ -48,7 +53,10 @@ export const OnlineEditor = () => {
         <div className="mb-6 className={`w-full h-96`}">
           <p className="font-bold">貼り付けたコードの最終行を出力します</p>
           <div className="flex justify-center">
-            <div className="bg-gray-200 border border-black text-xl py-4 px-1">1</div>
+            <div className="flex flex-col bg-gray-200 border border-black text-xl py-4 px-1">
+              <div className="">1</div>
+              <div className="">2</div>
+            </div>
             <div className="block w-full rounded border border-black">
               <CodeEditor
                 value={rubyCode}
