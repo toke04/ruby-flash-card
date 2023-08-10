@@ -9,7 +9,6 @@
     "lint-fix": "eslint --cache --fix app/javascript/ && prettier --write app/javascript/"
   },
   "dependencies": {
-    "@uiw/react-textarea-code-editor": "^2.1.7",
     "axios": "^1.4.0",
     "axios-case-converter": "^1.1.0",
     "daisyui": "^3.3.1",
