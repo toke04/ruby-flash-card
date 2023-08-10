@@ -92,7 +92,7 @@ RSpec.describe 'FlashCard show', type: :system, js: true do
 
     context '同じメソッドにメモを書き込む場合' do
       before do
-        visit flash_card_new_path
+        visit new_flash_card_path
         choose '分からなかったメソッドから出題する'
         click_on 'START'
         expect(page).to have_content 'Hash'

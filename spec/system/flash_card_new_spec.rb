@@ -9,7 +9,7 @@ RSpec.describe 'FlashCard new', type: :system do
 
     before do
       login_as(user)
-      visit flash_card_new_path
+      visit new_flash_card_path
     end
 
     it '選択肢は無しで「START」ボタンが表示されること' do
@@ -34,7 +34,7 @@ RSpec.describe 'FlashCard new', type: :system do
 
     before do
       login_as(user)
-      visit flash_card_new_path
+      visit new_flash_card_path
     end
 
     it '３つの選択肢が表示されること' do
@@ -74,7 +74,7 @@ RSpec.describe 'FlashCard new', type: :system do
 
     before do
       login_as(user)
-      visit flash_card_new_path
+      visit new_flash_card_path
     end
 
     context '次のメソッドが表示されないこと' do
