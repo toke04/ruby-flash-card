@@ -29,7 +29,18 @@ export const OnlineEditor = () => {
       `)
       setCodeResult(succeedValue.toString() || 'nil')
     } catch (failedValue) {
-      setCodeResult(failedValue.toString())
+      const regex = /Error: eval:(\d+):in/; // 数字を抽出する正規表現
+      const match = regex.exec(failedValue.toString());
+
+      if (match && match[1]) {
+        const originalErrorLineNumber = parseInt(match[1]);
+        const errorLineNumber = originalErrorLineNumber - 1;
+        const errorCode = failedValue.toString().replace(match[0], errorLineNumber.toString() + "行目でエラーが発生しました :");
+        console.log(errorCode);
+        setCodeResult(errorCode);
+      } else {
+        console.log("No numeric value found.");
+      }
     }
   }
 
