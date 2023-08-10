@@ -6,7 +6,7 @@
   <% if UserRubyMethod.where(user_id: current_user).present? %>
     <h1 class="font-bold text-4xl">フラッシュカード設定</h1>
 
-    <%= form_with url: "/flash_card/show", method: :get, local: true do |form| %>
+    <%= form_with url: flash_card_path, method: :get, local: true do |form| %>
       <p class="font-bold mt-6 mb-8 text-2xl">選んだ条件で出題されます</p>
       <div class="my-2 flex flex-col text-xl">
         <label class="mb-1"><%= form.radio_button :quiz_mode, "not_challenged", {checked: true, class:"me-1" } %>挑戦してないメソッドから出題する</label>
@@ -16,7 +16,7 @@
         <label class="mb-1"><%= form.radio_button :quiz_mode, "remembered", {class:"me-1"  } %>分かっているメソッドから出題する</label>
         <span class="mb-4"><%= remembered_methods_count %></span>
       </div>
-      <%= form.submit "START", class: "btn btn-info mt-4 flash_card-button" %>
+      <%= form.submit "START", class: "btn btn-info mt-4 flash_cards-button" %>
     <% end %>
     <div><%= link_to 'メソッド一覧へ', user_ruby_methods_path, class: "btn btn-sm mt-7" %></div>
   <% elsif %>
@@ -27,7 +27,7 @@
         <h2 class="text-2xl mt-3">会員登録してくれてありがとうございます！</h2>
         <h2 class="text-2xl mt-3">これからRubyのメソッドをフラッシュカード形式で出題します。</h2>
         <h2 class="text-2xl mt-3 mb-10 ">公式サイトで確認しながら、正しく理解していきましょう！</h2>
-        <div><%= link_to 'START！', flash_card_show_path, class: "btn btn-lg btn-info font-bold" %></div>
+        <div><%= link_to 'START！', flash_card_path, class: "btn btn-lg btn-info font-bold" %></div>
       </div>
     </div>
   <% end %>

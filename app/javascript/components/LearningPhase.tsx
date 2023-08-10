@@ -93,7 +93,7 @@ export const LearningPhase = ({
           </a>
         </p>
         <div className="mt-10">
-          <a href="new" className="me-8 underline">
+          <a href="flash_card/new" className="me-8 underline">
             出題条件を変える
           </a>
           <a href="/user_ruby_methods" className="underline">

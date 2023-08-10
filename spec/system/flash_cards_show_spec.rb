@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'FlashCard show', type: :system, js: true do
+RSpec.describe 'FlashCards show', type: :system, js: true do
   describe 'フラッシュカードの最初の出題のテスト' do
     let!(:user) { create(:user) }
     let!(:zip_method_of_array) { create(:zip_method_of_array) }
@@ -10,7 +10,7 @@ RSpec.describe 'FlashCard show', type: :system, js: true do
 
     before do
       login_as(user)
-      visit flash_card_show_path
+      visit flash_card_path
     end
 
     context '「分かっているので次へ」を押した場合' do
@@ -79,7 +79,7 @@ RSpec.describe 'FlashCard show', type: :system, js: true do
 
     context '初めてメソッドにメモを書き込む場合' do
       it 'メモを取って保存することができる' do
-        visit flash_card_show_path
+        visit flash_card_path
         click_on('分からないので確認する')
         fill_in '覚えやすいようにメモを取ろう', with: 'メモを書き込みました'
         click_on '保存する'
