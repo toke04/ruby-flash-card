@@ -30,7 +30,7 @@ export const OnlineEditor = () => {
       const causeOfError = match[2];
       const errorMessage = match[3];
       const correctLineNumber = wrongLineNumber - 1; // ruby.wasmの仕様で、行番号が1ズレてしまうので、修正する
-      const correctErrorMessage = `${correctLineNumber}行目で以下のエラーが発生しております。 \`${causeOfError}'${errorMessage}`;
+      const correctErrorMessage = `Error occurred on line ${correctLineNumber} : \`${causeOfError}'${errorMessage}`;
       setCodeResult(correctErrorMessage);
     } else {
       console.log(`Not correctly acquired by regular expression：${match}`);
