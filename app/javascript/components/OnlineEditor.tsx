@@ -21,7 +21,7 @@ export const OnlineEditor = () => {
       .map((line, index) => `<span class='editorLineNumber'>${index + 1}</span>${line}`)
       .join("\n");
 
-  const setCorrectErrorMessage = (wrongErrorMessage) => {
+  const setCorrectErrorMessage = (wrongErrorMessage:string) => {
     // 以下のようなエラーが発生するので、それを取得する「"Error: eval:5:in `fetch_values': key not found: \"bird\" (KeyError) eval:5:in `<main>'"」
     const regex = /Error: eval:(\d+):in `([^']+)'(.*)/;
     const match = regex.exec(wrongErrorMessage.toString());
