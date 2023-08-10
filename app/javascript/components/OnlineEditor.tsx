@@ -1,19 +1,43 @@
-import CodeEditor from '@uiw/react-textarea-code-editor'
 import { useState } from 'react'
+import Editor from 'react-simple-code-editor'
+import { highlight, languages } from 'prismjs'
+import 'prismjs/components/prism-clike'
+import 'prismjs/components/prism-ruby'
+import 'prismjs/themes/prism.css'
+import '../src/OnlineEditor.css'
 
 export const OnlineEditor = () => {
   const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
   const [codeResult, setCodeResult] = useState('')
 
-  const changeCode = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setRubyCode(event.target.value)
-  }
-
   const codeColor = () => {
     return codeResult.match(/Error/) ? 'text-error' : 'text-success'
+  }
+
+  const hightlightWithLineNumbers = (input: string, language: string) =>
+    highlight(input, language)
+      .split('\n')
+      .map(
+        (line, index) =>
+          `<span class='editorLineNumber'>${index + 1}</span>${line}`
+      )
+      .join('\n')
+
+  const setCorrectErrorMessage = (wrongErrorMessage: string) => {
+    // 以下のようなエラーが発生するので、それを取得する「"Error: eval:5:in `fetch_values': key not found: \"bird\" (KeyError) eval:5:in `<main>'"」
+    const regex = /Error: eval:(\d+):in `([^']+)'(.*)/
+    const match = regex.exec(wrongErrorMessage.toString())
+    if (match && match.length === 4) {
+      const wrongLineNumber = parseInt(match[1])
+      const causeOfError = match[2]
+      const errorMessage = match[3]
+      const correctLineNumber = wrongLineNumber - 1 // ruby.wasmの仕様で、行番号が1ズレてしまうので、修正する
+      const correctErrorMessage = `Error occurred on line ${correctLineNumber} : \`${causeOfError}'${errorMessage}`
+      setCodeResult(correctErrorMessage)
+    } else {
+      console.log(`Not correctly acquired by regular expression：${match}`)
+    }
   }
 
   const execCode = async () => {
@@ -30,10 +54,11 @@ export const OnlineEditor = () => {
         ${rubyCode}
       `)
       setCodeResult(succeedValue.toString() || 'nil')
-    } catch (failedValue) {
-      setCodeResult(failedValue.toString())
+    } catch (wrongErrorMessage) {
+      setCorrectErrorMessage(wrongErrorMessage)
     }
   }
+
   return (
     <div className="hidden md:block">
       <div className="flex justify-end">
@@ -47,25 +72,22 @@ export const OnlineEditor = () => {
       {showEditor && (
         <div className="mb-6 className={`w-full h-96`}">
           <p className="font-bold">貼り付けたコードの最終行を出力します</p>
-          <div className="block w-full rounded border border-black">
-            <CodeEditor
-              value={rubyCode}
-              language="ruby"
-              placeholder={`text = "ruby love"\ntext.upcase`}
-              onChange={changeCode}
-              padding={15}
-              minHeight={150}
-              id="CodeEditor"
-              style={{
-                fontSize: 20,
-                color: 'black',
-                backgroundColor: '#EEEEEE',
-                border: '1px',
-                fontFamily:
-                  'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-              }}
-            />
-          </div>
+          <Editor
+            value={rubyCode}
+            onValueChange={(rubyCode) => setRubyCode(rubyCode)}
+            highlight={(rubyCode) => hightlightWithLineNumbers(rubyCode, languages.rb)}
+            padding={10}
+            placeholder={'text = "ruby love"\n' + 'text.upcase'}
+            textareaId="codeArea"
+            className="editor rounded"
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 18,
+              outline: 0,
+              border: '1px solid',
+              minHeight: '100px',
+            }}
+          />
           <button
             onClick={execCode}
             className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
