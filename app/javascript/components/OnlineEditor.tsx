@@ -1,21 +1,14 @@
-import CodeEditor from '@uiw/react-textarea-code-editor'
 import { useState } from 'react'
-
+import Editor from "react-simple-code-editor";
+import {highlight, languages} from "prismjs";
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-ruby';
+import 'prismjs/themes/prism.css';
+import "../src/OnlineEditor.css"
 export const OnlineEditor = () => {
   const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
   const [codeResult, setCodeResult] = useState('')
-
-  const changeCode = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setRubyCode(event.target.value)
-    console.log(event.target.value)
-  }
-
-  const changeEditorlineNumber = () => {
-    return codeResult.match(/Error/) ? 'text-error' : 'text-success'
-  }
 
   const codeColor = () => {
     return codeResult.match(/Error/) ? 'text-error' : 'text-success'
@@ -39,6 +32,13 @@ export const OnlineEditor = () => {
       setCodeResult(failedValue.toString())
     }
   }
+
+  const hightlightWithLineNumbers = (input:string, language:string) =>
+    highlight(input, language)
+      .split("\n")
+      .map((line, i) => `<span class='editorLineNumber'>${i + 1}</span>${line}`)
+      .join("\n");
+
   return (
     <div className="hidden md:block">
       <div className="flex justify-end">
@@ -52,33 +52,23 @@ export const OnlineEditor = () => {
       {showEditor && (
         <div className="mb-6 className={`w-full h-96`}">
           <p className="font-bold">貼り付けたコードの最終行を出力します</p>
-          <div className="flex justify-center">
-            <div className="flex flex-col bg-gray-200 border border-black text-xl py-4 px-1">
-              <div className="">1</div>
-              <div className="">2</div>
-            </div>
-            <div className="block w-full rounded border border-black">
-              <CodeEditor
-                value={rubyCode}
-                language="ruby"
-                placeholder={`text = "ruby love"\ntext.upcase`}
-                onChange={changeCode}
-                padding={15}
-                minHeight={150}
-                prefixCls="neko"
-                id="CodeEditor"
-                style={{
-                  fontSize: 20,
-                  color: 'black',
-                  backgroundColor: '#EEEEEE',
-                  border: '1px',
-                  fontFamily:
-                    'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-                }}
-              />
-            </div>
-          </div>
-
+          <Editor
+            value={rubyCode}
+            onValueChange={code => setRubyCode(code)}
+            highlight={code => hightlightWithLineNumbers(code, languages.rb)}
+            padding={10}
+            placeholder={'text = "ruby love"\n' +
+              'text.upcase'}
+            textareaId="codeArea"
+            className="editor rounded"
+            style={{
+              fontFamily: '"Fira code", "Fira Mono", monospace',
+              fontSize: 18,
+              outline: 0,
+              border: "1px solid",
+              minHeight: "100px"
+            }}
+          />
           <button
             onClick={execCode}
             className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
