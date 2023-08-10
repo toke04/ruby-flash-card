@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe 'FlashCard new', type: :system do
+RSpec.describe 'FlashCards new', type: :system do
   context '初めて利用した場合' do
     let!(:user) { create(:user) }
     let!(:zip_method_of_array) { create(:zip_method_of_array) }
 
     before do
       login_as(user)
-      visit flash_card_new_path
+      visit new_flash_card_path
     end
 
     it '選択肢は無しで「START」ボタンが表示されること' do
@@ -34,7 +34,7 @@ RSpec.describe 'FlashCard new', type: :system do
 
     before do
       login_as(user)
-      visit flash_card_new_path
+      visit new_flash_card_path
     end
 
     it '３つの選択肢が表示されること' do
@@ -74,7 +74,7 @@ RSpec.describe 'FlashCard new', type: :system do
 
     before do
       login_as(user)
-      visit flash_card_new_path
+      visit new_flash_card_path
     end
 
     context '次のメソッドが表示されないこと' do
