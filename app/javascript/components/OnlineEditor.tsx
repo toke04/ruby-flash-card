@@ -5,6 +5,7 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-ruby';
 import 'prismjs/themes/prism.css';
 import "../src/OnlineEditor.css"
+
 export const OnlineEditor = () => {
   const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
@@ -12,6 +13,28 @@ export const OnlineEditor = () => {
 
   const codeColor = () => {
     return codeResult.match(/Error/) ? 'text-error' : 'text-success'
+  }
+
+  const hightlightWithLineNumbers = (input:string, language:string) =>
+    highlight(input, language)
+      .split("\n")
+      .map((line, index) => `<span class='editorLineNumber'>${index + 1}</span>${line}`)
+      .join("\n");
+
+  const setCorrectErrorMessage = (wrongErrorMessage) => {
+    // 以下のようなエラーが発生するので、それを取得する「"Error: eval:5:in `fetch_values': key not found: \"bird\" (KeyError) eval:5:in `<main>'"」
+    const regex = /Error: eval:(\d+):in `([^']+)'(.*)/;
+    const match = regex.exec(wrongErrorMessage.toString());
+    if (match && match.length === 4) {
+      const wrongLineNumber = parseInt(match[1]);
+      const causeOfError = match[2];
+      const errorMessage = match[3];
+      const correctLineNumber = wrongLineNumber - 1; // ruby.wasmの仕様で、行番号が1ズレてしまうので、修正する
+      const correctErrorMessage = `${correctLineNumber}行目で以下のエラーが発生しております。 \`${causeOfError}'${errorMessage}`;
+      setCodeResult(correctErrorMessage);
+    } else {
+      console.log(`Not correctly acquired by regular expression：${match}`);
+    }
   }
 
   const execCode = async () => {
@@ -29,30 +52,9 @@ export const OnlineEditor = () => {
       `)
       setCodeResult(succeedValue.toString() || 'nil')
     } catch (wrongErrorMessage) {
-      // 以下のようなエラーが発生するので、それを取得する「"Error: eval:5:in `fetch_values': key not found: \"bird\" (KeyError) eval:5:in `<main>'"」
-      const regex = /Error: eval:(\d+):in `([^']+)'(.*)/;
-      const match = regex.exec(wrongErrorMessage.toString());
-
-      if (match && match.length === 4) {
-        const wrongLineNumber = parseInt(match[1]);
-        const causeOfError = match[2];
-        const errorMessage = match[3];
-
-        const correctLineNumber = wrongLineNumber - 1; // ruby.wasmの仕様で、行番号が1ズレてしまうので、修正する
-        const correctErrorMessage = `${correctLineNumber}行目で以下のエラーが発生しております。 \`${causeOfError}'${errorMessage}`;
-        setCodeResult(correctErrorMessage);
-      } else {
-        console.log("No numeric value found.");
-      }
-      // setCodeResult(failedValue.toString());
+      setCorrectErrorMessage(wrongErrorMessage)
     }
   }
-
-  const hightlightWithLineNumbers = (input:string, language:string) =>
-    highlight(input, language)
-      .split("\n")
-      .map((line, i) => `<span class='editorLineNumber'>${i + 1}</span>${line}`)
-      .join("\n");
 
   return (
     <div className="hidden md:block">
