@@ -28,19 +28,23 @@ export const OnlineEditor = () => {
         ${rubyCode}
       `)
       setCodeResult(succeedValue.toString() || 'nil')
-    } catch (failedValue) {
-      const regex = /Error: eval:(\d+):in/; // 数字を抽出する正規表現
-      const match = regex.exec(failedValue.toString());
+    } catch (wrongErrorMessage) {
+      // 以下のようなエラーが発生するので、それを取得する「"Error: eval:5:in `fetch_values': key not found: \"bird\" (KeyError) eval:5:in `<main>'"」
+      const regex = /Error: eval:(\d+):in `([^']+)'(.*)/;
+      const match = regex.exec(wrongErrorMessage.toString());
 
-      if (match && match[1]) {
-        const originalErrorLineNumber = parseInt(match[1]);
-        const errorLineNumber = originalErrorLineNumber - 1;
-        const errorCode = failedValue.toString().replace(match[0], errorLineNumber.toString() + "行目でエラーが発生しました :");
-        console.log(errorCode);
-        setCodeResult(errorCode);
+      if (match && match.length === 4) {
+        const wrongLineNumber = parseInt(match[1]);
+        const causeOfError = match[2];
+        const errorMessage = match[3];
+
+        const correctLineNumber = wrongLineNumber - 1; // ruby.wasmの仕様で、行番号が1ズレてしまうので、修正する
+        const correctErrorMessage = `${correctLineNumber}行目で以下のエラーが発生しております。 \`${causeOfError}'${errorMessage}`;
+        setCodeResult(correctErrorMessage);
       } else {
         console.log("No numeric value found.");
       }
+      // setCodeResult(failedValue.toString());
     }
   }
 
