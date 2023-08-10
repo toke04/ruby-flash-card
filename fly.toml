@@ -8,7 +8,7 @@ primary_region = "nrt"
 console_command = "/rails/bin/rails console"
 
 [deploy]
-  release_command = "./bin/setup"
+  # release_command = "./bin/setup"
 
 [http_service]
   internal_port = 3000
