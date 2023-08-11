@@ -75,7 +75,9 @@ export const OnlineEditor = () => {
           <Editor
             value={rubyCode}
             onValueChange={(rubyCode) => setRubyCode(rubyCode)}
-            highlight={(rubyCode) => hightlightWithLineNumbers(rubyCode, languages.rb)}
+            highlight={(rubyCode) =>
+              hightlightWithLineNumbers(rubyCode, languages.rb)
+            }
             padding={10}
             placeholder={'text = "ruby love"\n' + 'text.upcase'}
             textareaId="codeArea"
