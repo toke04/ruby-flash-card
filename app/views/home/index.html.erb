@@ -3,13 +3,13 @@
     <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block my-10 text-center lg:ms-96" id="notice"><%= notice %></p>
   <% end %>
   <h1 class="font-bold text-4xl text-center mb-5">Rubyのメソッドを効率良く学びたくないですか？</h1>
-  <h2 class="text-2xl font-bold text-center"><span>その悩み「Rubyフラッシュカード」が叶えます！</span></h2>
+  <h2 class="text-3xl font-bold text-center">その悩み「Rubyフラッシュカード」が叶えます！</h2>
 
+  <div class="flex justify-center mt-5"><%= image_tag("logo.png", alt: "ロゴ", class: "w-48 h-24 md:w-96 h-48") %></div>
   <div class="flex justify-center mt-1">
-    <%= button_to "GitHubアカウントで簡単にログイン！",'/users/auth/github', data: { turbo: false }, class: "btn btn-info btn-lg mt-4 " %><br>
+    <%= button_to "GitHubアカウントでログイン",'/users/auth/github', data: { turbo: false }, class: "rounded-lg btn-info btn-lg mt-2 font-bold text-gray-800" %>
   </div>
-  <div class="flex justify-center mt-7"><%= image_tag("logo.png", alt: "ロゴ", class: "w-48 h-24 md:w-96 h-48") %></div>
-  <div class="mt-2 lg:ms-48 ">
+  <div class="mt-6 lg:ms-48 ">
     <p class="text-3xl text-center mb-3 lg:me-48 underline">Rubyフラッシュカードのここが凄い！</p>
     <h3 class="text-2xl font-bold">1. 「学習効率」の良いクラスから「<%= RubyMethod.count %>問の厳選された」メソッドで確実にレベルアップ!</h3>
     <div class="flex justify-start my-5">
@@ -19,18 +19,15 @@
         <% end %>
       </ul>
     </div>
-    <%= image_tag("question.png") %>
-    <h3 class="text-2xl mt-10 font-bold">2. 分からないメソッドを公式サイトで簡単に確認し、</h3>
-    <h3 class="text-2xl mb-5 font-bold">オンラインエディターで「その場でコピー」して試すことができる！</h3>
+    <h3 class="text-2xl mt-10 mb-5 font-bold">2. 分からないメソッドの公式ドキュメントが、タブを移動せずその場で確認でき、オンラインエディターですぐ試すことができる！</h3>
     <%= image_tag("main_feature.png") %>
     <p class="text-2xl font-bold mt-10 mb-4">3. ３種類の出題設定で効率よく学べる(復習もラクラク♪)</p>
     <%= image_tag("config.png") %>
     <h3 class="text-3xl mb-5 mt-10 font-bold">さあ、最大Lvに向けて頑張ろう！</h3>
     <%= image_tag("user_level.png") %>
-    <h3 class="text-gray-600">※コンテンツの改良により最大Lvは日々変化します😊</h3>
+    <h3 class="text-gray-600">※コンテンツの改良により最大Lvは日々変化します</h3>
     <div class="flex flex-col justify-center mt-1">
-      <p class="text-xl font-bold mt-5">アカウント登録不要で「無料」で使えます！</p>
-      <%= button_to "GitHubアカウントでログインする",'/users/auth/github', data: { turbo: false }, class: "btn btn-lg btn-info mt-2 " %><br>
+      <%= button_to "GitHubアカウントでログイン",'/users/auth/github', data: { turbo: false }, class: "rounded-lg btn-lg btn-info mt-2 font-bold" %><br>
     </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ module LoginHelper
       uid: user.uid
     )
     visit root_path
-    click_on 'GitHubアカウントでログイン'
+    click_on 'GitHubアカウントでログイン', match: :first
     @current_user = user
   end
 
