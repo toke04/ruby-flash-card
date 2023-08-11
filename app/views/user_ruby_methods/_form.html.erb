@@ -23,14 +23,7 @@
     <%= form.text_area :memo, rows: 5, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <% if action_name == "edit" %>
-    <div class="my-5">
-      <%= form.label :remembered %>
-      <%= form.check_box :remembered, class: "block mt-2 h-5 w-5" %>
-    </div>
-  <% end %>
-
-  <h2 class="font-bold text-2xl text-blue-600 underline mb-5"><a target=”_blank” href="<%= @user_ruby_method.ruby_method.official_url %>">公式で確認する</a></h2>
+  <h2 class="font-bold text-xl text-blue-600 underline mb-5"><a target=”_blank” href="<%= @user_ruby_method.ruby_method.official_url %>">公式で確認する</a></h2>
 
   <div class="inline">
     <%= form.submit "更新する", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
