@@ -38,12 +38,10 @@ https://ruby-flash-card.fly.dev/
 - react-toastify 9.1.3
 - @uiw/react-textarea-code-editor 2.1.7
 - ESLint 8.45.0
-- Prettier 3.0.0 
-- ruby-head-wasm-wasi
-- Hotwire
-  - Turbo 1.4.0
+- Prettier 3.0.0
 - RSpec 6.0.3
 - Factory_bot 6.2.1
+- ruby-wasm
 - PostgreSQL
 - GitHub Actions
 - Docker
