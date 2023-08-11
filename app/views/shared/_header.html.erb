@@ -7,7 +7,7 @@
     <%= link_to "フラッシュカードに挑戦する", new_flash_card_path,class:" mt-4 hidden md:inline-block" %>
     <div class="dropdown dropdown-bottommb mt-3">
       <label tabindex="0" class="user-icon"><%= image_tag(current_user.image, size: "60x62") %></label>
-      <div class="tooltip tooltip-bottom" data-tip="最大Lv.<%= RubyMethod.count %>に向けて頑張ろう💪">
+      <div class="tooltip tooltip-bottom" data-tip="最大Lv.<%= RubyMethod.count %>に向けて頑張ろう!">
         <span>Lv.<%= UserRubyMethod.where(user_id: current_user, remembered: true).count %>🔥</span>
       </div>
       <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box">
