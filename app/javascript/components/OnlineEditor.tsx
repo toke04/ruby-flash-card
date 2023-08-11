@@ -71,7 +71,9 @@ export const OnlineEditor = () => {
       </div>
       {showEditor && (
         <div className="mb-6 className={`w-full h-96`}">
-          <p className="font-bold">貼り付けたコードの最終行を出力します</p>
+          <p className="font-bold">
+            貼り付けたコードの最終行の戻り値を出力します
+          </p>
           <Editor
             value={rubyCode}
             onValueChange={(rubyCode) => setRubyCode(rubyCode)}
