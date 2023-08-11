@@ -10,20 +10,20 @@
     <%= button_to "GitHubアカウントでログイン",'/users/auth/github', class: "rounded-lg btn-info btn-lg mt-2 font-bold text-gray-700" %>
   </div>
   <div class="mt-6 lg:ms-48 ">
-    <p class="text-3xl text-center mb-5 font-bold lg:me-48">Rubyフラッシュカードのここが凄い</p>
+    <p class="text-3xl text-center mt-3 mb-5 font-bold lg:me-48">Rubyフラッシュカードのここが凄い</p>
     <h3 class="text-2xl">1. 「学習効率」の良いクラスから「<%= RubyMethod.count %>問の厳選された」メソッドで確実にレベルアップ!</h3>
-    <div class="flex justify-start my-5">
-      <ul class="max-w-md space-y-1 list-disc list-inside text-xl text-gray-600	 lg:ms-5">
+    <div class="flex justify-start mt-3">
+      <ul class="max-w-md space-y-1 list-disc list-inside text-xl text-gray-600	lg:ms-5">
         <% RubyModule.all.each do |ruby_module| %>
         <li><%= ruby_module.name %></li>
         <% end %>
       </ul>
     </div>
-    <h3 class="text-2xl mt-10 mb-7">2. 分からないメソッドの公式ドキュメントが、タブを移動せずその場で確認でき、オンラインエディターですぐ試すことができる！</h3>
+    <h3 class="text-2xl mt-8 mb-4">2. 分からないメソッドの公式ドキュメントが、タブを移動せずその場で確認でき、オンラインエディターですぐ試すことができる！</h3>
     <%= image_tag("main_feature.png") %>
-    <p class="text-2xl mt-10 mb-4">3. ３種類の出題設定で効率よく学べる(復習もラクラク♪)</p>
+    <p class="text-2xl mt-8 mb-1">3. ３種類の出題設定で効率よく学べる(復習もラクラク♪)</p>
     <%= image_tag("config.png") %>
-    <h3 class="text-3xl mb-5 mt-10 font-bold">さあ、最大Lvに向けて頑張ろう！</h3>
+    <h3 class="text-3xl mb-1 mt-5 font-bold">さあ、最大Lvに向けて頑張ろう！</h3>
     <%= image_tag("user_level.png") %>
     <h3 class="text-gray-600">※コンテンツの改良により最大Lvは日々変化します</h3>
     <div class="flex flex-col justify-center mt-1">
