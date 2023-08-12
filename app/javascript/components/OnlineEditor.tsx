@@ -13,7 +13,9 @@ export const OnlineEditor = () => {
   const [codeResult, setCodeResult] = useState('')
   useHotkeys(
     'metaKey+enter',
-    () => { execCode() },
+    () => {
+      execCode()
+    },
     { enableOnFormTags: true }
   )
 
@@ -105,8 +107,13 @@ export const OnlineEditor = () => {
             >
               コードを実行する
             </button>
-            <span className="tooltip" data-tip="Mac:⌘+Enter or Windows:Ctrl+Enter">
-              <span className="underline inline-block ms-3 mt-3">スラッシュコマンドでも実行可能です</span>
+            <span
+              className="tooltip"
+              data-tip="Mac:⌘+Enter or Windows:Ctrl+Enter"
+            >
+              <span className="underline inline-block ms-3 mt-3">
+                スラッシュコマンドでも実行可能です
+              </span>
             </span>
           </div>
           <p className="font-bold mt-1 mb-1">実行結果</p>
