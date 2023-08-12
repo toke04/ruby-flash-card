@@ -12,9 +12,9 @@
   <% end %>
 
   <p class="font-bold text-1xl mt-5">メソッド名</p>
-  <h2 class="font-bold text-2xl">
+  <p class="font-bold text-2xl">
     <%= @user_ruby_method.ruby_method.ruby_module.name %>#<%= @user_ruby_method.ruby_method.name %>
-  </h2>
+  </p>
 
   <%= form.hidden_field :ruby_method_id, :value => @user_ruby_method.ruby_method.id %>
 
@@ -23,7 +23,7 @@
     <%= form.text_area :memo, rows: 7, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <h2 class="font-bold text-xl text-blue-600 underline mb-5"><a target=”_blank” href="<%= @user_ruby_method.ruby_method.official_url %>">公式で確認する</a></h2>
+  <p class="font-bold text-xl text-blue-600 underline mb-5"><a target=”_blank” href="<%= @user_ruby_method.ruby_method.official_url %>">公式で確認する</a></p>
 
   <div class="inline">
     <%= form.submit "更新する", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
