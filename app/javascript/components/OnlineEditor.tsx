@@ -109,7 +109,7 @@ export const OnlineEditor = () => {
             </button>
             <span
               className="tooltip"
-              data-tip="Mac:⌘+Enter or Windows:Ctrl+Enter"
+              data-tip="Mac:⌘+Enter or Windows:Windowsキー+Enter"
             >
               <span className="underline inline-block ms-3 mt-3">
                 スラッシュコマンドでも実行可能です
