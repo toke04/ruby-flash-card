@@ -12,18 +12,18 @@
     <div class="flex justify-between items-center mt-3">
       <div class='label-select'>
         <p class="mb-1">学習の進捗で絞り込む</p>
-        <label><%= f.radio_button :remembered_eq, '',class:"me-1" %>全て</label>
-        <label><%= f.radio_button :remembered_eq, true,class:"me-1" %>分かっている</label>
-        <label><%= f.radio_button :remembered_eq, false,class:"me-1" %>分からなかった</label>
+        <label class="cursor-pointer"><%= f.radio_button :remembered_eq, '',class:"me-1" %>全て</label>
+        <label class="cursor-pointer"><%= f.radio_button :remembered_eq, true,class:"me-1" %>分かっている</label>
+        <label class="cursor-pointer"><%= f.radio_button :remembered_eq, false,class:"me-1" %>分からなかった</label>
       </div>
     </div>
     <div class="flex justify-between items-center ">
       <div class='label-select'>
         <p class="mb-1 mt-2">カテゴリーで絞り込む</p>
-        <label><%= f.radio_button :ruby_method_ruby_module_name_eq, '',class:"me-1" %>全て</label>
-        <%= f.collection_radio_buttons(:ruby_method_ruby_module_name_eq, RubyModule.all, :name, :name) do |b| %>
+        <label class="cursor-pointer"><%= f.radio_button :ruby_method_ruby_module_name_eq, '',class:"me-1" %>全て</label>
+        <%= f.collection_radio_buttons(:ruby_method_ruby_module_name_eq, RubyModule.all, :name, :name, class:"cursor-pointer") do |b| %>
           <%= b.radio_button %>
-          <%= b.label class: "me-1" %>
+          <%= b.label class: "me-1 cursor-pointer" %>
         <% end %>
       </div>
     </div>
