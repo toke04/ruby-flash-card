@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Editor from 'react-simple-code-editor'
+import { useHotkeys } from 'react-hotkeys-hook'
 import { highlight, languages } from 'prismjs'
 import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-ruby'
@@ -10,6 +11,11 @@ export const OnlineEditor = () => {
   const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
   const [codeResult, setCodeResult] = useState('')
+  useHotkeys(
+    'metaKey+enter',
+    () => { execCode() },
+    { enableOnFormTags: true }
+  )
 
   const codeColor = () => {
     return codeResult.match(/Error/) ? 'text-error' : 'text-success'
