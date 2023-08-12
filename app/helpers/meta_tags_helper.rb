@@ -7,7 +7,7 @@ module MetaTagsHelper
       site: 'Rubyの学習をサポートする Rubyフラッシュカード',
       reverse: true,
       charset: 'utf-8',
-      description: 'RubyフラッシュカードはRuby学習者向けのオンラインフラッシュカードサービスです。',
+      description: 'RubyフラッシュカードはRuby学習者が効率良くRubyのメソッドを覚えることができるオンラインフラッシュカードサービスです。',
       keywords: 'Ruby, 学習, 効率の良い',
       viewport: 'width=device-width, initial-scale=1.0',
       og: {
