@@ -98,12 +98,21 @@ export const OnlineEditor = () => {
               minHeight: '100px',
             }}
           />
-          <button
-            onClick={execCode}
-            className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
-          >
-            コードを実行する
-          </button>
+          <div className="flex">
+            <button
+              onClick={execCode}
+              className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
+            >
+              コードを実行する
+            </button>
+            <span className="tooltip tooltip-right" data-tip="以下のショートカットキーでも実行可能です Mac:⌘+Enter, Windows:Ctrl+Enter">
+            <svg className="ms-3 mt-3 h-6 w-6 text-yellow-500" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2"
+                 stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none"
+                                                                                                        d="M0 0h24v24H0z"/>  <circle
+              cx="12" cy="12" r="9"/>  <line x1="12" y1="8" x2="12.01" y2="8"/>  <polyline
+              points="11 12 12 12 12 16 13 16"/></svg>
+          </span>
+          </div>
           <p className="font-bold mt-1 mb-1">実行結果</p>
           <div className="mockup-code">
             {codeResult && (
