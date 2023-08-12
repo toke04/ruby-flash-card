@@ -29,8 +29,7 @@
   <div id="<%= user_ruby_method.ruby_method.name %>-url" class="hidden">
     <iframe
       class="w-full h-96 mt-3"
-      src="<%= user_ruby_method.ruby_method.official_url %>"
-    ></iframe>
+      src="<%= user_ruby_method.ruby_method.official_url %>"></iframe>
     <div class="flex justify-end">
       <a href="<%= user_ruby_method.ruby_method.official_url %>" class="text-blue-700 underline text-xl mt-3">公式URL</a>
     </div>
@@ -44,8 +43,9 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const openOfficialUrl = document.getElementById("open-official-url");
-    const iframe = document.getElementById("<%= user_ruby_method.ruby_method.name %>-url");
+    const methodName = "<%= user_ruby_method.ruby_method.name %>-url" <%# erblint:disable ErbSafety %>
 
+    const iframe = document.getElementById(methodName);
     openOfficialUrl.addEventListener("click", () => {
       iframe.classList.toggle("hidden");
     });
