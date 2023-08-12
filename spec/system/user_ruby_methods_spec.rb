@@ -11,10 +11,13 @@ RSpec.describe 'UserRubyMethods', type: :system do
     visit user_ruby_methods_path
   end
 
-  describe '一覧画面にアクセスした場合' do
-    it '表示されるメソッドには公式サイトにアクセスできるリンクがあること' do
-      expect(page).to have_selector '.method-item', text: 'zip'
-      expect(page).to have_link 'zip', href: 'https://docs.ruby-lang.org/ja/latest/method/Array/i/zip.html'
+  describe '一覧画面にアクセスした場合', js: true do
+    it '表示されるメソッド名をクリックするとiframeで公式サイトを表示すること' do
+      find('#zip', text: 'zip').click
+      official_site_iframe = find('iframe[id=officialSite]')
+      Capybara.within_frame official_site_iframe do
+        expect(page).to have_content(/Ruby [3-9]\.[0-9] リファレンスマニュアル/)
+      end
     end
 
     it '「分かっている」 or 「分からなかった」のラベルが表示されること' do

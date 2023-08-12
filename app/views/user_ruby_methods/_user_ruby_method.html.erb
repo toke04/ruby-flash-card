@@ -1,4 +1,4 @@
-<div class="method-item md:w-3/4 mb-12 bg-stone-50 shadow-md rounded-lg p-3 mb-4" id="<%= dom_id user_ruby_method %>">
+<div class="method-item md:w-full mb-12 bg-stone-50 shadow-md rounded-lg p-3 mb-4" id="<%= dom_id user_ruby_method %>">
   <div class="flex mb-3">
     <p class="text-xl me-3">
       <%= user_ruby_method.ruby_method.ruby_module.name %>
@@ -11,9 +11,18 @@
       </p>
   </div>
 
-  <p>
-    <a href="<%= user_ruby_method.ruby_method.official_url %>" target=”_blank” class="text-blue-800 underline text-2xl"><%= user_ruby_method.ruby_method.name %></a>
+  <p id="<%= user_ruby_method.ruby_method.name %>" class="text-blue-900 underline text-2xl cursor-pointer">
+    <%= user_ruby_method.ruby_method.name %>
   </p>
+  <div id="<%= user_ruby_method.ruby_method.name %>-url" class="hidden">
+    <iframe
+      id="officialSite"
+      class="w-full h-96 mt-3"
+      src="<%= user_ruby_method.ruby_method.official_url %>"></iframe>
+    <div class="flex justify-end">
+      <a href="<%= user_ruby_method.ruby_method.official_url %>" class="text-blue-700 underline text-xl mt-3">公式URL</a>
+    </div>
+  </div>
 
   <% if user_ruby_method.memo %>
     <p class="my-5">
@@ -22,3 +31,15 @@
     </p>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const methodName = document.getElementById("<%= user_ruby_method.ruby_method.name %>"); <%# erblint:disable ErbSafety %>
+
+    const iframe = document.getElementById("<%= user_ruby_method.ruby_method.name %>-url"); <%# erblint:disable ErbSafety %>
+
+    methodName.addEventListener("click", () => {
+      iframe.classList.toggle("hidden");
+    });
+  });
+</script>
