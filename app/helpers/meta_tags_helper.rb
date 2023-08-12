@@ -8,12 +8,12 @@ module MetaTagsHelper
       reverse: true,
       charset: 'utf-8',
       description: 'RubyフラッシュカードはRuby学習者向けのオンラインフラッシュカードサービスです。',
-      keywords: 'プログラミング, Ruby, フラッシュカード, フィヨルドブートキャンプ, FJORD BOOT CAMP',
+      keywords: 'Ruby, 学習, 効率の良い',
       viewport: 'width=device-width, initial-scale=1.0',
       og: {
         title: :title,
         type: 'website',
-        site_name: 'Ruby FlashCard',
+        site_name: 'Rubyフラッシュカード',
         description: :description,
         image: image_url('ogp.png'),
         url: 'https://ruby-flash-card.fly.dev/',
@@ -33,10 +33,10 @@ module MetaTagsHelper
     default_meta_tags.deep_merge({
                                    title:,
                                    og: {
-                                     title: title || 'Ruby FlashCard'
+                                     title: title || 'Rubyフラッシュカード'
                                    },
                                    twitter: {
-                                     title: title || 'Ruby FlashCard'
+                                     title: title || 'Rubyフラッシュカード'
                                    }
                                  })
   end
