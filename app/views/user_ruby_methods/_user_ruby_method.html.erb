@@ -11,9 +11,14 @@
       </p>
   </div>
 
-  <p>
-    <a href="<%= user_ruby_method.ruby_method.official_url %>" target=”_blank” class="text-blue-800 underline text-2xl"><%= user_ruby_method.ruby_method.name %></a>
+  <p id="<%= user_ruby_method.ruby_method.name %>" class="text-blue-900 underline text-2xl cursor-pointer">
+    <%= user_ruby_method.ruby_method.name %>
   </p>
+  <iframe
+    id="<%= user_ruby_method.ruby_method.name %>-url"
+    class="w-full h-96 hidden"
+    src="<%= user_ruby_method.ruby_method.official_url %>"
+  ></iframe>
 
   <% if user_ruby_method.memo %>
     <p class="my-5">
@@ -22,3 +27,14 @@
     </p>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const methodName = document.getElementById("<%= user_ruby_method.ruby_method.name %>");
+    const iframe = document.getElementById("<%= user_ruby_method.ruby_method.name %>-url");
+
+    methodName.addEventListener("click", () => {
+      iframe.classList.toggle("hidden");
+    });
+  });
+</script>
