@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Editor from 'react-simple-code-editor'
+import { useHotkeys } from 'react-hotkeys-hook'
 import { highlight, languages } from 'prismjs'
 import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-ruby'
@@ -10,6 +11,13 @@ export const OnlineEditor = () => {
   const [showEditor, setShowEditor] = useState(true)
   const [rubyCode, setRubyCode] = useState('')
   const [codeResult, setCodeResult] = useState('')
+  useHotkeys(
+    'metaKey+enter',
+    () => {
+      execCode()
+    },
+    { enableOnFormTags: true }
+  )
 
   const codeColor = () => {
     return codeResult.match(/Error/) ? 'text-error' : 'text-success'
@@ -92,12 +100,22 @@ export const OnlineEditor = () => {
               minHeight: '100px',
             }}
           />
-          <button
-            onClick={execCode}
-            className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
-          >
-            コードを実行する
-          </button>
+          <div className="flex">
+            <button
+              onClick={execCode}
+              className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
+            >
+              コードを実行する
+            </button>
+            <span
+              className="tooltip"
+              data-tip="Mac:⌘+Enter or Windows:Ctrl+Enter"
+            >
+              <span className="underline inline-block ms-3 mt-3">
+                スラッシュコマンドでも実行可能です
+              </span>
+            </span>
+          </div>
           <p className="font-bold mt-1 mb-1">実行結果</p>
           <div className="mockup-code">
             {codeResult && (
