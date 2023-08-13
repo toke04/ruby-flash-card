@@ -26,11 +26,11 @@ array_methods = %w[append assoc at clear clone collect compact concat count dele
 
 hash_methods = %w[assoc clear clone compact delete delete_if dig dup each_key each_pair each_value except fetch fetch_values filter flatten hash inspect invert keep_if key keys length merge rehash reject replace select shift size slice store transform_keys transform_values update values values_at]
 
-string_methods = %w[byteindex byteslice capitalize casecmp center chars chr concat count delete delete_prefix delete_suffix downcase dump each_char each_line gsub index insert inspect length lines ljust lstrip match next partition prepend replace rindex rjust rpartition rstrip scan slice split squeeze strip sub swapcase tr tr_s undump upcase upto]
+string_methods = %w[byteindex byteslice capitalize casecmp center chars chr concat count delete delete_prefix delete_suffix downcase each_line gsub index insert inspect length lines ljust match next partition prepend replace rindex rjust rpartition rstrip scan slice split squeeze sub swapcase tr tr_s upcase]
 
-numeric_methods = %w[abs abs2 ceil div divmod fdiv quo remainder round step truncate]
+numeric_methods = %w[abs abs2 ceil div divmod fdiv quo remainder round truncate]
 
-range_methods = %w[begin end inspect size step]
+range_methods = %w[begin end inspect size]
 # rubocop:enable Layout/LineLength
 
 def create_url(module_name, method_name)
