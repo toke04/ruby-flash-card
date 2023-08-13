@@ -41,7 +41,7 @@ export const LearningPhase = ({
         user_ruby_method: { ruby_method_id: rubyMethod.id, memo },
       })
       .then(() => {
-        toast('メモを保存しました😊')
+        toast('メモの保存が完了しました🎉次の問題に移行します。')
         setPreviousMemo(memo)
         setTimeout(() => {
           reloadCurrentPage()

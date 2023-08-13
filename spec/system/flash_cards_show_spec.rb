@@ -83,7 +83,7 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
         click_on('分からないので確認する')
         fill_in '覚えやすいようにメモを取ろう', with: 'メモを書き込みました'
         click_on '保存する'
-        expect(page).to have_content 'メモを保存しました😊'
+        expect(page).to have_content 'メモの保存が完了しました🎉'
         visit user_ruby_methods_path
         expect(page).to have_selector 'h1', text: 'メソッド一覧'
         expect(page).to have_content 'メモを書き込みました'
@@ -108,7 +108,7 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
         click_on('分からないので確認する')
         fill_in '覚えやすいようにメモを取ろう', with: 'メモを更新しました'
         click_on '保存する'
-        expect(page).to have_content 'メモを保存しました😊'
+        expect(page).to have_content 'メモの保存が完了しました🎉'
         visit user_ruby_methods_path
         expect(page).to have_selector 'h1', text: 'メソッド一覧'
         expect(page).to have_content 'メモを更新しました'
