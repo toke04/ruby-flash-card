@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Api
+module API
   module V1
     class UserRubyMethodsController < ApplicationController
       before_action :set_user_ruby_method, only: %i[update]
