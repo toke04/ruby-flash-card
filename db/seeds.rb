@@ -24,7 +24,7 @@ enumerable_methods = %w[collect_concat each_slice each_with_object entries filte
 
 array_methods = %w[append assoc at clear clone collect compact concat count delete delete_at delete_if difference dig drop drop_while dup fetch fill filter find_index flatten hash index insert intersection join keep_if max min minmax pop prepend product push reject replace rindex rotate sample select shift shuffle size slice sort sum take take_while transpose union uniq unshift values_at]
 
-hash_methods = %w[assoc clear clone compact delete delete_if dig dup except fetch fetch_values filter flatten hash invert keep_if key keys length merge rehash reject replace select shift size slice store transform_keys transform_values update values values_at]
+hash_methods = %w[assoc clear clone compact delete delete_if dig dup except fetch fetch_values filter flatten invert keep_if key keys length merge rehash reject replace select shift size slice store transform_keys transform_values update values values_at]
 
 string_methods = %w[byteindex byteslice capitalize casecmp center chars chr concat count delete delete_prefix delete_suffix downcase each_line gsub index insert length lines ljust match next partition prepend replace rindex rjust rpartition rstrip scan slice split squeeze sub swapcase tr tr_s upcase]
 
