@@ -28,7 +28,7 @@ hash_methods = %w[assoc clear clone compact delete delete_if dig dup except fetc
 
 string_methods = %w[byteindex byteslice capitalize casecmp center chars chr concat count delete delete_prefix delete_suffix downcase each_line gsub index insert length lines ljust match next partition prepend replace rindex rjust rpartition scan slice split squeeze sub swapcase tr tr_s upcase]
 
-numeric_methods = %w[abs abs2 ceil div divmod fdiv quo remainder round truncate]
+numeric_methods = %w[abs abs2 ceil div divmod quo remainder round truncate]
 
 range_methods = %w[begin end size]
 # rubocop:enable Layout/LineLength
