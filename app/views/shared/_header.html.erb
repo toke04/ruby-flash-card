@@ -1,4 +1,4 @@
-<header class="display flex justify-around">
+<header class=" flex justify-around">
   <% if current_user %>
     <%= link_to image_tag("logo.png", alt: "アプリのロゴ画像", class: "w-24 md:w-32 h-12"), root_path, class:"text-3xl ms-5 mt-2" %>
     <%= link_to "メソッド一覧", user_ruby_methods_path,class:" mt-4" if current_user.challenged_ruby_methods.present? %>

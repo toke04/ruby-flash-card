@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for?(:html_title) ? yield(:html_title) : "Rubyフラッシュカード" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= display_meta_tags(default_meta_tags) %>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= favicon_link_tag 'favicon.png' %>
-    <script src="https://cdn.jsdelivr.net/npm/@ruby/wasm-wasi@latest/dist/browser.umd.js"></script>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= vite_client_tag %>
-  </head>
+<head>
+  <title><%= content_for?(:html_title) ? yield(:html_title) : "Rubyフラッシュカード" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= display_meta_tags(default_meta_tags) %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= favicon_link_tag 'favicon.png' %>
+  <script src="https://cdn.jsdelivr.net/npm/@ruby/wasm-wasi@latest/dist/browser.umd.js"></script>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= vite_client_tag %>
+</head>
 
-  <body class="flex flex-col min-h-screen">
-    <%= render "shared/header" %>
-    <main class="container m-auto max-w-5xl mt-1 px-5 flex">
-      <%= yield %>
-    </main>
-    <%= render "shared/footer" %>
-    <% if Rails.env.production? %>
-      <%= render "shared/google_analytics" %>
-    <% end %>
-  </body>
+<body class="flex flex-col min-h-screen">
+<%= render "shared/header" %>
+<main class="m-auto flex">
+  <%= yield %>
+</main>
+<%= render "shared/footer" %>
+<% if Rails.env.production? %>
+  <%= render "shared/google_analytics" %>
+<% end %>
+</body>
 </html>

@@ -1,21 +1,23 @@
-<div class="mt-5">
+<div class="">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block my-10 text-center lg:ms-96" id="notice"><%= notice %></p>
   <% end %>
-  <h1 class="font-bold text-3xl text-center mb-5">Rubyのメソッドを効率良く学びたくないですか？</h1>
-  <p class="text-2xl text-center">その悩み「Rubyフラッシュカード」で解決しましょう！</p>
-
-  <div class="flex justify-center mt-5"><%= image_tag("logo.png", alt: "アプリのロゴ画像", class: "w-48 h-24 md:w-96 h-48") %></div>
-  <div class="flex justify-center mt-1">
-    <%= button_to "GitHubアカウントでログイン",'/users/auth/github', class: "rounded-lg btn-info btn-lg mt-2 font-bold text-gray-700" %>
+  <div class="bg-red-800 h-96">
+    <div class="flex justify-center pt-7"><%= image_tag("logo.png", alt: "アプリのロゴ画像", class: "w-48 md:w-48 h-24") %></div>
+    <h1 class="font-bold text-5xl text-center pt-5 mb-5 text-white">Rubyのメソッドを効率良く学ぼう</h1>
+    <div class="flex justify-center mt-1">
+      <%= button_to "利用開始",'/users/auth/github', class: "rounded-lg btn-warning btn-lg mt-2 font-bold w-48 md:w-48 text-2xl" %>
+    </div>
+    <p class="text-2xl mt-3 text-center text-white">利用にはGitHubアカウントが必要です</p>
   </div>
+
   <div class="mt-6 lg:ms-48 ">
     <h2 class="text-3xl text-center mt-3 mb-5 font-bold lg:me-48">Rubyフラッシュカードのここが凄い</h2>
     <h3 class="text-2xl">1. 「学習効率」の良いクラスから「<%= RubyMethod.count %>問の厳選された」メソッドで確実にレベルアップ！</h3>
     <div class="flex justify-start mt-3">
       <ul class="max-w-md space-y-1 list-disc list-inside text-xl text-gray-600	lg:ms-5">
         <% RubyModule.all.each do |ruby_module| %>
-        <li><%= ruby_module.name %></li>
+          <li><%= ruby_module.name %></li>
         <% end %>
       </ul>
     </div>
