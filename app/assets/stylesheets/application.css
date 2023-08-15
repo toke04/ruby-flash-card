@@ -18,11 +18,11 @@
     content: "";
     display: inline-block;
     height: 5px;
-    width: 100px;
+    width: 140px;
     background-color: darkred;
     position: absolute;
     left: 50%;
-    top: 40px;
+    top: 50px;
     bottom: 0;
     transform: translateX(-50%);
 }
