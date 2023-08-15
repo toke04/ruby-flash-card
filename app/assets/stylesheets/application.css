@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+.top-reason-title::before{
+    content: "";
+    display: inline-block;
+    height: 5px;
+    width: 100px;
+    background-color: darkred;
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    bottom: 0;
+    transform: translateX(-50%);
+}
