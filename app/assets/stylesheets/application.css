@@ -26,3 +26,19 @@
     bottom: 0;
     transform: translateX(-50%);
 }
+
+.appeal-title::before{
+    content: '';
+    font-size: 32px;
+    display: flex;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: -20px;
+    bottom: 0px;
+    left: -10px;
+    justify-content: center;
+    align-items: center;
+    background:rgba(248,255,44,0.4);
+    border-radius: 50%;
+}
