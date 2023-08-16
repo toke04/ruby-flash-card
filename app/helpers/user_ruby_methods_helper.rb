@@ -15,8 +15,8 @@ module UserRubyMethodsHelper
   end
 
   def remembered_badge_color(user_ruby_method)
-    return 'bg-red-800' if user_ruby_method.remembered == false
+    return 'not_remembered_badge' if user_ruby_method.remembered == false
 
-    'bg-gray-500' if user_ruby_method.remembered == true
+    'bg-gray-400' if user_ruby_method.remembered == true
   end
 end
