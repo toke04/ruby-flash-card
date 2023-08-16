@@ -4,21 +4,19 @@
     <p class="py-2 px-3 mb-5 bg-green-50 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
   <% if UserRubyMethod.where(user_id: current_user).present? %>
-    <h1 class="font-bold text-4xl mt-10">フラッシュカード設定</h1>
+    <h1 class="font-bold text-4xl mt-10 mb-10">フラッシュカード出題設定</h1>
 
     <%= form_with url: flash_card_path, method: :get, local: true do |form| %>
-      <p class="font-bold mt-6 mb-8 text-2xl">選んだ条件で出題されます</p>
-      <div class="my-2 flex flex-col text-xl">
+      <div class="my-2 flex flex-col text-xl ms-5">
         <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "not_challenged", {checked: true, class:"me-1" } %>挑戦してないメソッドから出題する</label>
-        <span class="mb-4"><%= not_challenged_methods_count %></span>
+        <span class="mb-4 ms-5"><%= not_challenged_methods_count %></span>
         <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "not_remembered", class:"me-1" %>分からなかったメソッドから出題する</label>
-        <span class="mb-4"><%= not_remembered_methods_count %></span>
+        <span class="mb-4 ms-5"><%= not_remembered_methods_count %></span>
         <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "remembered", {class:"me-1"  } %>分かっているメソッドから出題する</label>
-        <span class="mb-4"><%= remembered_methods_count %></span>
+        <span class="mb-4 ms-5"><%= remembered_methods_count %></span>
       </div>
-      <%= form.submit "START", class: "btn btn-info mt-4 flash_cards-button" %>
+      <%= form.submit "出題開始", class: "ms-10 bg-red-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-3/4" %>
     <% end %>
-    <div><%= link_to 'メソッド一覧へ', user_ruby_methods_path, class: "btn btn-sm mt-7" %></div>
   <% elsif %>
     <div class="text-start">
       <h1 class="font-bold text-4xl mt-5">Rubyフラッシュカードへようこそ</h1>
