@@ -1,7 +1,4 @@
 <div class="">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block my-10 text-center lg:ms-96" id="notice"><%= notice %></p>
-  <% end %>
   <div class="bg-red-800 h-auto">
     <div class="flex justify-center pt-7"><%= image_tag("logo.png", alt: "アプリのロゴ画像", class: "w-48 md:w-48 h-24") %></div>
     <h1 class="font-bold text-5xl text-center pt-5 mb-5 text-white">Rubyのメソッドを効率良く学ぼう</h1>
@@ -12,6 +9,9 @@
   </div>
 
   <div class="mt-6 lg:ms-48 ">
+    <% if notice.present? %>
+      <p class="text-xl py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block my-10 text-center lg:ms-96" id="notice"><%= notice %></p>
+    <% end %>
     <h2 class="text-3xl text-center mt-3 mb-5 font-bold lg:me-48 top-reason-title relative">効率良く学べる理由</h2>
     <div class="flex justify-start flex-col mt-16">
       <h3 class="text-2xl font-bold appeal-title text-black relative"><%= RubyMethod.count %>のメソッドを必須クラスから出題</h3>
