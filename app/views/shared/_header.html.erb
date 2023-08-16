@@ -1,18 +1,22 @@
-<header class="flex justify-around">
+<header class="flex justify-between bg-red-800 h-auto text-white items-center">
   <% if current_user %>
-    <%= link_to image_tag("logo.png", alt: "アプリのロゴ画像", class: "w-24 md:w-32 h-12"), root_path, class:"text-3xl ms-5 mt-2" %>
-    <%= link_to "メソッド一覧", user_ruby_methods_path,class:" mt-4" if current_user.challenged_ruby_methods.present? %>
-    <%= link_to "管理者用モジュール一覧",ruby_modules_path, class:" mt-4" if current_user.admin %>
-    <%= link_to "管理者用メソッド一覧", ruby_methods_path,class:" mt-4"  if current_user.admin %>
-    <%= link_to "フラッシュカードに挑戦する", new_flash_card_path,class:" mt-4 hidden md:inline-block" %>
-    <div class="dropdown dropdown-bottommb mt-3">
-      <label tabindex="0" class="user-icon cursor-pointer"><%= image_tag(current_user.image, size: "60x62",  alt: "ユーザーの画像") %></label>
-      <div class="tooltip tooltip-bottom" data-tip="最大Lv.<%= RubyMethod.count %>に向けて頑張ろう!">
-        <span>Lv.<%= UserRubyMethod.where(user_id: current_user, remembered: true).count %>🔥</span>
+    <div class="ms-5 items-center">
+      <%= link_to image_tag("logo.png", alt: "アプリのロゴ画像", class: "w-24 md:w-32 h-12 inline-block"), root_path, class:"text-3xl ms-5 mt-2" %>
+    </div>
+    <div class="me-5 flex items-center">
+      <%= link_to "管理者用モジュール一覧",ruby_modules_path, class:"me-5" if current_user.admin %>
+      <%= link_to "管理者用メソッド一覧", ruby_methods_path,class:"me-5"  if current_user.admin %>
+      <%= link_to "メソッド一覧", user_ruby_methods_path,class:"me-5" if current_user.challenged_ruby_methods.present? %>
+      <%= link_to "フラッシュカードに挑戦", new_flash_card_path,class:"me-5 hidden md:inline-block" %>
+      <div class="dropdown dropdown-bottommb mt-3 me-12">
+        <label tabindex="0" class="user-icon cursor-pointer"><%= image_tag(current_user.image, size: "60x62",  alt: "ユーザーの画像") %></label>
+        <div class="tooltip tooltip-bottom" data-tip="最大Lv.<%= RubyMethod.count %>に向けて頑張ろう!">
+          <span>Lv.<%= UserRubyMethod.where(user_id: current_user, remembered: true).count %>🔥</span>
+        </div>
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box text-black">
+          <li><%= button_to 'ログアウト',logout_path, method: :delete, data: { turbo: false } if user_signed_in? %></li>
+        </ul>
       </div>
-      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box">
-        <li><%= button_to 'ログアウト',logout_path, method: :delete, data: { turbo: false } if user_signed_in? %></li>
-      </ul>
     </div>
   <% end %>
 </header>
