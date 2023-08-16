@@ -1,7 +1,9 @@
 <% content_for(:html_title) { 'フラッシュカード設定 - Rubyフラッシュカード ' } %>
 <div class="flex flex-col justify-center">
   <% if notice.present? %>
-    <p class="py-2 px-3 mt-8 text-green-500 font-medium rounded-lg inline text-center" id="notice"><%= notice %></p>
+    <div class="flex justify-center">
+      <p class="py-2 px-3 bg-green-50 text-lg text-green-500 font-medium rounded-lg inline-block mt-10" id="notice"><%= notice %></p>
+    </div>
   <% end %>
   <% if UserRubyMethod.where(user_id: current_user).present? %>
     <h1 class="font-bold text-4xl mt-8 mb-16 config-title relative flex justify-center">フラッシュカード出題設定</h1>
