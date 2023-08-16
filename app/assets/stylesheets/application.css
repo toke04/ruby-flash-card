@@ -54,6 +54,19 @@ footer{
     transform: translateX(-50%);
 }
 
+.methods-title::before{
+    content: "";
+    display: inline-block;
+    height: 7px;
+    width: 150px;
+    background-color: darkred;
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
 .appeal-title::before{
     content: '';
     font-size: 32px;
