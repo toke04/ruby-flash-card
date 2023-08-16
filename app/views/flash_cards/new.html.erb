@@ -1,10 +1,10 @@
 <% content_for(:html_title) { 'フラッシュカード設定 - Rubyフラッシュカード ' } %>
 <div class="">
   <% if notice.present? %>
-    <p class="py-2 px-3 mb-5 bg-green-50 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <p class="py-2 px-3 mt-8 bg-green-50 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
   <% if UserRubyMethod.where(user_id: current_user).present? %>
-    <h1 class="font-bold text-4xl mt-10 mb-10">フラッシュカード出題設定</h1>
+    <h1 class="font-bold text-4xl mt-8 mb-16 config-title relative">フラッシュカード出題設定</h1>
 
     <%= form_with url: flash_card_path, method: :get, local: true do |form| %>
       <div class="my-2 flex flex-col text-xl ms-5">
