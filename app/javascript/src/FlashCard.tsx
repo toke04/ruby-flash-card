@@ -60,13 +60,13 @@ const FlashCard = (props: RubyMethodObjects) => {
   }
 
   return (
-    <div className="lg:ms-48">
+    <div className="">
       <QuizHeader
         rubyModuleName={rubyModule.name}
         rubyMethodName={rubyMethod.name}
       />
-      <div className={isQuestionButtonActive ? '' : 'hidden'}>
-        <div>
+      <div className={`text-center ${isQuestionButtonActive ? '' : 'hidden'}`}>
+        <div className="">
           <button
             className="btn btn-lg mt-2 btn-neutral mb-3 mt-14"
             onClick={() =>
@@ -78,7 +78,7 @@ const FlashCard = (props: RubyMethodObjects) => {
             分かっているので次へ
           </button>
         </div>
-        <div>
+        <div className="text-center">
           <button
             className="btn btn-lg mt-1 btn-neutral"
             onClick={() =>
