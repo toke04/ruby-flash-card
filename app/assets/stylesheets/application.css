@@ -21,6 +21,11 @@
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
+header, .top-header, .top-login-footer,
+.start-button, .selected-page_number, .not_remembered_badge{
+    background-color: #ac4444;
+}
+
 footer{
     width: 100%;
     text-align: center;
@@ -37,12 +42,12 @@ footer{
     display: inline-block;
     height: 5px;
     width: 140px;
-    background-color: darkred;
     position: absolute;
     left: 50%;
     top: 50px;
     bottom: 0;
     transform: translateX(-50%);
+    background-color: #ac4444
 }
 
 .config-title::before{
@@ -56,6 +61,7 @@ footer{
     top: 50px;
     bottom: 0;
     transform: translateX(-50%);
+    background-color: #ac4444
 }
 
 .methods-title::before{
@@ -69,6 +75,7 @@ footer{
     top: 50px;
     bottom: 0;
     transform: translateX(-50%);
+    background-color: #ac4444
 }
 
 .appeal-title::before{
