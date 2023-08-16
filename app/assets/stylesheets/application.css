@@ -28,6 +28,10 @@ footer{
     bottom: 0; /*下に固定*/
 }
 
+/*.methods-items{*/
+/*    width: 800px;*/
+/*}*/
+
 .top-reason-title::before{
     content: "";
     display: inline-block;

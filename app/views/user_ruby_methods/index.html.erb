@@ -1,15 +1,15 @@
 <% content_for(:html_title) { 'メソッド一覧 - Rubyフラッシュカード ' } %>
-<h1 class="mb-10 mt-10 font-bold text-2xl lg:text-3xl methods-title relative flex justify-center">メソッド一覧</h1>
-<div class="flex justify-center mb-10">
+<h1 class="mb-10 mt-5 font-bold text-2xl lg:text-4xl methods-title relative flex justify-center">メソッド一覧</h1>
+<div class="flex justify-center mb-10 rounded-lg">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
   <div class="flex flex-col">
-    <%= search_form_for @search, url: user_ruby_methods_path do |f| %>
+    <%= search_form_for @search, url: user_ruby_methods_path,class: "bg-stone-100 border rounded-lg p-2 mb-4" do |f| %>
       <div class="mt-3">
         <div class='flex flex-col justify-center label-select'>
-          <p class="mb-1">学習の進捗で絞り込む</p>
+          <p class="mb-1 font-bold">学習の進捗で絞り込む</p>
           <div>
             <label class="cursor-pointer"><%= f.radio_button :remembered_eq, '',class:"me-1" %>全て</label>
             <label class="cursor-pointer"><%= f.radio_button :remembered_eq, true,class:"me-1" %>分かっている</label>
@@ -17,9 +17,9 @@
           </div>
         </div>
       </div>
-      <div class=" ">
+      <div class="mt-2">
         <div class='flex flex-col justify-center label-select'>
-          <p class="mb-1 mt-2">カテゴリーで絞り込む</p>
+          <p class="mb-1 mt-2 font-bold">カテゴリーで絞り込む</p>
           <div class="">
             <label class="cursor-pointer"><%= f.radio_button :ruby_method_ruby_module_name_eq, '',class:"me-1" %>全て</label>
             <%= f.collection_radio_buttons(:ruby_method_ruby_module_name_eq, RubyModule.all, :name, :name, class:"cursor-pointer") do |b| %>
@@ -29,10 +29,16 @@
           </div>
         </div>
       </div>
-      <%= f.submit "検索", class:"btn btn-sm btn mt-2 mb-5" %>
+      <div class="flex justify-center">
+        <%= f.submit "絞り込む", class:"ms-5 btn btn-sm btn-outline rounded mt-5 mb-2" %>
+      </div>
     <% end %>
 
     <% if @user_ruby_methods.present? %>
+      <div class="flex justify-start mb-5">
+        <%= paginate @user_ruby_methods %>
+      </div>
+
       <div class="min-w-full">
         <%= render @user_ruby_methods %>
       </div>
