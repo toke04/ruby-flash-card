@@ -92,6 +92,9 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    dartsass-rails (0.5.0)
+      railties (>= 6.0.0)
+      sass-embedded (~> 1.63)
     database_cleaner (2.0.2)
       database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.1.0)
@@ -137,6 +140,8 @@ GEM
     faraday-net_http (3.0.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    google-protobuf (3.24.0-x86_64-darwin)
+    google-protobuf (3.24.0-x86_64-linux)
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -312,6 +317,10 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sass-embedded (1.64.2-x86_64-darwin)
+      google-protobuf (~> 3.23)
+    sass-embedded (1.64.2-x86_64-linux-gnu)
+      google-protobuf (~> 3.23)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -375,6 +384,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   capybara
+  dartsass-rails
   database_cleaner
   debug
   devise
