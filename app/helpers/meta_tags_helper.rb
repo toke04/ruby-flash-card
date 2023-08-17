@@ -15,7 +15,7 @@ module MetaTagsHelper
         type: 'website',
         site_name: 'Rubyフラッシュカード',
         description: :description,
-        image: image_url('ogp.png'),
+        image: image_url('logo.png'),
         url: 'https://ruby-flash-card.fly.dev/',
         locale: 'ja_JP'
       },
@@ -23,7 +23,7 @@ module MetaTagsHelper
         card: 'summary_large_image',
         url: request.original_url,
         description: :description,
-        image: image_url('ogp.png')
+        image: image_url('logo.png')
       }
     }
   end
