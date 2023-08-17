@@ -60,7 +60,7 @@ const FlashCard = (props: RubyMethodObjects) => {
   }
 
   return (
-    <div className="">
+    <div>
       <QuizHeader
         rubyModuleName={rubyModule.name}
         rubyMethodName={rubyMethod.name}
