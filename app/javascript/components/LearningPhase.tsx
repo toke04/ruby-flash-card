@@ -94,7 +94,7 @@ export const LearningPhase = ({
       <div className="mb-5">
         <div className="flex justify-center">
           <button
-            className="w-48 h-10 start-button hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+            className="w-48 h-10 main-red-color hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
             onClick={() => reloadCurrentPage()}
           >
             次の問題へ

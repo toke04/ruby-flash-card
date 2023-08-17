@@ -22,7 +22,7 @@
 }
 
 header, .top-header, .top-login-footer,
-.start-button, .selected-page_number, .not_remembered_badge,
+.main-red-color, .selected-page_number, .not_remembered_badge,
 .question-button, .question-badge{
     background-color: #ac4444;
 }
