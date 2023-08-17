@@ -14,11 +14,11 @@ RSpec.describe 'Users', type: :system do
       find('.user-icon').click
       click_on 'ログアウト'
       expect(page).to have_content 'ログアウトしました'
-      expect(page).to have_content 'Rubyのメソッドを効率良く学びたくないですか？'
+      expect(page).to have_content 'Rubyのメソッドを効率良く学ぼう'
     end
     it 'ログインしていない場合、トップページにリダイレクトされる' do
       visit user_ruby_methods_path
-      expect(page).to have_content 'Rubyのメソッドを効率良く学びたくないですか？'
+      expect(page).to have_content 'Rubyのメソッドを効率良く学ぼう'
     end
   end
 

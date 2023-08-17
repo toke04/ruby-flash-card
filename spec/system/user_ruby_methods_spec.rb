@@ -30,13 +30,13 @@ RSpec.describe 'UserRubyMethods', type: :system do
     context '正しい条件の場合' do
       it '学習の進捗で絞り込みを行うことができる' do
         choose '分からなかった'
-        click_on '検索'
+        click_on '絞り込む'
         expect(page).to have_content 'zip'
         expect(page).to have_content 'レシーバーのインデックス番号に合わせて引数の配列を合体させて、配列を作成する'
       end
       it 'モジュール名で検索をすることができる' do
         choose 'Array'
-        click_on '検索'
+        click_on '絞り込む'
         expect(page).to have_content 'zip'
         expect(page).to have_content 'レシーバーのインデックス番号に合わせて引数の配列を合体させて、配列を作成する'
       end
@@ -46,7 +46,7 @@ RSpec.describe 'UserRubyMethods', type: :system do
       it '学習の進捗とモジュール名が間違っていると検索できないこと' do
         choose '分かっている'
         choose 'Array'
-        click_on '検索'
+        click_on '絞り込む'
         expect(page).to_not have_content 'zip'
       end
     end
@@ -60,7 +60,7 @@ RSpec.describe 'UserRubyMethods', type: :system do
     it 'ユーザーはメソッドを編集できること' do
       fill_in 'メモ', with: 'メモを変更しました'
       click_on '更新する'
-      expect(page).to have_content '更新が完了しました😊'
+      expect(page).to have_content '更新が完了しました'
       expect(page).to have_selector '.method-item', text: 'zip'
       expect(page).to have_content 'メモを変更しました'
     end

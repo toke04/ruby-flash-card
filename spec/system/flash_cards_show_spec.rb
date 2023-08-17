@@ -15,7 +15,6 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
 
     context '「分かっているので次へ」を押した場合' do
       it '次の問題が表示されること' do
-        expect(page).to have_content 'Rubyフラッシュカード'
         click_on '分かっているので次へ'
         expect(page).to have_content '分かっているので次へ'
         expect(page).to have_content '分からないので確認する'
@@ -37,25 +36,24 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
       it 'オンラインエディターが表示され、実行できること' do
         expect(page).to have_content '貼り付けたコードの最終行の戻り値を出力します'
         fill_in 'codeArea', with: "'ruby love'.upcase"
-        click_on 'コードを実行する'
+        click_on '実行する'
         sleep 4 # ruby.wasmの実行時間にラグが見られるので、sleepを挟む
         expect(page).to have_css('p', text: 'RUBY LOVE')
       end
 
       it '「次の問題へ」を押すと、次の問題が出題されること' do
         click_on '次の問題へ'
-        expect(page).to have_content 'Rubyフラッシュカード'
         expect(page).to have_content '分かっているので次へ'
         expect(page).to have_content '分からないので確認する'
       end
 
       it '公式サイトへ遷移するためのリンクが表示されること' do
-        expect(page).to have_link '公式サイトへアクセスして確認する', href: %r{^https://docs.ruby-lang.org/ja/latest/method.*}
+        expect(page).to have_link '公式リファレンスへ', href: %r{^https://docs.ruby-lang.org/ja/latest/method.*}
       end
 
       it '「出題条件を変える」をクリックすると、設定画面へ遷移すること' do
         click_on '出題条件を変える'
-        expect(page).to have_content '選んだ条件で出題されます'
+        expect(page).to have_content 'フラッシュカード出題設定'
         expect(page).to have_content '挑戦してないメソッドから出題する'
         expect(page).to have_content '分からなかったメソッドから出題する'
         expect(page).to have_content '分かっているメソッドから出題する'
@@ -81,7 +79,7 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
       it 'メモを取って保存することができる' do
         visit flash_card_path
         click_on('分からないので確認する')
-        fill_in '覚えやすいようにメモを取ろう', with: 'メモを書き込みました'
+        fill_in 'おぼえるためにメモを残そう', with: 'メモを書き込みました'
         click_on '保存する'
         expect(page).to have_content 'メモの保存が完了しました🎉'
         visit user_ruby_methods_path
@@ -94,7 +92,7 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
       before do
         visit new_flash_card_path
         choose '分からなかったメソッドから出題する'
-        click_on 'START'
+        click_on '出題開始'
         expect(page).to have_content 'Hash'
         expect(page).to have_content 'merge'
       end
@@ -106,7 +104,7 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
 
       it '前回のメモを更新することができること' do
         click_on('分からないので確認する')
-        fill_in '覚えやすいようにメモを取ろう', with: 'メモを更新しました'
+        fill_in 'おぼえるためにメモを残そう', with: 'メモを更新しました'
         click_on '保存する'
         expect(page).to have_content 'メモの保存が完了しました🎉'
         visit user_ruby_methods_path
