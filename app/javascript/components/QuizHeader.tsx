@@ -21,11 +21,11 @@ export const QuizHeader = ({ rubyModuleName, rubyMethodName }: Props) => {
         pauseOnHover
         theme="light"
       />
-      <div className="flex justify-center methods-title relative mb-16">
-        <p className="mt-2 badge question-badge me-2 text-xl p-3 text-white">
+      <div className="flex justify-center method-title relative mb-16">
+        <p className="mt-2 badge question-badge me-2 text-2xl px-3 py-4 text-white">
           {rubyModuleName}
         </p>
-        <p className="text-3xl font-bold">{rubyMethodName}</p>
+        <p className="text-4xl font-bold">{rubyMethodName}</p>
       </div>
     </div>
   )

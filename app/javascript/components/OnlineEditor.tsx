@@ -106,7 +106,7 @@ export const OnlineEditor = () => {
           <div className="flex">
             <button
               onClick={execCode}
-              className="btn btn-sm w-24 h-10 border-2 border-slate-200	bg-white hover:bg-white-100 rounded mt-3 mb-5 code-exec-button"
+              className="btn btn-sm w-24 h-10 mt-3 mb-7　border-2 border-slate-200 bg-white hover:bg-white-100 rounded code-exec-button"
             >
               実行する
             </button>
@@ -119,7 +119,7 @@ export const OnlineEditor = () => {
               </span>
             </span>
           </div>
-          <p className="font-bold mt-1 mb-1">実行結果</p>
+          <p className="font-bold mt-5 mb-1">実行結果</p>
           <div className="mockup-code">
             {codeResult && (
               <p className={`px-2 ${codeColor()}`}>{codeResult}</p>
