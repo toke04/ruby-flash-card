@@ -34,10 +34,6 @@ footer{
     bottom: 0; /*下に固定*/
 }
 
-/*.methods-items{*/
-/*    width: 800px;*/
-/*}*/
-
 .top-reason-title::before{
     content: "";
     display: inline-block;
@@ -56,7 +52,6 @@ footer{
     display: inline-block;
     height: 7px;
     width: 240px;
-    background-color: darkred;
     position: absolute;
     left: 50%;
     top: 50px;
@@ -65,12 +60,11 @@ footer{
     background-color: #ac4444
 }
 
-.methods-title::before{
+.method-title::before{
     content: "";
     display: inline-block;
     height: 7px;
     width: 150px;
-    background-color: darkred;
     position: absolute;
     left: 50%;
     top: 50px;
