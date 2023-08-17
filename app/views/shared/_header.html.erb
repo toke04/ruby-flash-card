@@ -1,14 +1,16 @@
 <header class="flex justify-between h-auto text-white items-center">
   <% if current_user %>
     <div class=" items-center">
-      <%= link_to image_tag("top_logo.png", alt: "アプリのロゴ画像", class: "w-24 md:w-32 h-12 inline-block"), root_path, class:"text-3xl ms-5 mt-2" %>
+      <%= link_to image_tag("top_logo.png", alt: "アプリのロゴ画像", class: "md:w-32 h-12"), root_path, class:"text-3xl ms-5 mt-2 hidden md:inline-block" %>
+      <%= link_to image_tag("mobile_top_logo.png", alt: "アプリのロゴ画像", class: "w-6 h-12 mb-8 ms-3"), root_path, class:"ms-5 mt-2 md:inline-block md:hidden" %>
     </div>
     <div class="me-5 flex items-center">
       <%= link_to "管理者用モジュール一覧",ruby_modules_path, class:"me-5" if current_user.admin %>
       <%= link_to "管理者用メソッド一覧", ruby_methods_path,class:"me-5"  if current_user.admin %>
-      <%= link_to "メソッド一覧", user_ruby_methods_path,class:"me-5" if current_user.challenged_ruby_methods.present? %>
+      <%= link_to "メソッド一覧", user_ruby_methods_path,class:"ms-2 me-2 md:me-5" if current_user.challenged_ruby_methods.present? %>
       <%= link_to "フラッシュカードに挑戦", new_flash_card_path,class:"me-5 hidden md:inline-block" %>
-      <div class="dropdown dropdown-bottommb mt-3 me-12">
+      <%= link_to "問題を解く", new_flash_card_path,class:"me-2 md:hidden md:inline-block" %>
+      <div class="dropdown dropdown-bottom mt-3 md:me-12 me-12">
         <label tabindex="0" class="user-icon cursor-pointer"><%= image_tag(current_user.image, size: "60x62",  alt: "ユーザーの画像") %></label>
 
         <div class="tooltip tooltip-bottom" data-tip="最大Lv.<%= RubyMethod.count %>に向けて頑張ろう!">
