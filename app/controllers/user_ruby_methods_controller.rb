@@ -12,7 +12,7 @@ class UserRubyMethodsController < ApplicationController
 
   def update
     if @user_ruby_method.update(user_ruby_method_params)
-      redirect_to user_ruby_methods_path, notice: '更新が完了しました😊'
+      redirect_to user_ruby_methods_path, notice: '更新が完了しました。'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -20,7 +20,7 @@ class UserRubyMethodsController < ApplicationController
 
   def destroy
     @user_ruby_method.destroy
-    redirect_to user_ruby_methods_url, notice: '削除が完了しました🙇'
+    redirect_to user_ruby_methods_url, notice: '削除が完了しました。'
   end
 
   private

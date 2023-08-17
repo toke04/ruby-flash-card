@@ -1,14 +1,18 @@
-<div class="method-item md:w-full mb-12 bg-stone-50 shadow-md rounded-lg p-3 mb-4" id="<%= dom_id user_ruby_method %>">
-  <div class="flex mb-3">
-    <p class="text-xl me-3">
-      <%= user_ruby_method.ruby_method.ruby_module.name %>
-    </p>
-    <p>
-      <%= link_to '✏️', edit_user_ruby_method_path(user_ruby_method), class: "text-xl w-13 mx-1 leading-15" %>
-    </p>
-      <p class="ms-2 mt-1 badge badge-outline">
+<div class="method-item mb-12 border border-slate-200 border-2 rounded-lg p-3 mb-4" id="<%= dom_id user_ruby_method %>">
+  <div class="flex justify-between mb-3">
+    <div>
+      <p class="text-xl me-3">
+        <%= user_ruby_method.ruby_method.ruby_module.name %>
+      </p>
+    </div>
+    <div class="flex justify-end">
+      <p>
+        <%= link_to '✏️', edit_user_ruby_method_path(user_ruby_method), class: "text-xl w-13 mx-1 leading-15 me-5" %>
+      </p>
+      <p class=" mt-1 badge p-3 text-white <%= remembered_badge_color(user_ruby_method) %>">
         <%= convert_remembered_word(user_ruby_method) %>
       </p>
+    </div>
   </div>
 
   <p id="<%= user_ruby_method.ruby_method.name %>" class="text-blue-900 underline text-2xl cursor-pointer">
@@ -20,13 +24,13 @@
       class="w-full h-96 mt-3"
       src="<%= user_ruby_method.ruby_method.official_url %>"></iframe>
     <div class="flex justify-end">
-      <a href="<%= user_ruby_method.ruby_method.official_url %>" class="text-blue-700 underline text-xl mt-3">公式URL</a>
+      <a href="<%= user_ruby_method.ruby_method.official_url %>" class="text-blue-700 underline text-xl mt-3">公式リファレンスへ
+      </a>
     </div>
   </div>
 
   <% if user_ruby_method.memo %>
     <p class="my-5">
-      <strong class="block font-bold">メモ</strong>
       <%= add_new_line(user_ruby_method.memo) %>
     </p>
   <% end %>

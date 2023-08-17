@@ -1,33 +1,35 @@
 <% content_for(:html_title) { 'フラッシュカード設定 - Rubyフラッシュカード ' } %>
-<div class="lg:ms-48">
+<div class="flex flex-col justify-center">
   <% if notice.present? %>
-    <p class="py-2 px-3 mb-5 bg-green-50 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <div class="flex justify-center">
+      <p class="py-2 px-3 bg-green-50 text-lg text-green-500 font-medium rounded-lg inline-block mt-10" id="notice"><%= notice %></p>
+    </div>
   <% end %>
   <% if UserRubyMethod.where(user_id: current_user).present? %>
-    <h1 class="font-bold text-4xl">フラッシュカード設定</h1>
+    <h1 class="font-bold lg:text-4xl text-2xl mt-8 mb-16 config-title relative flex justify-center">フラッシュカード出題設定</h1>
 
-    <%= form_with url: flash_card_path, method: :get, local: true do |form| %>
-      <p class="font-bold mt-6 mb-8 text-2xl">選んだ条件で出題されます</p>
-      <div class="my-2 flex flex-col text-xl">
+    <%= form_with url: flash_card_path, method: :get, local: true,class: "flex justify-center" do |form| %>
+      <div class="my-2 flex flex-col  text-xl ">
         <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "not_challenged", {checked: true, class:"me-1" } %>挑戦してないメソッドから出題する</label>
-        <span class="mb-4"><%= not_challenged_methods_count %></span>
+        <span class="mb-4 ms-5"><%= not_challenged_methods_count %></span>
         <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "not_remembered", class:"me-1" %>分からなかったメソッドから出題する</label>
-        <span class="mb-4"><%= not_remembered_methods_count %></span>
+        <span class="mb-4 ms-5"><%= not_remembered_methods_count %></span>
         <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "remembered", {class:"me-1"  } %>分かっているメソッドから出題する</label>
-        <span class="mb-4"><%= remembered_methods_count %></span>
+        <span class="mb-4 ms-5"><%= remembered_methods_count %></span>
+        <%= form.submit "出題開始", class: "ms-5 start-button hover:bg-red-800 text-white font-bold py-2 px-4 rounded" %>
       </div>
-      <%= form.submit "START", class: "btn btn-info mt-4 flash_cards-button" %>
     <% end %>
-    <div><%= link_to 'メソッド一覧へ', user_ruby_methods_path, class: "btn btn-sm mt-7" %></div>
   <% elsif %>
-    <div class="text-start">
-      <h1 class="font-bold text-4xl mt-5">Rubyフラッシュカードへようこそ</h1>
-      <div>
+    <div class="flex flex-col justify-center items-center">
+      <h1 class="font-bold text-4xl mt-24 flex justify-center">Rubyフラッシュカードへようこそ</h1>
+      <div class="lg:ms-36">
         <p class="text-2xl mt-8">初めまして！こんにちは😊</p>
         <p class="text-2xl mt-3">会員登録してくれてありがとうございます。</p>
         <p class="text-2xl mt-3">これからRubyのメソッドをフラッシュカード形式で出題します。</p>
         <p class="text-2xl mt-3 mb-10 ">公式サイトで確認しながら、正しく理解していきましょう！</p>
-        <%= link_to 'START！', flash_card_path, class: "btn btn-lg btn-info font-bold" %>
+        <div class="flex lg:ms-48">
+          <%= link_to '出題開始', flash_card_path, class: "btn btn-lg start-button hover:bg-red-800 text-white font-bold rounded" %>
+        </div>
       </div>
     </div>
   <% end %>

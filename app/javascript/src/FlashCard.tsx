@@ -60,15 +60,15 @@ const FlashCard = (props: RubyMethodObjects) => {
   }
 
   return (
-    <div className="lg:ms-48">
+    <div className="">
       <QuizHeader
         rubyModuleName={rubyModule.name}
         rubyMethodName={rubyMethod.name}
       />
-      <div className={isQuestionButtonActive ? '' : 'hidden'}>
-        <div>
+      <div className={`text-center ${isQuestionButtonActive ? '' : 'hidden'}`}>
+        <div className="mt-20">
           <button
-            className="btn btn-lg mt-2 btn-neutral mb-3 mt-14"
+            className="md:w-96 md:h-16 h-12 mt-2 question-button hover:bg-red-800 text-white font-bold py-2 px-4 rounded mb-3 mt-14"
             onClick={() =>
               checkChallengedMethod(quizModeParams)
                 ? updateRemembered(true)
@@ -78,9 +78,9 @@ const FlashCard = (props: RubyMethodObjects) => {
             分かっているので次へ
           </button>
         </div>
-        <div>
+        <div className="text-center mt-5">
           <button
-            className="btn btn-lg mt-1 btn-neutral"
+            className="md:w-96 md:h-16 h-12 mt-1 question-button hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
             onClick={() =>
               checkChallengedMethod(quizModeParams)
                 ? updateRemembered(false)

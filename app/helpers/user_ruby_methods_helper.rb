@@ -11,6 +11,12 @@ module UserRubyMethodsHelper
   def convert_remembered_word(user_ruby_method)
     return '分からなかった' if user_ruby_method.remembered == false
 
-    '分かっている' if user_ruby_method.remembered == true
+    '分かっている　' if user_ruby_method.remembered == true
+  end
+
+  def remembered_badge_color(user_ruby_method)
+    return 'not_remembered_badge' if user_ruby_method.remembered == false
+
+    'bg-gray-400' if user_ruby_method.remembered == true
   end
 end
