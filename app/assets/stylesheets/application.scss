@@ -23,11 +23,9 @@ footer{
   bottom: 0; /*下に固定*/
 }
 
-.top-reason-title::before{
+@mixin emphasis-line{
   content: "";
   display: inline-block;
-  height: 5px;
-  width: 140px;
   position: absolute;
   left: 50%;
   top: 50px;
@@ -36,17 +34,20 @@ footer{
   background-color: #ac4444
 }
 
-.config-title::before{
-  content: "";
-  display: inline-block;
-  height: 7px;
-  width: 240px;
-  position: absolute;
-  left: 50%;
-  top: 50px;
-  bottom: 0;
-  transform: translateX(-50%);
-  background-color: #ac4444
+.top-reason-title{
+  &::before {
+    @include emphasis-line;
+    height: 5px;
+    width: 140px;
+  }
+}
+
+.config-title{
+  &::before {
+    @include emphasis-line;
+    height: 7px;
+    width: 240px;
+  }
 }
 
 .method-title::before{
