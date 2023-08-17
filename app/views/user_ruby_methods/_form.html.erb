@@ -24,14 +24,14 @@
   </div>
 
   <p id="open-official-url" class="font-bold text-xl text-blue-800 underline mb-5 cursor-pointer">
-    公式サイトで確認する
+    公式リファレンスで確認する
   </p>
   <div id="<%= user_ruby_method.ruby_method.name %>-url" class="hidden flex flex-col mb-5">
     <iframe
       class="w-5/6 h-96 mt-3"
       src="<%= user_ruby_method.ruby_method.official_url %>"></iframe>
-    <div class="mt-3">
-      <a href="<%= user_ruby_method.ruby_method.official_url %>" class="text-blue-700 underline text-xl mt-3">公式リファレンス</a>
+    <div class="mt-3 flex justify-end me-40">
+      <a href="<%= user_ruby_method.ruby_method.official_url %>" class="text-blue-700 underline text-xl mt-3">公式リファレンスへ</a>
     </div>
   </div>
 
