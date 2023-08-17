@@ -6,7 +6,7 @@
     </div>
   <% end %>
   <% if UserRubyMethod.where(user_id: current_user).present? %>
-    <h1 class="font-bold text-4xl mt-8 mb-16 config-title relative flex justify-center">フラッシュカード出題設定</h1>
+    <h1 class="font-bold lg:text-4xl text-2xl mt-8 mb-16 config-title relative flex justify-center">フラッシュカード出題設定</h1>
 
     <%= form_with url: flash_card_path, method: :get, local: true,class: "flex justify-center" do |form| %>
       <div class="my-2 flex flex-col  text-xl ">
@@ -20,14 +20,16 @@
       </div>
     <% end %>
   <% elsif %>
-    <div class="text-start">
-      <h1 class="font-bold text-4xl mt-5">Rubyフラッシュカードへようこそ</h1>
-      <div>
+    <div class="flex flex-col justify-center items-center">
+      <h1 class="font-bold text-4xl mt-24 flex justify-center">Rubyフラッシュカードへようこそ</h1>
+      <div class="lg:ms-36">
         <p class="text-2xl mt-8">初めまして！こんにちは😊</p>
         <p class="text-2xl mt-3">会員登録してくれてありがとうございます。</p>
         <p class="text-2xl mt-3">これからRubyのメソッドをフラッシュカード形式で出題します。</p>
         <p class="text-2xl mt-3 mb-10 ">公式サイトで確認しながら、正しく理解していきましょう！</p>
-        <%= link_to 'START！', flash_card_path, class: "btn btn-lg btn-info font-bold" %>
+        <div class="flex lg:ms-48" >
+          <%= link_to '出題開始', flash_card_path, class: "btn btn-lg start-button hover:bg-red-800 text-white font-bold rounded" %>
+        </div>
       </div>
     </div>
   <% end %>

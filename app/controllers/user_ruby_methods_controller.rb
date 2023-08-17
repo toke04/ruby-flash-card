@@ -20,7 +20,7 @@ class UserRubyMethodsController < ApplicationController
 
   def destroy
     @user_ruby_method.destroy
-    redirect_to user_ruby_methods_url, notice: '削除が完了しました🙇'
+    redirect_to user_ruby_methods_url, notice: '削除が完了しました。'
   end
 
   private
