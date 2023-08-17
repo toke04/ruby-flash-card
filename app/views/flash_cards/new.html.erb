@@ -6,10 +6,9 @@
     </div>
   <% end %>
   <% if UserRubyMethod.where(user_id: current_user).present? %>
-    <h1 class="font-bold lg:text-4xl text-2xl mt-8 mb-16 config-title relative flex justify-center">フラッシュカード出題設定</h1>
-
-    <%= form_with url: flash_card_path, method: :get, local: true,class: "flex justify-center" do |form| %>
-      <div class="my-2 flex flex-col  text-xl ">
+    <h1 class="font-bold lg:text-4xl text-2xl mt-8 mb-16 config-title relative text-center">フラッシュカード出題設定</h1>
+    <%= form_with url: flash_card_path, method: :get,class: "flex justify-center" do |form| %>
+      <div class="my-2 flex flex-col text-xl">
         <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "not_challenged", {checked: true, class:"me-1" } %>挑戦してないメソッドから出題する</label>
         <span class="mb-4 ms-5"><%= not_challenged_methods_count %></span>
         <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "not_remembered", class:"me-1" %>分からなかったメソッドから出題する</label>
@@ -20,8 +19,8 @@
       </div>
     <% end %>
   <% elsif %>
-    <div class="flex flex-col justify-center items-center ms-2">
-      <h1 class="font-bold text-4xl md:mt-24 mt-8 flex justify-center">Rubyフラッシュカードへようこそ</h1>
+    <div class="flex flex-col items-center ms-2">
+      <h1 class="font-bold text-4xl md:mt-24 mt-8 ">Rubyフラッシュカードへようこそ</h1>
       <div class="lg:ms-36">
         <p class="text-2xl mt-8">初めまして！こんにちは😊</p>
         <p class="text-2xl mt-3">会員登録してくれてありがとうございます。</p>
