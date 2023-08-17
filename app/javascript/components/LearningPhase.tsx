@@ -25,7 +25,7 @@ export const LearningPhase = ({
   const [previousMemo, setPreviousMemo] = useState('')
 
   const isInvalidMemo = () => {
-    if (memo === previousMemo) return true
+    if (memo === previousMemo || memo === undefined) return true
   }
 
   const changeMemo = (
