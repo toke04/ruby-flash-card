@@ -3,12 +3,11 @@
   <%= content_tag :div, "", id: "ruby_flash_card_show",class: "container mx-auto px-4 max-w-5xl", data: { ruby_method: @ruby_method, user_ruby_method: @user_ruby_method, ruby_module: @ruby_module } %>
   <%= vite_javascript_tag 'flash_card_show.tsx' %>
 <% else %>
-  <div class="lg:ms-48 mt-24">
-    <h1 class="font-bold text-4xl"></h1>
-    <p class="font-bold">条件で指定したで全てのメソッドが出題されました。</p>
-    <div class="mt-4">
+  <div class="mt-24">
+    <h1 class="font-bold text-center text-2xl">条件で指定した全てのメソッドが出題されました。</h1>
+    <div class="mt-4 text-center">
       <div>
-        <%= link_to '設定を変更してフラッシュカードに挑戦', new_flash_card_path, class: "me-4 btn btn-neutral" %>
+        <%= link_to '設定を変更して再度挑戦する', new_flash_card_path, class: "me-4 btn btn-lg start-button hover:bg-red-800 text-white font-bold rounded" %>
       </div>
     </div>
   </div>

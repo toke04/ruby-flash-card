@@ -84,7 +84,7 @@ RSpec.describe 'FlashCards new', type: :system do
         expect(page).to have_content 'String'
         expect(page).to have_content 'upcase'
         click_on '分かっているので次へ'
-        expect(page).to have_content '条件で指定したで全てのメソッドが出題されました。'
+        expect(page).to have_content '条件で指定した全てのメソッドが出題されました。'
       end
 
       it '「分からなかったメソッドから出題する」を選んでいた場合' do
@@ -93,7 +93,7 @@ RSpec.describe 'FlashCards new', type: :system do
         expect(page).to have_content 'Array'
         expect(page).to have_content 'zip'
         click_on '分かっているので次へ'
-        expect(page).to have_content '条件で指定したで全てのメソッドが出題されました。'
+        expect(page).to have_content '条件で指定した全てのメソッドが出題されました。'
       end
 
       it '「分かっているメソッドから出題する」を選んでいた場合' do
@@ -103,7 +103,7 @@ RSpec.describe 'FlashCards new', type: :system do
         expect(page).to have_content 'merge'
         click_on('分からないので確認する')
         click_on '次の問題へ'
-        expect(page).to have_content '条件で指定したで全てのメソッドが出題されました。'
+        expect(page).to have_content '条件で指定した全てのメソッドが出題されました。'
       end
     end
   end
