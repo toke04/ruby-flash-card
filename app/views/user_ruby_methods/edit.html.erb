@@ -2,11 +2,11 @@
 <div class="mx-auto md:w-3/4 mt-10">
   <h1 class="flex justify-center font-bold text-4xl method-title relative mb-16">メソッド編集</h1>
 
-  <div class="lg:ms-48 ms-20 ">
+  <div class="lg:ms-48 ms-20">
     <%= render "form", user_ruby_method: @user_ruby_method %>
 
     <div class="">
-      <%= button_to '削除する', user_ruby_method_path(@user_ruby_method),method: :delete, onclick: "return confirm('削除してよろしいですか？')", class: "mt-4 py-3 mb-5 font-medium underline" %>
+      <%= button_to '削除する', user_ruby_method_path(@user_ruby_method),method: :delete, onclick: "return confirm('削除してよろしいですか？')", class: "mt-4 mb-5　py-3 font-medium underline" %>
     </div>
   </div>
 </div>
