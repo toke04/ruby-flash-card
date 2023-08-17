@@ -54,7 +54,9 @@ export const LearningPhase = ({
 
   return (
     <div>
-      <p className="mb-2 font-bold text-xl official-url-title relative">公式リファレンス</p>
+      <p className="mb-2 font-bold text-xl official-url-title relative">
+        公式リファレンス
+      </p>
       <div className="flex mb-4 flex-col">
         <iframe
           id="officialSite"
@@ -70,7 +72,9 @@ export const LearningPhase = ({
       <OnlineEditor />
       <form onSubmit={updateMemo}>
         <label>
-          <p className="mb-2 mt-8 font-bold text-xl official-url-title relative">おぼえるためにメモを残そう</p>
+          <p className="mb-2 mt-8 font-bold text-xl official-url-title relative">
+            おぼえるためにメモを残そう
+          </p>
           <textarea
             value={memo ?? ''}
             onChange={changeMemo}
@@ -79,7 +83,10 @@ export const LearningPhase = ({
           ></textarea>
         </label>
         <div className="mb-5 flex justify-center">
-          <button className="btn btn-sm w-48 h-10 border-2 border-slate-200	bg-white hover:bg-white-100 rounded mt-5 mb-2 mt-2" disabled={isInvalidMemo()}>
+          <button
+            className="btn btn-sm w-48 h-10 border-2 border-slate-200	bg-white hover:bg-white-100 rounded mt-5 mb-2 mt-2"
+            disabled={isInvalidMemo()}
+          >
             保存する
           </button>
         </div>

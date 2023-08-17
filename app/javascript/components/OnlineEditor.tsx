@@ -69,7 +69,9 @@ export const OnlineEditor = () => {
 
   return (
     <div className="hidden md:block">
-      <p className="mt-7 font-bold text-xl official-url-title relative">コードを実行して試す</p>
+      <p className="mt-7 font-bold text-xl official-url-title relative">
+        コードを実行して試す
+      </p>
       <div className="flex justify-end">
         <button
           className="btn btn-sm w-40 h-10 border-2 border-slate-200	bg-white hover:bg-white-100 rounded"
