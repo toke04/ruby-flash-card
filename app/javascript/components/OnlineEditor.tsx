@@ -69,6 +69,7 @@ export const OnlineEditor = () => {
 
   return (
     <div className="hidden md:block">
+      <p className="mt-7 font-bold text-xl official-url-title relative">コードを実行して試す</p>
       <div className="flex justify-end">
         <button
           className="btn btn-sm btn-outline block"
@@ -105,7 +106,7 @@ export const OnlineEditor = () => {
               onClick={execCode}
               className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
             >
-              コードを実行する
+              実行する
             </button>
             <span
               className="tooltip"
