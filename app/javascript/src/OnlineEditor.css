@@ -15,7 +15,7 @@
 
 .editor .editorLineNumber {
   position: absolute;
-  left: 0px;
+  left: 0;
   color: #cccccc;
   text-align: right;
   width: 30px;
