@@ -63,7 +63,7 @@ export const LearningPhase = ({
           className={`w-full h-96`}
           src={rubyMethod.official_url}
         ></iframe>
-        <p className="flex justify-end text-blue-800	text-bold text-xl mt-20 mb-4 underline mt-4">
+        <p className="flex justify-end text-blue-800 text-bold text-xl mt-4 mb-4 underline">
           <a href={rubyMethod.official_url} target="_blank">
             公式リファレンスへ
           </a>
@@ -84,7 +84,7 @@ export const LearningPhase = ({
         </label>
         <div className="mb-5 flex justify-center">
           <button
-            className="btn btn-sm w-48 h-10 border-2 border-slate-200	bg-white hover:bg-white-100 rounded mt-5 mb-2 mt-2"
+            className="btn btn-sm w-48 h-10 mt-7 mb-2 border-2 border-slate-200	bg-white hover:bg-white-100 rounded"
             disabled={isInvalidMemo()}
           >
             保存する
@@ -94,7 +94,7 @@ export const LearningPhase = ({
       <div className="mb-5">
         <div className="flex justify-center">
           <button
-            className="w-48 h-10 main-red-color hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+            className="w-48 h-10 py-2 px-4 main-red-color hover:bg-red-800 text-white font-bold rounded"
             onClick={() => reloadCurrentPage()}
           >
             次の問題へ
