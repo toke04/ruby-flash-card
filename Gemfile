@@ -71,6 +71,7 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'dartsass-rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'dockerfile-rails', '>= 1.5', group: :development
@@ -82,4 +83,3 @@ gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'ransack'
 gem 'vite_rails', '~> 3.0'
-gem 'dartsass-rails'
