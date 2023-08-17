@@ -22,7 +22,8 @@
 }
 
 header, .top-header, .top-login-footer,
-.start-button, .selected-page_number, .not_remembered_badge{
+.start-button, .selected-page_number, .not_remembered_badge,
+.question-button, .question-badge{
     background-color: #ac4444;
 }
 
@@ -86,7 +87,7 @@ footer{
     height: 64px;
     position: absolute;
     top: -20px;
-    bottom: 0px;
+    bottom: 0;
     left: -10px;
     justify-content: center;
     align-items: center;

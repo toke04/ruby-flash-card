@@ -8,8 +8,7 @@ type Props = {
 
 export const QuizHeader = ({ rubyModuleName, rubyMethodName }: Props) => {
   return (
-    <div className="text-center">
-      <h1 className="font-bold text-4xl mb-2 mt-10">Rubyフラッシュカード</h1>
+    <div className="text-center mb-2 mt-10">
       <ToastContainer
         position="top-center"
         autoClose={2000}
@@ -22,10 +21,12 @@ export const QuizHeader = ({ rubyModuleName, rubyMethodName }: Props) => {
         pauseOnHover
         theme="light"
       />
-      <p className="badge badge-neutral me-2 mt-2 text-xl p-3">
-        {rubyModuleName}
-      </p>
-      <p className="mt-2 text-3xl">{rubyMethodName}</p>
+      <div className="flex justify-center methods-title relative mb-16">
+        <p className="mt-2 badge question-badge me-2 text-xl p-3 text-white">
+          {rubyModuleName}
+        </p>
+        <p className="text-3xl font-bold">{rubyMethodName}</p>
+      </div>
     </div>
   )
 }
