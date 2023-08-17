@@ -55,12 +55,17 @@ export const LearningPhase = ({
   return (
     <div>
       <p className="mb-2 font-bold text-xl official-url-title relative">公式リファレンス</p>
-      <div className="flex mb-4">
+      <div className="flex mb-4 flex-col">
         <iframe
           id="officialSite"
           className={`w-full h-96`}
           src={rubyMethod.official_url}
         ></iframe>
+        <p className="flex justify-end text-blue-800	text-bold text-xl mt-20 mb-4 underline mt-4">
+          <a href={rubyMethod.official_url} target="_blank">
+            公式リファレンスへ
+          </a>
+        </p>
       </div>
       <OnlineEditor />
       <form onSubmit={updateMemo}>
@@ -74,7 +79,7 @@ export const LearningPhase = ({
           ></textarea>
         </label>
         <div className="mb-5 flex justify-center">
-          <button className="btn btn-info mt-2" disabled={isInvalidMemo()}>
+          <button className="btn btn-sm w-48 h-10 border-2 border-slate-200	bg-white hover:bg-white-100 rounded mt-5 mb-2 mt-2" disabled={isInvalidMemo()}>
             保存する
           </button>
         </div>
@@ -82,18 +87,13 @@ export const LearningPhase = ({
       <div className="mb-5">
         <div className="flex justify-center">
           <button
-            className="btn btn-outline"
+            className="w-48 h-10 start-button hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
             onClick={() => reloadCurrentPage()}
           >
             次の問題へ
           </button>
         </div>
-        <p className="text-blue-700	text-bold text-xl mt-20 mb-10 underline mt-4">
-          <a href={rubyMethod.official_url} target="_blank">
-            公式サイトへアクセスして確認する
-          </a>
-        </p>
-        <div className="mt-10">
+        <div className="mt-8 flex justify-center text-blue-700">
           <a href="flash_card/new" className="me-8 underline">
             出題条件を変える
           </a>

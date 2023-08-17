@@ -72,7 +72,7 @@ export const OnlineEditor = () => {
       <p className="mt-7 font-bold text-xl official-url-title relative">コードを実行して試す</p>
       <div className="flex justify-end">
         <button
-          className="btn btn-sm btn-outline block"
+          className="btn btn-sm w-40 h-10 border-2 border-slate-200	bg-white hover:bg-white-100 rounded"
           onClick={() => setShowEditor(!showEditor)}
         >
           {showEditor ? 'エディターを閉じる' : 'エディターを開く'}
@@ -104,7 +104,7 @@ export const OnlineEditor = () => {
           <div className="flex">
             <button
               onClick={execCode}
-              className="btn btn-sm btn-outline mt-2 mb-5 code-exec-button"
+              className="btn btn-sm w-24 h-10 border-2 border-slate-200	bg-white hover:bg-white-100 rounded mt-3 mb-5 code-exec-button"
             >
               実行する
             </button>
@@ -112,7 +112,7 @@ export const OnlineEditor = () => {
               className="tooltip"
               data-tip="Mac:⌘+Enter or Windows:Windowsキー+Enter"
             >
-              <span className="underline inline-block ms-3 mt-3">
+              <span className="underline inline-block ms-3 mt-5">
                 スラッシュコマンドでも実行可能です
               </span>
             </span>
