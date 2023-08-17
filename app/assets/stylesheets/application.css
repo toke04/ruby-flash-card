@@ -79,6 +79,15 @@ footer{
     background-color: #ac4444
 }
 
+.official-url-title::before{
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 18px;
+    margin-right: 5px;
+    background-color: #ac4444;
+}
+
 .appeal-title::before{
     content: '';
     font-size: 32px;

@@ -54,6 +54,7 @@ export const LearningPhase = ({
 
   return (
     <div>
+      <p className="ms-5 mb-2 font-bold text-xl official-url-title relative">公式リファレンス</p>
       <div className="flex mb-4">
         <iframe
           id="officialSite"
