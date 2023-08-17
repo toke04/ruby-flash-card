@@ -5,7 +5,7 @@
 
 .wrapper{
   min-height: 100vh;
-  position: relative;/*←相対位置*/
+  position: relative;
   padding-bottom: 93px;/*←footerの高さ*/
   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
@@ -19,7 +19,7 @@ header, .top-header, .top-login-footer,
 footer{
   width: 100%;
   text-align: center;
-  position: absolute;/*←絶対位置*/
+  position: absolute;
   bottom: 0; /*下に固定*/
 }
 
@@ -50,17 +50,12 @@ footer{
   }
 }
 
-.method-title::before{
-  content: "";
-  display: inline-block;
-  height: 7px;
-  width: 150px;
-  position: absolute;
-  left: 50%;
-  top: 50px;
-  bottom: 0;
-  transform: translateX(-50%);
-  background-color: #ac4444
+.method-title{
+  &::before {
+    @include emphasis-line;
+    height: 7px;
+    width: 150px;
+  }
 }
 
 .official-url-title::before{
