@@ -106,18 +106,10 @@ export const OnlineEditor = () => {
           <div className="flex">
             <button
               onClick={execCode}
-              className="btn btn-sm w-24 h-10 mt-3 mb-7　border-2 border-slate-200 bg-white hover:bg-white-100 rounded code-exec-button"
+              className="btn btn-sm w-48 h-10 mt-3 mb-7　border-2 border-slate-200 bg-white hover:bg-white-100 rounded code-exec-button"
             >
-              実行する
+              実行する(⌘+Enter)
             </button>
-            <span
-              className="tooltip"
-              data-tip="Mac:⌘+Enter or Windows:Windowsキー+Enter"
-            >
-              <span className="underline inline-block ms-3 mt-5">
-                スラッシュコマンドでも実行可能です
-              </span>
-            </span>
           </div>
           <p className="font-bold mt-5 mb-1">実行結果</p>
           <div className="mockup-code">
