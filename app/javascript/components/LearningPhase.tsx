@@ -105,7 +105,7 @@ export const LearningPhase = ({
             disabled={isInvalidMemo()}
             onClick={updateMemo}
           >
-            保存する((⌘+s)
+            保存する(⌘+s)
           </button>
         </div>
       </form>
