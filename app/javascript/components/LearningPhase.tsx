@@ -3,6 +3,7 @@ import { toast } from 'react-toastify'
 import { reloadCurrentPage } from '../functions'
 import { client } from '../functions/api/client'
 import { OnlineEditor } from './OnlineEditor'
+import { useHotkeys } from 'react-hotkeys-hook'
 
 type Props = {
   rubyMethod: {
@@ -23,6 +24,15 @@ export const LearningPhase = ({
   setMemo,
 }: Props) => {
   const [previousMemo, setPreviousMemo] = useState('')
+  useHotkeys(
+    'metaKey+s',
+    () => {
+      updateMemo()
+    },
+    { enableOnFormTags: true, // 入力中でもショートカットの実行を有効にする
+      preventDefault: true // ブラウザーのデフォルトの動作を防止する
+    }
+  )
 
   const isInvalidMemo = () => {
     if (memo === previousMemo || memo === undefined) return true
@@ -34,8 +44,10 @@ export const LearningPhase = ({
     setMemo(event.target.value)
   }
 
-  const updateMemo = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const updateMemo = () => {
+    if(isInvalidMemo()){
+      return console.log("保存できな状態なので処理を中断します") // ショートカットキーで実行された時に、保存処理を無効にする
+    }
     client
       .patch(`user_ruby_methods/${userRubyMethod.id}.json`, {
         user_ruby_method: { ruby_method_id: rubyMethod.id, memo },
@@ -70,7 +82,7 @@ export const LearningPhase = ({
         </p>
       </div>
       <OnlineEditor />
-      <form onSubmit={updateMemo}>
+      <form onSubmit={ (e: React.FormEvent<HTMLFormElement>) => {e.preventDefault()}}>
         <label>
           <p className="mb-2 mt-8 font-bold text-xl official-url-title relative">
             おぼえるためにメモを残そう
@@ -86,8 +98,9 @@ export const LearningPhase = ({
           <button
             className="btn btn-sm w-48 h-10 mt-7 mb-2 border-2 border-slate-200	bg-white hover:bg-white-100 rounded"
             disabled={isInvalidMemo()}
+            onClick={updateMemo}
           >
-            保存する
+            保存する((⌘+s)
           </button>
         </div>
       </form>
