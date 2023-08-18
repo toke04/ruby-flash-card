@@ -29,8 +29,9 @@ export const LearningPhase = ({
     () => {
       updateMemo()
     },
-    { enableOnFormTags: true, // 入力中でもショートカットの実行を有効にする
-      preventDefault: true // ブラウザーのデフォルトの動作を防止する
+    {
+      enableOnFormTags: true, // textareaに入力中でもショートカットの実行を有効にする
+      preventDefault: true, // ブラウザーのデフォルトで「metaKey+s」が登録されていても、実行できるようにする
     }
   )
 
@@ -45,8 +46,8 @@ export const LearningPhase = ({
   }
 
   const updateMemo = () => {
-    if(isInvalidMemo()){
-      return console.log("保存できな状態なので処理を中断します") // ショートカットキーで実行された時に、保存処理を無効にする
+    if (isInvalidMemo()) {
+      return console.log('保存できな状態なので処理を中断します') // ショートカットキーで実行された時に、保存処理を無効にする
     }
     client
       .patch(`user_ruby_methods/${userRubyMethod.id}.json`, {
@@ -82,7 +83,11 @@ export const LearningPhase = ({
         </p>
       </div>
       <OnlineEditor />
-      <form onSubmit={ (e: React.FormEvent<HTMLFormElement>) => {e.preventDefault()}}>
+      <form
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault()
+        }}
+      >
         <label>
           <p className="mb-2 mt-8 font-bold text-xl official-url-title relative">
             おぼえるためにメモを残そう

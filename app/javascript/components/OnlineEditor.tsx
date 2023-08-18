@@ -16,7 +16,7 @@ export const OnlineEditor = () => {
     () => {
       execCode()
     },
-    { enableOnFormTags: true }
+    { enableOnFormTags: true } // textareaに入力中でもショートカットの実行を有効にする
   )
 
   const codeColor = () => {
