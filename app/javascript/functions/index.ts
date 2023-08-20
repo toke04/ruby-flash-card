@@ -1,5 +1,5 @@
 export const quizModeParams = new URL(location.href).searchParams.get(
-  'quiz_mode'
+  'question_mode'
 )
 
 export const checkChallengedMethod = (quizModeParams: string | null) => {

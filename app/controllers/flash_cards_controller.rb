@@ -6,7 +6,7 @@ class FlashCardsController < ApplicationController
   end
 
   def show
-    case params[:quiz_mode]
+    case params[:question_mode]
     when 'remembered'
       @user_ruby_method = current_user.user_ruby_methods.where(remembered: true).sample
       @ruby_method = @user_ruby_method&.ruby_method

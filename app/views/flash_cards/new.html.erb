@@ -9,11 +9,11 @@
     <h1 class="font-bold lg:text-4xl text-2xl mt-8 mb-16 config-title relative text-center">フラッシュカード出題設定</h1>
     <%= form_with url: flash_card_path, method: :get,class: "flex justify-center" do |form| %>
       <div class="my-2 flex flex-col text-xl">
-        <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "not_challenged", {checked: true, class:"me-1" } %>挑戦してないメソッドから出題する</label>
+        <label class="mb-1 cursor-pointer"><%= form.radio_button :question_mode, "not_challenged", {checked: true, class:"me-1" } %>挑戦してないメソッドから出題する</label>
         <span class="mb-4 ms-5"><%= not_challenged_methods_count %></span>
-        <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "not_remembered", class:"me-1" %>分からなかったメソッドから出題する</label>
+        <label class="mb-1 cursor-pointer"><%= form.radio_button :question_mode, "not_remembered", class:"me-1" %>分からなかったメソッドから出題する</label>
         <span class="mb-4 ms-5"><%= not_remembered_methods_count %></span>
-        <label class="mb-1 cursor-pointer"><%= form.radio_button :quiz_mode, "remembered", {class:"me-1"  } %>分かっているメソッドから出題する</label>
+        <label class="mb-1 cursor-pointer"><%= form.radio_button :question_mode, "remembered", {class:"me-1"  } %>分かっているメソッドから出題する</label>
         <span class="mb-4 ms-5"><%= remembered_methods_count %></span>
         <%= form.submit "出題開始", class: "ms-5 main-red-color hover:bg-red-800 text-white font-bold py-2 px-4 rounded" %>
       </div>
