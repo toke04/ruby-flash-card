@@ -92,7 +92,7 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
       before do
         visit new_flash_card_path
         choose '分からなかったメソッドから出題する'
-        click_on '出題開始'
+        click_on 'START'
         expect(page).to have_content 'Hash'
         expect(page).to have_content 'merge'
       end

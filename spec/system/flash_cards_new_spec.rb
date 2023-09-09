@@ -12,13 +12,13 @@ RSpec.describe 'FlashCards new', type: :system do
       visit new_flash_card_path
     end
 
-    it '選択肢は無しで「出題開始」ボタンが表示されること' do
+    it '選択肢は無しで「START」ボタンが表示されること' do
       expect(page).to have_content 'Rubyフラッシュカードへようこそ'
-      expect(page).to have_content '出題開始'
+      expect(page).to have_content 'START'
     end
 
-    it '「出題開始」ボタンでフラッシュカードが出題されること', js: true do
-      click_on '出題開始'
+    it '「START」ボタンでフラッシュカードが出題されること', js: true do
+      click_on 'START'
       expect(page).to have_content 'Array'
       expect(page).to have_content 'zip'
       expect(page).to have_content '分かっているので次へ'
@@ -46,21 +46,21 @@ RSpec.describe 'FlashCards new', type: :system do
 
     it '「挑戦してないメソッドから出題する」を選択すると、まだ挑戦していないメソッドが表示されること' do
       choose '挑戦してないメソッドから出題する'
-      click_on '出題開始'
+      click_on 'START'
       expect(page).to have_content 'String'
       expect(page).to have_content 'upcase'
     end
 
     it '「分からなかったメソッドから出題する」を選択すると、前回分からなかったメソッドから出題されること' do
       choose '分からなかったメソッドから出題する'
-      click_on '出題開始'
+      click_on 'START'
       expect(page).to have_content 'Array'
       expect(page).to have_content 'zip'
     end
 
     it '「分かっているメソッドから出題する」を選択すると、前回分かっているメソッドから出題されること' do
       choose '分かっているメソッドから出題する'
-      click_on '出題開始'
+      click_on 'START'
       expect(page).to have_content 'Hash'
       expect(page).to have_content 'merge'
     end
@@ -80,7 +80,7 @@ RSpec.describe 'FlashCards new', type: :system do
     context '次のメソッドが表示されないこと' do
       it '「挑戦してないメソッドから出題する」を選んでいた場合' do
         choose '挑戦してないメソッドから出題する'
-        click_on '出題開始'
+        click_on 'START'
         expect(page).to have_content 'String'
         expect(page).to have_content 'upcase'
         click_on '分かっているので次へ'
@@ -89,7 +89,7 @@ RSpec.describe 'FlashCards new', type: :system do
 
       it '「分からなかったメソッドから出題する」を選んでいた場合' do
         choose '分からなかったメソッドから出題する'
-        click_on '出題開始'
+        click_on 'START'
         expect(page).to have_content 'Array'
         expect(page).to have_content 'zip'
         click_on '分かっているので次へ'
@@ -98,7 +98,7 @@ RSpec.describe 'FlashCards new', type: :system do
 
       it '「分かっているメソッドから出題する」を選んでいた場合' do
         choose '分かっているメソッドから出題する'
-        click_on '出題開始'
+        click_on 'START'
         expect(page).to have_content 'Hash'
         expect(page).to have_content 'merge'
         click_on('分からないので確認する')
