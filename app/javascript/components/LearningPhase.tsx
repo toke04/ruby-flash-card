@@ -109,7 +109,7 @@ export const LearningPhase = ({
           </button>
         </div>
       </form>
-      <div className="mb-5">
+      <div className="mb-12">
         <div className="flex justify-center">
           <button
             className="w-48 h-10 py-2 px-4 main-red-color hover:bg-red-800 text-white font-bold rounded"
