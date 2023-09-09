@@ -15,19 +15,19 @@
         <span class="mb-4 ms-5"><%= not_remembered_methods_count %></span>
         <label class="mb-1 cursor-pointer"><%= form.radio_button :question_mode, "remembered", {class:"me-1"  } %>分かっているメソッドから出題する</label>
         <span class="mb-4 ms-5"><%= remembered_methods_count %></span>
-        <%= form.submit "出題開始", class: "ms-5 main-red-color hover:bg-red-800 text-white font-bold py-2 px-4 rounded" %>
+        <%= form.submit "START", class: "ms-5 main-red-color hover:bg-red-800 text-white font-bold py-2 px-4 rounded" %>
       </div>
     <% end %>
   <% elsif %>
     <div class="flex flex-col items-center ms-2">
-      <h1 class="font-bold text-4xl md:mt-24 mt-8 ">Rubyフラッシュカードへようこそ</h1>
+      <h1 class="font-bold text-4xl md:mt-10 mt-8 ">Rubyフラッシュカードへようこそ</h1>
       <div class="lg:ms-36">
         <p class="text-2xl mt-8">初めまして！こんにちは😊</p>
         <p class="text-2xl mt-3">会員登録してくれてありがとうございます。</p>
         <p class="text-2xl mt-3">これからRubyのメソッドをフラッシュカード形式で出題します。</p>
         <p class="text-2xl mt-3 mb-10 ">公式サイトで確認しながら、正しく理解していきましょう！</p>
         <div class="flex lg:ms-48 ms-28">
-          <%= link_to '出題開始', flash_card_path, class: "btn btn-lg main-red-color hover:bg-red-800 text-white font-bold rounded mb-5" %>
+          <%= link_to 'START', flash_card_path, class: "btn btn-lg main-red-color hover:bg-red-800 text-white font-bold rounded mb-5" %>
         </div>
       </div>
     </div>

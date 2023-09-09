@@ -1,7 +1,7 @@
 <div class="method-item mb-12 border border-slate-200 border-2 rounded-lg p-3 mb-4" id="<%= dom_id user_ruby_method %>">
   <div class="flex justify-between mb-3">
     <div>
-      <p class="text-xl me-3">
+      <p class=" me-3">
         <%= user_ruby_method.ruby_method.ruby_module.name %>
       </p>
     </div>
@@ -21,7 +21,7 @@
   <div id="<%= user_ruby_method.ruby_method.name %>-url" class="hidden">
     <iframe
       id="officialSite"
-      class="w-full h-96 mt-3"
+      class="w-full h-96 mt-3 border-solid border-2 border-gray-100"
       src="<%= user_ruby_method.ruby_method.official_url %>"></iframe>
     <div class="flex justify-end">
       <a href="<%= user_ruby_method.ruby_method.official_url %>" class="text-blue-700 underline text-xl mt-3">公式リファレンスへ
