@@ -1,15 +1,18 @@
-<footer class="flex justify-items-center mt-auto bg-gray-100 h-24">
-  <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-    <span class="text-sm sm:text-center ">© 2023 toke. All Rights Reserved.</span>
-    <ul class="flex mt-3 text-sm font-medium sm:mt-0">
+<footer class="flex justify-items-center bg-gray-100 h-24">
+  <div class="w-full mx-auto max-w-screen-xl p-3 md:flex md:items-center md:justify-between">
+    <span class="text-sm md:text-center">© 2023 toke. All Rights Reserved.</span>
+    <ul class="flex flex-wrap mt-3 text-sm font-medium sm:mt-0">
       <li class="me-3">
         <%= link_to "GitHub", "https://github.com/syo-tokeshi/Ruby-Flash-Card" %>
       </li>
       <li class="me-3">
         <%= link_to "プライバシーポリシー", privacy_policy_path %>
       </li>
-      <li>
+      <li class="me-3">
         <%= link_to "利用規約", terms_of_service_path %>
+      </li>
+      <li>
+        <%= button_to 'ログアウト',logout_path, method: :delete if current_user %>
       </li>
     </ul>
   </div>
