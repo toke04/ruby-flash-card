@@ -67,13 +67,13 @@ export const LearningPhase = ({
 
   return (
     <div>
-      <p className="mb-2 font-bold text-xl official-url-title relative">
+      <p className="mb-2 font-bold text-2xl official-url-title relative">
         公式リファレンス
       </p>
       <div className="flex mb-4 flex-col">
         <iframe
           id="officialSite"
-          className={`w-full h-96`}
+          className={`w-full h-96 border-solid border-2 border-gray-100`}
           src={rubyMethod.official_url}
         ></iframe>
         <p className="flex justify-end text-blue-800 text-bold text-xl mt-4 mb-4 underline">
@@ -89,7 +89,7 @@ export const LearningPhase = ({
         }}
       >
         <label>
-          <p className="mb-2 mt-8 font-bold text-xl official-url-title relative">
+          <p className="mb-2 mt-8 font-bold text-2xl official-url-title relative">
             おぼえるためにメモを残そう
           </p>
           <textarea

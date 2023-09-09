@@ -69,7 +69,7 @@ export const OnlineEditor = () => {
 
   return (
     <div className="hidden md:block">
-      <p className="mt-7 font-bold text-xl official-url-title relative">
+      <p className="mt-7 font-bold text-2xl official-url-title relative">
         コードを実行して試す
       </p>
       <div className="flex justify-end">
