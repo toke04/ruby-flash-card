@@ -103,9 +103,7 @@ export const OnlineEditor = () => {
         </div>
         <p className="font-bold mt-5 mb-1">実行結果</p>
         <div className="mockup-code">
-          {codeResult && (
-            <p className={`px-2 ${codeColor()}`}>{codeResult}</p>
-          )}
+          {codeResult && <p className={`px-2 ${codeColor()}`}>{codeResult}</p>}
         </div>
       </div>
     </div>
