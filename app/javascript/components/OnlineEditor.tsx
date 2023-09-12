@@ -98,13 +98,17 @@ export const OnlineEditor = () => {
             onClick={execCode}
             className="btn btn-sm w-48 h-10 mt-3 mb-7　border-2 border-slate-200 bg-white hover:bg-white-100 rounded code-exec-button"
           >
-            実行する(⌘+Enter)
+            出力する(⌘+Enter)
           </button>
         </div>
-        <p className="font-bold mt-5 mb-1">実行結果がここに表示されます</p>
-        <div className="bg-black h-20 rounded flex items-center ps-14">
-          {codeResult && <p className={`text-lg ${codeColor()}`}>{codeResult}</p>}
-        </div>
+        {codeResult && (
+          <div>
+            <p className="font-bold mt-5 mb-1">実行結果</p>
+            <div className="bg-black h-20 rounded flex items-center ps-4">
+              <p className={`text-lg ${codeColor()}`}>{codeResult}</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
