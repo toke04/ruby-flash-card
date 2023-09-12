@@ -9,15 +9,15 @@ https://ruby-flash-card.fly.dev/
 覚えているとRuby on Rails 等で効率良く処理が書けるRubyのメソッドを、  
 フラッシュカード形式で出題し、  
 覚えていたなかったものを再度フラッシュカードで覚えたか確認する事と、  
-すでに覚えていたものを忘れていないかフラッシュカードで確認することができるサービスです。  
+すでに覚えていたものを忘れていないか確認することができるサービスです。  
 公式サイトの内容をその場で確認し、  
 オンラインエディターで試しながら自分の言葉でメモすることで、  
 効率良く覚えることができます。
 
 ## 実際の画面
-<img width="421" alt="スクリーンショット 2023-08-05 11 56 03" src="https://github.com/syo-tokeshi/ruby-flash-card/assets/54713809/81dd1268-f9e7-4a22-84ff-4c37a3feed61">
-<img width="793" alt="スクリーンショット 2023-08-05 11 57 02" src="https://github.com/syo-tokeshi/ruby-flash-card/assets/54713809/f4351097-a7d2-4000-b04d-19e242d59575">
-<img width="413" alt="スクリーンショット 2023-08-05 11 58 55" src="https://github.com/syo-tokeshi/ruby-flash-card/assets/54713809/2ca5ca14-5552-4bd8-b96d-5d840343669c">
+<img width="433" alt="スクリーンショット 2023-09-12 12 07 25" src="https://github.com/syo-tokeshi/ruby-flash-card/assets/54713809/e0641182-3767-4157-9a28-6cedaff3167a">
+<img width="1020" alt="スクリーンショット 2023-09-12 12 09 06" src="https://github.com/syo-tokeshi/ruby-flash-card/assets/54713809/7631fb4f-b2b2-4e76-b407-b6585c2cece8">
+<img width="468" alt="スクリーンショット 2023-09-12 12 10 01" src="https://github.com/syo-tokeshi/ruby-flash-card/assets/54713809/53a21c89-6485-42e0-8cb9-a81812ddbcbb">
 
 ## 技術スタック
 - Ruby 3.2.0
@@ -37,6 +37,8 @@ https://ruby-flash-card.fly.dev/
 - axios 1.4.0
 - react-toastify 9.1.3
 - @uiw/react-textarea-code-editor 2.1.7
+- react-hotkeys-hook 4.4.1
+- prismjs 1.29.0
 - ESLint 8.45.0
 - Prettier 3.0.0
 - RSpec 6.0.3
