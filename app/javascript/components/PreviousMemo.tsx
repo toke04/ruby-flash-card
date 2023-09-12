@@ -15,7 +15,7 @@ export const PreviousMemo = ({
     setCanSeeMemo((canSeeMemo) => !canSeeMemo)
   }
   return (
-    <div className="mt-7">
+    <div className="mt-7 mb-5 text-center">
       {memo && isQuestionButtonActive && (
         <button
           className="underline text-blue-600 cursor-pointer"
@@ -25,7 +25,7 @@ export const PreviousMemo = ({
         </button>
       )}
       {canSeeMemo && (
-        <div className="bg-stone-50	shadow-md rounded-lg p-4 mt-3">
+        <div className="bg-stone-100 rounded-lg p-4 mt-3">
           <p className="my-4" style={{ whiteSpace: 'pre-line' }}>
             {memo}
           </p>
