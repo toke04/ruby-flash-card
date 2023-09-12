@@ -36,7 +36,7 @@ RSpec.describe 'FlashCards show', type: :system, js: true do
       it 'オンラインエディターが表示され、実行できること' do
         expect(page).to have_content '貼り付けたコードの最終行の戻り値を出力します'
         fill_in 'codeArea', with: "'ruby love'.upcase"
-        click_on '実行する'
+        click_on '出力する'
         sleep 4 # ruby.wasmの実行時間にラグが見られるので、sleepを挟む
         expect(page).to have_css('p', text: 'RUBY LOVE')
       end

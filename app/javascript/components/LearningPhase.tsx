@@ -76,7 +76,7 @@ export const LearningPhase = ({
           className={`w-full h-96 border-solid border-2 border-gray-100`}
           src={rubyMethod.official_url}
         ></iframe>
-        <p className="flex justify-end text-blue-800 text-bold text-xl mt-4 mb-4 underline">
+        <p className="flex justify-end text-blue-800 text-bold mt-4 mb-4 underline">
           <a href={rubyMethod.official_url} target="_blank">
             公式リファレンスへ
           </a>
