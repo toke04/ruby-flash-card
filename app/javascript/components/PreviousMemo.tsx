@@ -25,7 +25,7 @@ export const PreviousMemo = ({
         </button>
       )}
       {canSeeMemo && (
-        <div className="bg-stone-100 rounded-lg p-4 mt-3">
+        <div className="bg-stone-100 rounded-lg p-4 mt-3 text-start">
           <p className="my-4" style={{ whiteSpace: 'pre-line' }}>
             {memo}
           </p>
