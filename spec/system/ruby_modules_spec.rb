@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'RubyModules', type: :system do
   let!(:array_module) { create(:array_module) }
-  let(:admin_user) { create(:user, :admin) }
+  let!(:admin_user) { create(:user, :admin) }
   before do
     login_as(admin_user)
     visit ruby_modules_path

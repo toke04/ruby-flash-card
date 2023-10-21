@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'RubyMethods', type: :system do
   let!(:zip_method_of_array) { create(:zip_method_of_array) }
   let!(:merge_method_of_hash) { create(:merge_method_of_hash) }
-  let(:admin_user) { create(:user, :admin) }
+  let!(:admin_user) { create(:user, :admin) }
   before do
     login_as(admin_user)
     visit ruby_methods_path

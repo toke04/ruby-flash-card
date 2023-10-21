@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   describe '基本的なログイン機能' do
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
     it 'ユーザーはログインすることができる' do
       login_as(user)
       expect(page).to have_content 'Github アカウントによる認証に成功しました。'
